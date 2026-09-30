@@ -360,7 +360,7 @@ dialog[open]{animation:pop .45s var(--ease)}
         <div class="ring" aria-hidden="true"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="98" fill="none" stroke="rgba(156,120,255,.45)" stroke-width=".6" stroke-dasharray="2 6"/><circle cx="100" cy="2" r="2.4" fill="#9C78FF"/></svg></div>
         <div class="photo"><img src="img/me-cut.png" alt="Наталья Казанцева" width="750" height="768"></div>
         <div class="chip glass float c1"><svg><use href="#i-figma"/></svg>Исходник в Figma</div>
-        <div class="chip glass float d2 c2"><div><b>8</b><small>проектов<br>в портфолио</small></div></div>
+        <div class="chip glass float d2 c2"><div><b>10</b><small>проектов<br>в портфолио</small></div></div>
         <div class="chip glass float d3 c3"><svg><use href="#i-layers"/></svg>Компоненты · Auto Layout</div>
       </div>
     </div>
@@ -374,7 +374,7 @@ dialog[open]{animation:pop .45s var(--ease)}
   </div>
 
   <div class="wrap stats">
-    <div class="stat rv"><b data-count="8">8</b><span>проектов: сайты, приложения, UI-киты и AI-кампании</span></div>
+    <div class="stat rv"><b data-count="10">10</b><span>проектов: сайты, приложения, UI-киты и AI-кампании</span></div>
     <div class="stat rv" style="--d:.08s"><b><span data-count="2">2</span><em>×</em></b><span>круга правок уже входят в стоимость</span></div>
     <div class="stat rv" style="--d:.16s"><b>50<em>/</em>50</b><span>оплата в два этапа: до старта и после сдачи</span></div>
     <div class="stat rv" style="--d:.24s"><b>1<em>д</em></b><span>отвечаю в течение дня и сразу называю цену</span></div>
@@ -384,18 +384,27 @@ dialog[open]{animation:pop .45s var(--ease)}
     <div class="sec-head">
       <div><p class="eyebrow"><i>01</i>Портфолио</p><h2 class="mask">Избранные <span class="it">работы</span></h2></div>
       <div class="filters" role="group" aria-label="Фильтр работ">
-        <button aria-pressed="true" data-f="all">Все<sup>8</sup></button>
-        <button aria-pressed="false" data-f="app">Приложения<sup>2</sup></button>
+        <button aria-pressed="true" data-f="all">Все<sup>10</sup></button>
+        <button aria-pressed="false" data-f="app">Приложения<sup>3</sup></button>
         <button aria-pressed="false" data-f="kit">UI-киты<sup>2</sup></button>
-        <button aria-pressed="false" data-f="site">Сайты<sup>2</sup></button>
+        <button aria-pressed="false" data-f="site">Сайты<sup>3</sup></button>
         <button aria-pressed="false" data-f="ai">AI-визуал<sup>2</sup></button>
       </div>
     </div>
 
     <!-- работы идут парами: у пары одинаковая пропорция (--row), на телефоне — своя (--own), без обрезки -->
     <div class="works" id="works-grid">
+      <article class="work rv" data-case="cura" data-cat="app">
+        <button class="media" style="--row:16/10;--own:16/10" aria-label="Открыть кейс CURA"><img src="img/cura-cover.jpg" alt="Приложение клиники CURA" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
+        <div class="w-info"><div><h3>CURA</h3><p>Приложение клиники · запись к врачу за минуту</p></div><button class="like" data-like="cura" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
+      </article>
+      <article class="work rv" data-case="hanami" data-cat="site" style="--d:.1s">
+        <button class="media" style="--row:16/10;--own:16/10" aria-label="Открыть кейс Ханами"><img src="img/hanami-cover.jpg" alt="Лендинг Ханами" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
+        <div class="w-info"><div><h3>Ханами</h3><p>Лендинг туров на цветение сакуры</p></div><button class="like" data-like="hanami" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
+      </article>
+
       <article class="work rv" data-case="forma" data-cat="app">
-        <button class="media" style="--row:14/9;--own:1400/900" aria-label="Открыть кейс FORMA"><img src="img/forma-cover.jpg" alt="Приложение FORMA" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
+        <button class="media" style="--row:14/9;--own:1400/900" aria-label="Открыть кейс FORMA"><img src="img/forma-cover.jpg" alt="Приложение FORMA" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
         <div class="w-info"><div><h3>FORMA</h3><p>Приложение фитнес-клуба · 10 экранов · прототип</p></div><button class="like" data-like="forma" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
       </article>
       <article class="work rv" data-case="plate" data-cat="app" style="--d:.1s">
@@ -404,7 +413,7 @@ dialog[open]{animation:pop .45s var(--ease)}
       </article>
 
       <article class="work rv" data-case="nova" data-cat="kit">
-        <button class="media" style="--row:16/9;--own:16/9" aria-label="Открыть кейс NOVA"><img src="img/nova-cover.jpg" alt="UI-кит NOVA" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
+        <button class="media" style="--row:16/9;--own:16/9" aria-label="Открыть кейс NOVA"><img src="img/nova-cover.jpg" alt="UI-кит NOVA" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
         <div class="w-info"><div><h3>NOVA</h3><p>UI-кит для админ-панелей и CRM · 2 темы</p></div><button class="like" data-like="nova" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
       </article>
       <article class="work rv" data-case="aura" data-cat="kit" style="--d:.1s">
@@ -667,6 +676,8 @@ dialog[open]{animation:pop .45s var(--ease)}
 
   // ---------- Окно кейса ----------
   var CASES = {
+    cura: { title: "CURA", sub: "Приложение клиники", task: "Записаться к врачу за минуту — без звонков в регистратуру и очередей.", done: "Путь пациента, вайрфреймы, 9 экранов, дизайн-система на 23 переменных, пак из 37 иконок, прототип. Проверила контраст по WCAG.", scope: "iOS: главная, поиск по симптому, список врачей, карточка врача, время, оформление с оплатой, визиты, профиль.", imgs: ["cura-cover", "cura-screens", "cura-flow", "cura-ds"] },
+    hanami: { title: "Ханами", sub: "Лендинг туров на цветение сакуры", noBehance: true, task: "Убедить купить тур за 300 000 ₽: снять страх прилететь к голым веткам.", done: "Арт-направление «японский журнал», волна цветения в виде схемы метро, туры списком, форма брони, анимация при прокрутке.", scope: "Лендинг на 5 разделов, версии для компьютера и телефона.", imgs: ["hanami-cover", "hanami-tours", "hanami-wave", "hanami-stages", "hanami-book"] },
     forma: { title: "FORMA", sub: "Приложение фитнес-клуба", task: "Записаться на занятие, пройти тренировку и видеть свой прогресс — без лишних шагов.", done: "Структура и путь пользователя, 10 экранов, UI-кит на переменных, кликабельный прототип.", scope: "10 экранов iOS: вход, расписание, тренер, таймер, прогресс, абонемент, QR-вход, профиль.", imgs: ["forma-cover", "forma-screens", "forma-ds", "forma-all"] },
     plate: { title: "PLATE", sub: "Приложение доставки еды", task: "Быстрый заказ еды: выбрать, оплатить, отследить в пару касаний.", done: "UX-исследование, дизайн-система, тёмная тема, прототип.", scope: "13 экранов: от регистрации до оплаты, статуса заказа и профиля.", imgs: ["plate-cover", "plate-screens", "plate-all"] },
     nova: { title: "NOVA", sub: "UI-кит для админ-панелей", task: "Готовый набор для админ-панелей, CRM и личных кабинетов — всё на русском.", done: "Кнопки, поля, таблицы, карточки и статусы. Светлая и тёмная тема через переменные.", scope: "60 кнопок · 9 типов ячеек · 24 иконки · 2 темы · пример дашборда.", imgs: ["nova-cover", "nova-dark", "nova-cards"] },
