@@ -681,7 +681,7 @@ dialog[open]{animation:pop .45s var(--ease)}
 
   // ---------- Окно кейса ----------
   var CASES = {
-    usadba: { title: "Усадьба", sub: "Лендинг строителя загородных домов", noBehance: true, task: "Сайт, после которого семья оставит заявку на дом за 7–10 млн ₽. Снять страхи: рост сметы, срыв сроков, стройку «вслепую».", done: "Тёмный стиль с сеткой чертежа и стеклом, живой калькулятор с чертежом фасада, дом собирается по слоям при прокрутке, дизайн-система в Figma.", scope: "Лендинг на 9 блоков, версии 1440 и 390 px, макеты и компоненты в Figma.", imgs: ["usadba-hero", "usadba-calc", "usadba-projects", "usadba-stages", "usadba-mobile"] },
+    usadba: { title: "Усадьба", sub: "Лендинг строителя загородных домов", behance: "https://www.behance.net/gallery/256620375/lending-stroitelnoj-kompanii-zagorodnyh-domov", task: "Сайт, после которого семья оставит заявку на дом за 7–10 млн ₽. Снять страхи: рост сметы, срыв сроков, стройку «вслепую».", done: "Тёмный стиль с сеткой чертежа и стеклом, живой калькулятор с чертежом фасада, дом собирается по слоям при прокрутке, дизайн-система в Figma.", scope: "Лендинг на 9 блоков, версии 1440 и 390 px, макеты и компоненты в Figma.", imgs: ["usadba-hero", "usadba-calc", "usadba-projects", "usadba-stages", "usadba-mobile"] },
     cura: { title: "CURA", sub: "Приложение клиники", task: "Записаться к врачу за минуту — без звонков в регистратуру и очередей.", done: "Путь пациента, вайрфреймы, 9 экранов, дизайн-система на 23 переменных, пак из 37 иконок, прототип. Проверила контраст по WCAG.", scope: "iOS: главная, поиск по симптому, список врачей, карточка врача, время, оформление с оплатой, визиты, профиль.", imgs: ["cura-cover", "cura-screens", "cura-flow", "cura-ds"] },
     hanami: { title: "Ханами", sub: "Лендинг туров на цветение сакуры", noBehance: true, task: "Убедить купить тур за 300 000 ₽: снять страх прилететь к голым веткам.", done: "Арт-направление «японский журнал», волна цветения в виде схемы метро, туры списком, форма брони, анимация при прокрутке.", scope: "Лендинг на 5 разделов, версии для компьютера и телефона.", imgs: ["hanami-cover", "hanami-tours", "hanami-wave", "hanami-stages", "hanami-book"] },
     forma: { title: "FORMA", sub: "Приложение фитнес-клуба", task: "Записаться на занятие, пройти тренировку и видеть свой прогресс — без лишних шагов.", done: "Структура и путь пользователя, 10 экранов, UI-кит на переменных, кликабельный прототип.", scope: "10 экранов iOS: вход, расписание, тренер, таймер, прогресс, абонемент, QR-вход, профиль.", imgs: ["forma-cover", "forma-screens", "forma-ds", "forma-all"] },
@@ -702,6 +702,7 @@ dialog[open]{animation:pop .45s var(--ease)}
       var box = dlg.querySelector(".d-imgs"); box.innerHTML = "";
       c.imgs.forEach(function (n) { var i = new Image(); i.src = "img/" + n + ".jpg"; i.alt = c.title; i.loading = "lazy"; box.appendChild(i); });
       document.getElementById("d-foot").hidden = !!c.noBehance;
+      dlg.querySelector("#d-foot a").href = c.behance || LINKS.behance; // свой кейс на Behance или общий профиль
       dlg.showModal(); dlg.scrollTop = 0;
     });
   });
