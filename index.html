@@ -361,7 +361,7 @@ dialog[open]{animation:pop .45s var(--ease)}
         <div class="ring" aria-hidden="true"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="98" fill="none" stroke="rgba(156,120,255,.45)" stroke-width=".6" stroke-dasharray="2 6"/><circle cx="100" cy="2" r="2.4" fill="#9C78FF"/></svg></div>
         <div class="photo"><img src="img/me-cut.png" alt="Наталья Казанцева" width="750" height="768"></div>
         <div class="chip glass float c1"><svg><use href="#i-figma"/></svg>Исходник в Figma</div>
-        <div class="chip glass float d2 c2"><div><b>11</b><small>проектов<br>в портфолио</small></div></div>
+        <div class="chip glass float d2 c2"><div><b>12</b><small>проектов<br>в портфолио</small></div></div>
         <div class="chip glass float d3 c3"><svg><use href="#i-layers"/></svg>Компоненты · Auto Layout</div>
       </div>
     </div>
@@ -375,7 +375,7 @@ dialog[open]{animation:pop .45s var(--ease)}
   </div>
 
   <div class="wrap stats">
-    <div class="stat rv"><b data-count="11">11</b><span>проектов: сайты, приложения, UI-киты и AI-кампании</span></div>
+    <div class="stat rv"><b data-count="12">12</b><span>проектов: сайты, приложения, UI-киты и AI-кампании</span></div>
     <div class="stat rv" style="--d:.08s"><b><span data-count="2">2</span><em>×</em></b><span>круга правок уже входят в стоимость</span></div>
     <div class="stat rv" style="--d:.16s"><b>50<em>/</em>50</b><span>оплата в два этапа: до старта и после сдачи</span></div>
     <div class="stat rv" style="--d:.24s"><b>1<em>д</em></b><span>отвечаю в течение дня и сразу называю цену</span></div>
@@ -385,11 +385,11 @@ dialog[open]{animation:pop .45s var(--ease)}
     <div class="sec-head">
       <div><p class="eyebrow"><i>01</i>Портфолио</p><h2 class="mask">Избранные <span class="it">работы</span></h2></div>
       <div class="filters" role="group" aria-label="Фильтр работ">
-        <button aria-pressed="true" data-f="all">Все<sup>11</sup></button>
+        <button aria-pressed="true" data-f="all">Все<sup>12</sup></button>
         <button aria-pressed="false" data-f="app">Приложения<sup>3</sup></button>
         <button aria-pressed="false" data-f="kit">UI-киты<sup>2</sup></button>
         <button aria-pressed="false" data-f="site">Сайты<sup>4</sup></button>
-        <button aria-pressed="false" data-f="ai">AI-визуал<sup>2</sup></button>
+        <button aria-pressed="false" data-f="ai">AI-визуал<sup>3</sup></button>
       </div>
     </div>
 
@@ -406,6 +406,11 @@ dialog[open]{animation:pop .45s var(--ease)}
       <article class="work rv" data-case="hanami" data-cat="site" style="--d:.1s">
         <button class="media" style="--row:16/10;--own:16/10" aria-label="Открыть кейс Ханами"><img src="img/hanami-cover.jpg" alt="Лендинг Ханами" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
         <div class="w-info"><div><h3>Ханами</h3><p>Лендинг туров на цветение сакуры</p></div><button class="like" data-like="hanami" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
+      </article>
+
+      <article class="work wide rv" data-case="anya" data-cat="ai">
+        <button class="media" style="--row:16/9;--own:16/9" aria-label="Открыть кейс Малышка Аня"><img src="img/anya-cover.jpg" alt="AI-мультфильм Малышка Аня" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
+        <div class="w-info"><div><h3>Малышка Аня</h3><p>AI-мультфильм по фото ребёнка · персонаж, эмоции, сцены</p></div><button class="like" data-like="anya" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
       </article>
 
       <article class="work rv" data-case="forma" data-cat="app">
@@ -681,6 +686,7 @@ dialog[open]{animation:pop .45s var(--ease)}
 
   // ---------- Окно кейса ----------
   var CASES = {
+    anya: { title: "Малышка Аня", sub: "AI-мультфильм по фото ребёнка", noBehance: true, task: "Сделать мультфильм, где главная героиня — настоящий ребёнок: узнаваемая и одинаковая в каждом кадре.", done: "Персонаж по фото, лист из 12 эмоций, развороты, сцены истории, анимация и афиша премьеры.", scope: "Подойдёт для подарка на день рождения, семейных видео, детских брендов и блогеров.", imgs: ["anya-cover", "anya-character", "anya-emotions", "anya-scenes", "anya-poster"] },
     usadba: { title: "Усадьба", sub: "Лендинг строителя загородных домов", behance: "https://www.behance.net/gallery/256620375/lending-stroitelnoj-kompanii-zagorodnyh-domov", task: "Сайт, после которого семья оставит заявку на дом за 7–10 млн ₽. Снять страхи: рост сметы, срыв сроков, стройку «вслепую».", done: "Тёмный стиль с сеткой чертежа и стеклом, живой калькулятор с чертежом фасада, дом собирается по слоям при прокрутке, дизайн-система в Figma.", scope: "Лендинг на 9 блоков, версии 1440 и 390 px, макеты и компоненты в Figma.", imgs: ["usadba-hero", "usadba-calc", "usadba-projects", "usadba-stages", "usadba-mobile"] },
     cura: { title: "CURA", sub: "Приложение клиники", task: "Записаться к врачу за минуту — без звонков в регистратуру и очередей.", done: "Путь пациента, вайрфреймы, 9 экранов, дизайн-система на 23 переменных, пак из 37 иконок, прототип. Проверила контраст по WCAG.", scope: "iOS: главная, поиск по симптому, список врачей, карточка врача, время, оформление с оплатой, визиты, профиль.", imgs: ["cura-cover", "cura-screens", "cura-flow", "cura-ds"] },
     hanami: { title: "Ханами", sub: "Лендинг туров на цветение сакуры", noBehance: true, task: "Убедить купить тур за 300 000 ₽: снять страх прилететь к голым веткам.", done: "Арт-направление «японский журнал», волна цветения в виде схемы метро, туры списком, форма брони, анимация при прокрутке.", scope: "Лендинг на 5 разделов, версии для компьютера и телефона.", imgs: ["hanami-cover", "hanami-tours", "hanami-wave", "hanami-stages", "hanami-book"] },
