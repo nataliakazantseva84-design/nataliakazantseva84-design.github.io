@@ -361,7 +361,7 @@ dialog[open]{animation:pop .45s var(--ease)}
         <div class="ring" aria-hidden="true"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="98" fill="none" stroke="rgba(156,120,255,.45)" stroke-width=".6" stroke-dasharray="2 6"/><circle cx="100" cy="2" r="2.4" fill="#9C78FF"/></svg></div>
         <div class="photo"><img src="img/me-cut.png" alt="Наталья Казанцева" width="750" height="768"></div>
         <div class="chip glass float c1"><svg><use href="#i-figma"/></svg>Исходник в Figma</div>
-        <div class="chip glass float d2 c2"><div><b>12</b><small>проектов<br>в портфолио</small></div></div>
+        <div class="chip glass float d2 c2"><div><b>13</b><small>проектов<br>в портфолио</small></div></div>
         <div class="chip glass float d3 c3"><svg><use href="#i-layers"/></svg>Компоненты · Auto Layout</div>
       </div>
     </div>
@@ -375,7 +375,7 @@ dialog[open]{animation:pop .45s var(--ease)}
   </div>
 
   <div class="wrap stats">
-    <div class="stat rv"><b data-count="12">12</b><span>проектов: сайты, приложения, UI-киты и AI-кампании</span></div>
+    <div class="stat rv"><b data-count="13">13</b><span>проектов: сайты, приложения, UI-киты и AI-кампании</span></div>
     <div class="stat rv" style="--d:.08s"><b><span data-count="2">2</span><em>×</em></b><span>круга правок уже входят в стоимость</span></div>
     <div class="stat rv" style="--d:.16s"><b>50<em>/</em>50</b><span>оплата в два этапа: до старта и после сдачи</span></div>
     <div class="stat rv" style="--d:.24s"><b>1<em>д</em></b><span>отвечаю в течение дня и сразу называю цену</span></div>
@@ -385,18 +385,23 @@ dialog[open]{animation:pop .45s var(--ease)}
     <div class="sec-head">
       <div><p class="eyebrow"><i>01</i>Портфолио</p><h2 class="mask">Избранные <span class="it">работы</span></h2></div>
       <div class="filters" role="group" aria-label="Фильтр работ">
-        <button aria-pressed="true" data-f="all">Все<sup>12</sup></button>
+        <button aria-pressed="true" data-f="all">Все<sup>13</sup></button>
         <button aria-pressed="false" data-f="app">Приложения<sup>3</sup></button>
         <button aria-pressed="false" data-f="kit">UI-киты<sup>2</sup></button>
-        <button aria-pressed="false" data-f="site">Сайты<sup>4</sup></button>
+        <button aria-pressed="false" data-f="site">Сайты<sup>5</sup></button>
         <button aria-pressed="false" data-f="ai">AI-визуал<sup>3</sup></button>
       </div>
     </div>
 
     <!-- работы идут парами: у пары одинаковая пропорция (--row), на телефоне — своя (--own), без обрезки -->
     <div class="works" id="works-grid">
+      <article class="work wide rv" data-case="granit" data-cat="site">
+        <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс ГРАНИТ"><img src="img/granit-cover.jpg" alt="Лендинг тюнинг-ателье ГРАНИТ: пикап разбирается при скролле" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
+        <div class="w-info"><div><h3>ГРАНИТ</h3><p>Лендинг тюнинг-ателье · пикап разбирается при скролле</p></div><button class="like" data-like="granit" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
+      </article>
+
       <article class="work wide rv" data-case="usadba" data-cat="site">
-        <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс Усадьба"><img src="img/usadba-cover.jpg" alt="Лендинг строительной компании Усадьба" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
+        <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс Усадьба"><img src="img/usadba-cover.jpg" alt="Лендинг строительной компании Усадьба" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
         <div class="w-info"><div><h3>Усадьба</h3><p>Лендинг строителя загородных домов · калькулятор цены</p></div><button class="like" data-like="usadba" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
       </article>
       <article class="work rv" data-case="cura" data-cat="app">
@@ -686,6 +691,7 @@ dialog[open]{animation:pop .45s var(--ease)}
 
   // ---------- Окно кейса ----------
   var CASES = {
+    granit: { title: "ГРАНИТ", sub: "Лендинг тюнинг-ателье · концепт первого экрана", noBehance: true, task: "Первый экран с «мощным визуалом» для магазина тюнинга пикапов: посетитель залипает и сразу видит, что можно поставить на свою машину.", done: "Пикап разбирается на детали прямо при прокрутке. На каждой детали точка с ценой, по клику — карточка с характеристиками и заявкой. AI-визуал: машина, разборка и 10 предметных кадров деталей.", scope: "Первый экран и каталог, десктоп и мобильная версия, макет и прототип в Figma.", imgs: ["granit-razborka.gif", "granit-states", "granit-tochki.gif", "granit-parts", "granit-mobile", "granit-process"] },
     anya: { title: "Малышка Аня", sub: "AI-мультфильм по фото ребёнка", noBehance: true, task: "Сделать мультфильм, где главная героиня — настоящий ребёнок: узнаваемая и одинаковая в каждом кадре.", done: "Персонаж по фото, развороты и палитра героини, 12 эмоций, стикерпак для Telegram, раскадровка, анимация и афиша премьеры.", scope: "Подойдёт для подарка на день рождения, семейных видео, детских брендов и блогеров.", imgs: ["anya-cover", "anya-character", "anya-emotions", "anya-stickers", "anya-scenes", "anya-poster"] },
     usadba: { title: "Усадьба", sub: "Лендинг строителя загородных домов", behance: "https://www.behance.net/gallery/256620375/lending-stroitelnoj-kompanii-zagorodnyh-domov", task: "Сайт, после которого семья оставит заявку на дом за 7–10 млн ₽. Снять страхи: рост сметы, срыв сроков, стройку «вслепую».", done: "Тёмный стиль с сеткой чертежа и стеклом, живой калькулятор с чертежом фасада, дом собирается по слоям при прокрутке, дизайн-система в Figma.", scope: "Лендинг на 9 блоков, версии 1440 и 390 px, макеты и компоненты в Figma.", imgs: ["usadba-hero", "usadba-calc", "usadba-projects", "usadba-stages", "usadba-mobile"] },
     cura: { title: "CURA", sub: "Приложение клиники", task: "Записаться к врачу за минуту — без звонков в регистратуру и очередей.", done: "Путь пациента, вайрфреймы, 9 экранов, дизайн-система на 23 переменных, пак из 37 иконок, прототип. Проверила контраст по WCAG.", scope: "iOS: главная, поиск по симптому, список врачей, карточка врача, время, оформление с оплатой, визиты, профиль.", imgs: ["cura-cover", "cura-screens", "cura-flow", "cura-ds"] },
@@ -706,7 +712,7 @@ dialog[open]{animation:pop .45s var(--ease)}
       document.getElementById("case-title").innerHTML = c.title + "<small>" + c.sub + "</small>";
       ["task", "done", "scope"].forEach(function (k) { dlg.querySelector('[data-f="' + k + '"]').textContent = c[k]; });
       var box = dlg.querySelector(".d-imgs"); box.innerHTML = "";
-      c.imgs.forEach(function (n) { var i = new Image(); i.src = "img/" + n + ".jpg"; i.alt = c.title; i.loading = "lazy"; box.appendChild(i); });
+      c.imgs.forEach(function (n) { var i = new Image(); i.src = "img/" + (n.indexOf(".") > 0 ? n : n + ".jpg"); i.alt = c.title; i.loading = "lazy"; box.appendChild(i); });
       document.getElementById("d-foot").hidden = !!c.noBehance;
       dlg.querySelector("#d-foot a").href = c.behance || LINKS.behance; // свой кейс на Behance или общий профиль
       dlg.showModal(); dlg.scrollTop = 0;
