@@ -213,6 +213,11 @@ h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--acce
 .p-price{font:800 22px/1 var(--display);letter-spacing:-.03em;color:var(--accent-hi);white-space:nowrap}
 .product p{margin:0;color:var(--soft)}
 .product .btn{align-self:flex-start;margin-top:auto}
+.product.wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.product.wide .p-img{aspect-ratio:1440/974;height:100%}
+.product.wide .p-img img{object-position:center}
+.p-tags{display:flex;flex-wrap:wrap;gap:8px}
+.p-tags span{font:600 13px/1 var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--line);color:var(--soft)}
 
 /* ---------- бонус ---------- */
 .bonus{position:relative;overflow:hidden;border-radius:36px;padding:clamp(28px,5vw,72px);background:radial-gradient(60% 90% at 100% 0%,rgba(156,120,255,.55),transparent 60%),linear-gradient(125deg,#2563EB 0%,#4A2FB8 45%,#875AFF 100%);background-size:100% 100%,200% 200%;animation:flow 12s ease-in-out infinite alternate}
@@ -285,6 +290,7 @@ dialog[open]{animation:pop .45s var(--ease)}
 @media (max-width:900px){
   .hero-grid,.services,.products,.bonus-grid,.works{grid-template-columns:minmax(0,1fr)}
   .portrait{justify-self:center;max-width:440px}
+  .product.wide{display:flex}
   .media{aspect-ratio:var(--own)}
   .d-grid{grid-template-columns:minmax(0,1fr)}
 }
@@ -506,10 +512,19 @@ dialog[open]{animation:pop .45s var(--ease)}
 
   <section id="products" class="wrap" style="padding-top:0">
     <div class="sec-head">
-      <div><p class="eyebrow"><i>04</i>Продукты</p><h2 class="mask">Готовые <span class="it">UI-киты</span></h2></div>
-      <p class="lead">Figma-файлы, из которых сразу собирается интерфейс: компоненты, переменные, светлая и тёмная тема.</p>
+      <div><p class="eyebrow"><i>04</i>Продукты</p><h2 class="mask">Готовые <span class="it">продукты</span></h2></div>
+      <p class="lead">PDF-курс по нейросетям и UI-киты в Figma. Покупка на Boosty, файл приходит сразу после оплаты.</p>
     </div>
     <div class="products">
+      <article class="product wide rv">
+        <div class="p-img"><img src="img/neuro-start.jpg" alt="Страницы PDF-курса NEURO START" loading="lazy"></div>
+        <div class="p-body">
+          <div class="p-top"><h3>NEURO START</h3><span class="p-price">990 ₽</span></div>
+          <p>PDF-курс «Нейросети с нуля» на 50 страниц: от первого промта до первого заказа. Изображения, AI-видео, рекламные креативы, портфолио и первая AI-услуга.</p>
+          <div class="p-tags"><span>5 модулей</span><span>100 промтов</span><span>8 бонусов</span><span>финальный проект</span></div>
+          <a class="btn btn-ghost" data-link="neuro" href="#contacts">Купить на Boosty<svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
       <article class="product rv">
         <div class="p-img"><img src="img/nova-dark.jpg" alt="Дашборд из UI-кита NOVA" loading="lazy"></div>
         <div class="p-body">
@@ -581,7 +596,8 @@ dialog[open]{animation:pop .45s var(--ease)}
     vk: "https://vk.com/natalina_kaz",
     behance: "https://www.behance.net/cdc45e80",
     boosty: "https://boosty.to/natalina.kaz84",
-    nova: "https://boosty.to/natalina.kaz84/posts/fa06f008-be67-49d9-9694-a8ef5a453f42"
+    nova: "https://boosty.to/natalina.kaz84/posts/fa06f008-be67-49d9-9694-a8ef5a453f42",
+    neuro: "https://boosty.to/natalina.kaz84/posts/8acc2c1f-7d8d-4129-916b-7da19e5b03fa"
   };
   document.querySelectorAll("[data-link]").forEach(function (a) {
     var url = LINKS[a.getAttribute("data-link")];
