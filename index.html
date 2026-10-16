@@ -276,7 +276,7 @@ dialog[open]{animation:pop .45s var(--ease)}
 .d-foot[hidden]{display:none}
 .d-foot span{color:var(--muted);font-size:15px}
 
-/* появление при прокрутке */
+/* появление при скролле */
 .js .rv{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
 .js .mask{clip-path:inset(0 0 100% 0);transform:translateY(30px);transition:clip-path 1s var(--ease),transform 1s var(--ease)}
@@ -391,16 +391,21 @@ dialog[open]{animation:pop .45s var(--ease)}
     <div class="sec-head">
       <div><p class="eyebrow"><i>01</i>Портфолио</p><h2 class="mask">Избранные <span class="it">работы</span></h2></div>
       <div class="filters" role="group" aria-label="Фильтр работ">
-        <button aria-pressed="true" data-f="all">Все<sup>14</sup></button>
+        <button aria-pressed="true" data-f="all">Все<sup>15</sup></button>
         <button aria-pressed="false" data-f="app">Приложения<sup>3</sup></button>
         <button aria-pressed="false" data-f="kit">UI-киты<sup>2</sup></button>
-        <button aria-pressed="false" data-f="site">Сайты<sup>5</sup></button>
+        <button aria-pressed="false" data-f="site">Сайты<sup>6</sup></button>
         <button aria-pressed="false" data-f="ai">AI-визуал<sup>4</sup></button>
       </div>
     </div>
 
     <!-- работы идут парами: у пары одинаковая пропорция (--row), на телефоне — своя (--own), без обрезки -->
     <div class="works" id="works-grid">
+      <article class="work wide rv" data-case="blik" data-cat="site">
+        <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс БЛИК"><img src="img/blik-cover.jpg" alt="Лендинг клининга БЛИК: комната убирается при скролле" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
+        <div class="w-info"><div><h3>БЛИК</h3><p>Лендинг клининга · комната убирается при скролле</p></div><button class="like" data-like="blik" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
+      </article>
+
       <article class="work wide rv" data-case="granit" data-cat="site">
         <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс ГРАНИТ"><img src="img/granit-cover.jpg" alt="Лендинг тюнинг-ателье ГРАНИТ: пикап разбирается при скролле" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
         <div class="w-info"><div><h3>ГРАНИТ</h3><p>Лендинг тюнинг-ателье · пикап разбирается при скролле</p></div><button class="like" data-like="granit" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
@@ -661,7 +666,7 @@ dialog[open]{animation:pop .45s var(--ease)}
     });
   });
 
-  // ---------- Появление при прокрутке + счёт цифр ----------
+  // ---------- Появление при скролле + счёт цифр ----------
   function countUp(el) {
     var end = +el.dataset.count, t0 = null;
     function step(t) { if (!t0) t0 = t; var k = Math.min((t - t0) / 1200, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); }
@@ -711,12 +716,13 @@ dialog[open]{animation:pop .45s var(--ease)}
 
   // ---------- Окно кейса ----------
   var CASES = {
-    granit: { title: "ГРАНИТ", sub: "Лендинг тюнинг-ателье · концепт первого экрана", noBehance: true, task: "Первый экран с «мощным визуалом» для магазина тюнинга пикапов: посетитель залипает и сразу видит, что можно поставить на свою машину.", done: "Пикап разбирается на детали прямо при прокрутке. На каждой детали точка с ценой, по клику — карточка с характеристиками и заявкой. AI-визуал: машина, разборка и 10 предметных кадров деталей.", scope: "Первый экран и каталог, десктоп и мобильная версия, макет и прототип в Figma.", imgs: ["granit-razborka.mp4", "granit-states", "granit-tochki.mp4", "granit-parts", "granit-mobile", "granit-process"] },
+    blik: { title: "БЛИК", sub: "Лендинг клининговой компании · концепт", live: "blik/", task: "Первый экран для клининга, который сразу показывает результат уборки и подводит к заявке.", done: "Две AI-фотографии одной комнаты — до и после. При прокрутке полоса, как стяжка по стеклу, стирает беспорядок, вдоль неё летят искры. В конце — оффер и одна кнопка. Ниже услуги с ценами, три шага, отзывы и форма с подсказками у полей.", scope: "Лендинг целиком: десктоп и мобильная версия, живая страница.", imgs: ["blik-overview", "blik-statement", "blik-ba", "blik-scroll.mp4", "blik-mobile", "blik-ui", "blik-thanks"] },
+    granit: { title: "ГРАНИТ", sub: "Лендинг тюнинг-ателье · концепт первого экрана", noBehance: true, task: "Первый экран с «мощным визуалом» для магазина тюнинга пикапов: посетитель залипает и сразу видит, что можно поставить на свою машину.", done: "Пикап разбирается на детали прямо при скролле. На каждой детали точка с ценой, по клику — карточка с характеристиками и заявкой. AI-визуал: машина, разборка и 10 предметных кадров деталей.", scope: "Первый экран и каталог, десктоп и мобильная версия, макет и прототип в Figma.", imgs: ["granit-razborka.mp4", "granit-states", "granit-tochki.mp4", "granit-parts", "granit-mobile", "granit-process"] },
     snow: { title: "Снежная усадьба", sub: "Новогодние видеобаннеры для отеля · концепт", noBehance: true, task: "Рекламные видеобаннеры к Новому году для загородного отеля: остановить взгляд в ленте и за 14 секунд донести оффер — даты, «всё включено», цену и кнопку брони.", done: "Стиль бордо и золото, Дед Мороз оживлён нейросетью, текст появляется по строкам, фото праздника в рамках, пульсирующая кнопка. Логотип, тексты и фото — свои.", scope: "Форматы 16:9, 1:1 и 9:16 по требованиям РСЯ: MP4, 1080p, до 15 секунд. Подходит отелям, ресторанам, салонам и магазинам.", imgs: ["snow-banner.mp4", "snow-cover", "snow-1x1", "snow-9x16"] },
     anya: { title: "Малышка Аня", sub: "AI-мультфильм по фото ребёнка", noBehance: true, task: "Сделать мультфильм, где главная героиня — настоящий ребёнок: узнаваемая и одинаковая в каждом кадре.", done: "Персонаж по фото, развороты и палитра героини, 12 эмоций, раскадровка из 6 сцен, анимация и афиша премьеры.", scope: "Подойдёт для подарка на день рождения, семейных видео, детских брендов и блогеров.", imgs: ["anya-character", "anya-emotions", "anya-scenes", "anya-butterfly.mp4", "anya-poster", "anya-forwho"] },
-    usadba: { title: "Усадьба", sub: "Лендинг строителя загородных домов", behance: "https://www.behance.net/gallery/256620375/lending-stroitelnoj-kompanii-zagorodnyh-domov", task: "Сайт, после которого семья оставит заявку на дом за 7–10 млн ₽. Снять страхи: рост сметы, срыв сроков, стройку «вслепую».", done: "Тёмный стиль с сеткой чертежа и стеклом, живой калькулятор с чертежом фасада, дом собирается по слоям при прокрутке, дизайн-система в Figma.", scope: "Лендинг на 9 блоков, версии 1440 и 390 px, макеты и компоненты в Figma.", imgs: ["usadba-hero", "usadba-calc", "usadba-projects", "usadba-stages", "usadba-mobile"] },
+    usadba: { title: "Усадьба", sub: "Лендинг строителя загородных домов", behance: "https://www.behance.net/gallery/256620375/lending-stroitelnoj-kompanii-zagorodnyh-domov", task: "Сайт, после которого семья оставит заявку на дом за 7–10 млн ₽. Снять страхи: рост сметы, срыв сроков, стройку «вслепую».", done: "Тёмный стиль с сеткой чертежа и стеклом, живой калькулятор с чертежом фасада, дом собирается по слоям при скролле, дизайн-система в Figma.", scope: "Лендинг на 9 блоков, версии 1440 и 390 px, макеты и компоненты в Figma.", imgs: ["usadba-hero", "usadba-calc", "usadba-projects", "usadba-stages", "usadba-mobile"] },
     cura: { title: "CURA", sub: "Приложение клиники", task: "Записаться к врачу за минуту — без звонков в регистратуру и очередей.", done: "Путь пациента, вайрфреймы, 9 экранов, дизайн-система на 23 переменных, пак из 37 иконок, прототип. Проверила контраст по WCAG.", scope: "iOS: главная, поиск по симптому, список врачей, карточка врача, время, оформление с оплатой, визиты, профиль.", imgs: ["cura-cover", "cura-screens", "cura-flow", "cura-ds"] },
-    hanami: { title: "Ханами", sub: "Лендинг туров на цветение сакуры", noBehance: true, task: "Убедить купить тур за 300 000 ₽: снять страх прилететь к голым веткам.", done: "Арт-направление «японский журнал», волна цветения в виде схемы метро, туры списком, форма брони, анимация при прокрутке.", scope: "Лендинг на 5 разделов, версии для компьютера и телефона.", imgs: ["hanami-cover", "hanami-tours", "hanami-wave", "hanami-stages", "hanami-book"] },
+    hanami: { title: "Ханами", sub: "Лендинг туров на цветение сакуры", noBehance: true, task: "Убедить купить тур за 300 000 ₽: снять страх прилететь к голым веткам.", done: "Арт-направление «японский журнал», волна цветения в виде схемы метро, туры списком, форма брони, анимация при скролле.", scope: "Лендинг на 5 разделов, версии для компьютера и телефона.", imgs: ["hanami-cover", "hanami-tours", "hanami-wave", "hanami-stages", "hanami-book"] },
     forma: { title: "FORMA", sub: "Приложение фитнес-клуба", task: "Записаться на занятие, пройти тренировку и видеть свой прогресс — без лишних шагов.", done: "Структура и путь пользователя, 10 экранов, UI-кит на переменных, кликабельный прототип.", scope: "10 экранов iOS: вход, расписание, тренер, таймер, прогресс, абонемент, QR-вход, профиль.", imgs: ["forma-cover", "forma-screens", "forma-ds", "forma-all"] },
     plate: { title: "PLATE", sub: "Приложение доставки еды", task: "Быстрый заказ еды: выбрать, оплатить, отследить в пару касаний.", done: "UX-исследование, дизайн-система, тёмная тема, прототип.", scope: "13 экранов: от регистрации до оплаты, статуса заказа и профиля.", imgs: ["plate-cover", "plate-screens", "plate-all"] },
     nova: { title: "NOVA", sub: "UI-кит для админ-панелей", task: "Готовый набор для админ-панелей, CRM и личных кабинетов — всё на русском.", done: "Кнопки, поля, таблицы, карточки и статусы. Светлая и тёмная тема через переменные.", scope: "60 кнопок · 9 типов ячеек · 24 иконки · 2 темы · пример дашборда.", imgs: ["nova-cover", "nova-dark", "nova-cards"] },
@@ -737,8 +743,13 @@ dialog[open]{animation:pop .45s var(--ease)}
         // видео (mp4) крутится само, без звука, как гифка, но без потери цвета
         if (/.mp4$/.test(n)) { var v = document.createElement("video"); v.src = "img/" + n; v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.setAttribute("aria-label", c.title); box.appendChild(v); v.play().catch(function () {}); return; }
         var i = new Image(); i.src = "img/" + (n.indexOf(".") > 0 ? n : n + ".jpg"); i.alt = c.title; i.loading = "lazy"; box.appendChild(i); });
-      document.getElementById("d-foot").hidden = !!c.noBehance;
-      dlg.querySelector("#d-foot a").href = c.behance || LINKS.behance; // свой кейс на Behance или общий профиль
+      var foot = document.getElementById("d-foot"), fa = foot.querySelector("a");
+      foot.hidden = !!c.noBehance && !c.live;
+      // у кейса с живой страницей — кнопка «Открыть сайт», у остальных — Behance
+      foot.querySelector("span").textContent = c.live ? "Полистайте живой сайт — комната убирается при скролле" : "Полная версия кейса — с процессом и деталями";
+      fa.firstChild.textContent = c.live ? "Открыть сайт" : "Смотреть на Behance";
+      fa.href = c.live || c.behance || LINKS.behance; // свой кейс на Behance или общий профиль
+      if (c.live) fa.target = "_blank"; else fa.removeAttribute("target");
       dlg.showModal(); dlg.scrollTop = 0;
     });
   });
