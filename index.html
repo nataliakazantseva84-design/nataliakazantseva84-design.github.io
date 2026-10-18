@@ -185,6 +185,36 @@ h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--acce
 .price b{font:800 clamp(26px,2.4vw,34px)/1 var(--display);letter-spacing:-.04em;white-space:nowrap}
 .price b small{font:600 14px/1 var(--body);color:var(--muted);letter-spacing:0;margin-right:6px}
 .price span{color:var(--muted);font-size:14px;font-weight:600}
+/* прайс AI: без плашек, бордо и золото */
+.ai-lux{--gold:#E2C08E;--cream:#F4ECE2;position:relative;margin-bottom:clamp(80px,11vw,150px);padding-block:clamp(90px,10vw,140px);background:radial-gradient(900px 600px at 85% 10%,rgba(168,30,69,.55),transparent 65%),radial-gradient(800px 600px at 5% 95%,rgba(110,19,48,.6),transparent 65%),linear-gradient(180deg,#120709,#0C0A0B);border-block:1px solid rgba(226,192,142,.18)}
+.ai-lux .eyebrow,.ai-lux .eyebrow i{color:var(--gold)}
+.ai-h{margin:0;font:800 clamp(38px,5.4vw,78px)/1.02 var(--display);letter-spacing:-.04em;text-transform:uppercase}
+.ai-h .it{color:var(--gold);text-transform:none}
+.ai-lead{margin:22px 0 0;max-width:620px;font-size:clamp(17px,1.4vw,20px);font-weight:500;color:#FFF7EE}
+.ai-g{display:block;margin:64px 0 8px;font:700 13px/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.ai-list{display:grid;grid-template-columns:1fr 1fr;column-gap:72px}
+.ai-row{display:grid;grid-template-columns:40px 1fr auto;gap:18px;align-items:start;padding:30px 0;border-bottom:1px solid rgba(226,192,142,.2)}
+.ai-wide{grid-column:1/-1}
+.ai-stat{margin-top:34px;display:flex;align-items:center;gap:18px}
+.ai-stat b{font:800 clamp(48px,5vw,72px)/1 var(--display);letter-spacing:-.05em;color:var(--gold)}
+.ai-stat span{font:600 16px/1.3 var(--body);color:#F6EDE3}
+.ai-n{font:700 15px/1.9 var(--display);color:var(--gold)}
+.ai-row h3{margin:0;font:700 clamp(19px,1.7vw,24px)/1.25 var(--display);letter-spacing:-.03em;color:#fff}
+.ai-row p{margin:8px 0 0;font-size:16px;font-weight:500;line-height:1.55;color:#F6EDE3;max-width:460px}
+.ai-wide p{max-width:720px}
+.ai-pr{text-align:right}
+.ai-pr b{display:block;font:800 clamp(22px,2vw,30px)/1.1 var(--display);letter-spacing:-.04em;color:var(--gold);white-space:nowrap}
+.ai-pr b small{font:600 14px var(--body);letter-spacing:0;color:var(--cream);margin-right:6px}
+.ai-pr span{display:block;margin-top:8px;font-size:14px;font-weight:600;color:#E6D7C8;white-space:nowrap}
+.ai-combo{position:relative;margin-top:56px;display:flex;justify-content:space-between;align-items:center;gap:20px 40px;flex-wrap:wrap;padding:clamp(28px,3.4vw,48px);border-radius:28px;background:linear-gradient(120deg,rgba(226,192,142,.2),rgba(168,30,69,.32) 55%,rgba(110,19,48,.25));border:1.5px solid rgba(226,192,142,.75);box-shadow:0 0 0 6px rgba(226,192,142,.07),0 30px 80px -30px rgba(226,192,142,.45)}
+.ai-combo h3{margin:0;font:700 clamp(22px,2.2vw,32px)/1.2 var(--display);letter-spacing:-.03em;color:#fff}
+.ai-combo p{margin:10px 0 0;font-size:17px;font-weight:500;color:#FFF7EE}
+.ai-combo b{font:800 clamp(44px,5vw,72px)/1 var(--display);letter-spacing:-.05em;color:var(--gold);text-shadow:0 0 40px rgba(226,192,142,.35)}
+.ai-combo .ai-g{color:#FFE7C2}
+.ai-foot{margin-top:44px;display:flex;justify-content:space-between;align-items:center;gap:20px 40px;flex-wrap:wrap;font-size:16px;font-weight:500;color:#F6EDE3}
+.ai-btn{background:linear-gradient(180deg,#EBCB98,#C49A5E);color:#1A0E08;box-shadow:0 14px 40px -14px rgba(226,192,142,.7)}
+.ai-btn:hover{box-shadow:0 18px 50px -12px rgba(226,192,142,.9)}
+@media (max-width:900px){.ai-list{grid-template-columns:1fr}.ai-row{grid-template-columns:28px 1fr auto;padding:24px 0}.ai-g{margin-top:48px}}
 .more{margin:20px 0 0;color:var(--soft);font-size:15px}
 .more b{color:#fff}
 
@@ -503,6 +533,30 @@ dialog[open]{animation:pop .45s var(--ease)}
       </article>
     </div>
     <p class="more">Баннер — <b>от 800 ₽</b> · 2 круга правок в каждой услуге</p>
+  </section>
+
+  <section id="ai-video" class="ai-lux">
+    <div class="wrap">
+      <p class="eyebrow"><i>AI</i>Фото и видео по трендам</p>
+      <h2 class="mask ai-h">Ваше фото — <span class="it">в новом образе</span></h2>
+      <p class="ai-lead">Выберите тренд, который вам нравится, — я повторю его с вашим фото. Готово за 1–2 часа, одна правка включена.</p>
+      <div class="ai-stat"><b>30+</b><span>довольных<br>клиентов</span></div>
+      <div class="ai-g">Фото</div>
+      <div class="ai-list">
+        <div class="ai-row"><span class="ai-n">01</span><div><h3>Улучшение качества</h3><p>Старое, размытое или маленькое фото — чёткое и в высоком разрешении</p></div><div class="ai-pr"><b>150 ₽</b><span>1 фото</span></div></div>
+        <div class="ai-row"><span class="ai-n">02</span><div><h3>Аватарка для соцсетей</h3><p>Стильный портрет по вашему селфи — для ВК, Telegram, Instagram и мессенджеров</p></div><div class="ai-pr"><b>400 ₽</b><span>2 варианта</span></div></div>
+        <div class="ai-row"><span class="ai-n">03</span><div><h3>Новый образ</h3><p>Вечерний, деловой или новогодний образ по вашему фото</p></div><div class="ai-pr"><b>300 ₽</b><span>1 образ</span></div></div>
+        <div class="ai-row"><span class="ai-n">04</span><div><h3>Пакет 3 образа</h3><p>Три стиля, одно лицо во всех кадрах</p></div><div class="ai-pr"><b>700 ₽</b><span>3 фото</span></div></div>
+      </div>
+      <div class="ai-g">Видео</div>
+      <div class="ai-list">
+        <div class="ai-row ai-wide"><span class="ai-n">05</span><div><h3>Видео-тренд с вашим фото</h3><p>Выбираете любой тренд в TikTok или Reels, присылаете ссылку на ролик и своё фото — я повторяю этот тренд с вами</p></div><div class="ai-pr"><b>700 ₽</b><span>за 1–2 часа</span></div></div>
+        <div class="ai-row"><span class="ai-n">06</span><div><h3>Мультфильм с ребёнком</h3><p>Ребёнок — герой мультфильма: 3 сцены, одно лицо во всех кадрах</p></div><div class="ai-pr"><b><small>от</small>2 500 ₽</b><span>15–20 секунд</span></div></div>
+        <div class="ai-row"><span class="ai-n">07</span><div><h3>Рилс для бизнеса</h3><p>Товар или услуга в трендовом формате: эффект, текст, ваш логотип</p></div><div class="ai-pr"><b><small>от</small>1 500 ₽</b><span>до 15 секунд</span></div></div>
+      </div>
+      <div class="ai-combo"><div><span class="ai-g" style="margin:0 0 12px">Комбо · выгоднее на 300 ₽</span><h3>Аватарка + 3 образа + видео-тренд</h3><p>Всё для обновления соцсетей за один заказ</p></div><b>1 500 ₽</b></div>
+      <div class="ai-foot"><span>Афиша к мультфильму +500 ₽ · одна правка включена в каждую услугу</span><a class="btn ai-btn" href="#contacts">Заказать<svg><use href="#i-arrow"/></svg></a></div>
+    </div>
   </section>
 
   <section id="process" class="wrap" style="padding-top:0">
