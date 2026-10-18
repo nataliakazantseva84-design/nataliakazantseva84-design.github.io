@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOIRÉ — coffee atelier</title>
+<style>
+@font-face{font-family:"PF";font-weight:400;src:url(fonts/playfair-cyrillic-400.woff2) format("woff2");unicode-range:U+0400-045F}
+@font-face{font-family:"PF";font-weight:400;src:url(fonts/playfair-latin-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD}
+@font-face{font-family:"PF";font-style:italic;font-weight:500;src:url(fonts/playfair-cyrillic-500-italic.woff2) format("woff2");unicode-range:U+0400-045F}
+@font-face{font-family:"PF";font-style:italic;font-weight:500;src:url(fonts/playfair-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:"MR";font-weight:500;src:url(fonts/manrope-cyrillic-500.woff2) format("woff2");unicode-range:U+0400-045F}
+@font-face{font-family:"MR";font-weight:500;src:url(fonts/manrope-latin-500.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD,U+2192}
+@font-face{font-family:"MR";font-weight:600;src:url(fonts/manrope-cyrillic-600.woff2) format("woff2");unicode-range:U+0400-045F}
+@font-face{font-family:"MR";font-weight:600;src:url(fonts/manrope-latin-600.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD,U+2192}
+@font-face{font-family:"MR";font-weight:700;src:url(fonts/manrope-cyrillic-700.woff2) format("woff2");unicode-range:U+0400-045F}
+@font-face{font-family:"MR";font-weight:700;src:url(fonts/manrope-latin-700.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD,U+2192}
+:root{--bg:#0E0A08;--card:#17110D;--line:#2C221B;--txt:#F1E7DA;--muted:#A8998A;--gold:#D2AE7A;--gold2:#B88A52;--m:56px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font:500 17px/1.6 MR,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.k{font:700 12px MR;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+h1,h2{font-family:PF;font-weight:400;letter-spacing:-.02em;line-height:1.02}
+h1 span,h2 span{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:54px;padding:0 30px;background:linear-gradient(180deg,#E2C08E,var(--gold2));color:#1A120C;font:700 13px MR;letter-spacing:.14em;text-transform:uppercase;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px -14px rgba(210,174,122,.6)}
+/* шапка */
+.hd{position:fixed;inset:0 0 auto;z-index:50;height:84px;padding:0 var(--m);display:flex;align-items:center;gap:56px;transition:background .4s}
+.hd.on{background:rgba(14,10,8,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.logo{color:var(--gold);font:400 30px PF;letter-spacing:.06em;line-height:1}
+.logo small{display:block;margin-top:4px;font:600 9px MR;letter-spacing:.42em;color:var(--muted)}
+.nav{display:flex;gap:30px;font:600 14px MR;color:#D8CCBE}.nav a:hover{color:var(--gold)}
+.hd .ic{margin-left:auto;display:flex;gap:22px}
+.hd .ic svg{width:22px;height:22px;stroke:#D8CCBE;fill:none;stroke-width:1.6}
+.burger{display:none;background:none;border:0;cursor:pointer}
+.menu{position:fixed;inset:0;z-index:60;background:var(--bg);padding:24px;display:none;flex-direction:column}
+.menu.open{display:flex}.menu .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+.menu .x{background:none;border:0;color:var(--txt);font-size:30px;cursor:pointer;width:48px;height:48px}
+.menu a.l{font:400 34px PF;padding:14px 0;border-bottom:1px solid var(--line)}.menu .btn{margin-top:auto;justify-content:center}
+/* скролл-история */
+.story{position:relative;height:700vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+#vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,10,8,.92) 0,rgba(14,10,8,.6) 34%,rgba(14,10,8,0) 62%),linear-gradient(0deg,rgba(14,10,8,.7),rgba(14,10,8,0) 30%)}
+.hero{position:absolute;left:var(--m);top:50%;transform:translateY(-50%);max-width:560px;z-index:3;transition:opacity .5s,transform .6s}
+.hero h1{font-size:clamp(46px,5.4vw,88px)}
+.hero p{margin-top:24px;max-width:430px;color:#D8CCBE}
+.hero .btn{margin-top:34px}
+.perks{margin-top:50px;display:flex;gap:40px;font:600 14px/1.3 MR;color:#D8CCBE}
+.perks div{display:flex;align-items:center;gap:12px}
+.perks i{width:42px;height:42px;border-radius:50%;border:1px solid var(--gold2);display:grid;place-items:center;font:400 18px PF;font-style:normal;color:var(--gold)}
+.steps{position:absolute;left:var(--m);top:50%;transform:translateY(-50%);width:420px;z-index:3}
+.st{position:absolute;left:0;top:0;transform:translateY(-50%) translateY(24px);opacity:0;transition:opacity .45s,transform .55s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.st.on{opacity:1;transform:translateY(-50%)}
+.st .n{font:400 120px/1 PF;color:transparent;-webkit-text-stroke:1px rgba(210,174,122,.6)}
+.st h2{margin-top:6px;font-size:clamp(40px,4.2vw,64px)}
+.st p{margin-top:18px;max-width:380px;color:#D8CCBE}
+.rail{position:absolute;right:var(--m);top:50%;transform:translateY(-50%);z-index:3;display:flex;flex-direction:column;gap:18px;font:600 13px MR;color:var(--muted)}
+.rail span{display:flex;align-items:center;justify-content:flex-end;gap:14px;transition:color .3s}
+.rail span::after{content:"";width:8px;height:8px;border-radius:50%;border:1px solid currentColor;transition:background .3s,transform .3s}
+.rail span.on{color:var(--gold)}.rail span.on::after{background:var(--gold);transform:scale(1.3)}
+.rail span.done{color:#D8CCBE}
+.bar{position:absolute;left:0;bottom:0;height:2px;background:var(--gold);z-index:3;width:0}
+.cue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:3;font:700 11px MR;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);transition:opacity .4s}
+/* разделы */
+section.s{padding:140px var(--m)}
+.head{text-align:center;max-width:720px;margin:0 auto}
+.head h2{margin-top:14px;font-size:clamp(40px,4.6vw,72px)}
+.head p{margin-top:18px;color:#D8CCBE}
+.sorts{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sort{background:var(--card);border:1px solid var(--line);transition:transform .35s,border-color .35s}
+.sort:hover{transform:translateY(-6px);border-color:var(--gold2)}
+.sort img{width:100%;aspect-ratio:206/192;object-fit:cover}
+.sort .b{padding:26px 28px 28px}
+.sort h3{font:400 28px PF;letter-spacing:.04em}
+.sort p{margin-top:8px;font-size:15px;color:var(--muted)}
+.sort .pr{margin-top:22px;display:flex;align-items:center;gap:18px;font:600 14px MR;color:var(--muted)}
+.sort .pr b{font:400 26px PF;color:var(--txt)}
+.sort .pr a{margin-left:auto;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold2);display:grid;place-items:center;color:var(--gold)}
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:640px}
+.split .im{position:relative;overflow:hidden}.split .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.split .tx{display:flex;flex-direction:column;justify-content:center;padding:100px var(--m)}
+.split h2{margin-top:14px;font-size:clamp(40px,4.4vw,70px)}
+.split p{margin-top:22px;max-width:460px;color:#D8CCBE}
+.split .btn{margin-top:34px;align-self:flex-start}
+.split.rev .im{order:2}
+.stats{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);max-width:480px}
+.stats div{padding-right:16px;border-right:1px solid var(--line);margin-right:16px}.stats div:last-child{border:0}
+.stats b{display:block;font:400 44px/1 PF;color:var(--gold)}.stats span{display:block;margin-top:8px;font:600 12px MR;color:var(--muted)}
+footer{padding:50px var(--m);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+@media (max-width:900px){
+  :root{--m:20px}.hd{height:68px}.nav,.hd .ic .cart{display:none}.burger{display:block}
+  .shade{background:linear-gradient(0deg,rgba(14,10,8,.95) 0,rgba(14,10,8,.55) 50%,rgba(14,10,8,.15))}
+  .hero,.steps{top:auto;bottom:70px;transform:none;right:var(--m);width:auto}
+  .st{top:auto;bottom:0;transform:translateY(24px)}.st.on{transform:none}.st .n{font-size:70px}
+  .perks{gap:16px;flex-wrap:wrap;margin-top:30px}.rail{display:none}
+  .sorts{grid-template-columns:1fr}.split,.split.rev{display:block}.split .im{height:420px}.split .tx{padding:60px var(--m)}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="hd" id="hd">
+  <a class="logo" href="#top">NOIRÉ<small>COFFEE ATELIER</small></a>
+  <nav class="nav"><a href="#sorts">Коллекция</a><a href="#origin">Происхождение</a><a href="#ritual">О бренде</a><a href="#gift">Подарки</a></nav>
+  <div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><svg class="cart" viewBox="0 0 24 24"><path d="M5 7h14l-1.5 12h-11zM9 7a3 3 0 016 0"/></svg>
+  <button class="burger" id="burger" aria-label="Открыть меню"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+</header>
+<div class="menu" id="menu"><div class="top"><span class="logo">NOIRÉ</span><button class="x" id="mx" aria-label="Закрыть меню">×</button></div>
+  <a class="l" href="#sorts">Коллекция</a><a class="l" href="#origin">Происхождение</a><a class="l" href="#ritual">О бренде</a><a class="l" href="#gift">Подарки</a><a class="btn" href="#sorts">Открыть коллекцию →</a></div>
+
+<section class="story" id="top">
+  <div class="stage" id="stage">
+    <video id="vid" src="img/coffee-scrub.mp4" muted playsinline preload="auto"></video>
+    <div class="shade"></div>
+    <div class="hero" id="hero"><div class="k">Coffee atelier</div><h1>Искусство<br><span>начинать</span><br>с главного</h1>
+      <p>Премиальный кофе из лучших регионов мира — для тех, кто выбирает вкус, а не компромиссы.</p>
+      <a class="btn" href="#sorts">Открыть коллекцию →</a>
+      <div class="perks"><div><i>1</i>100%<br>арабика</div><div><i>2</i>Отборные<br>зёрна</div><div><i>3</i>Свежая<br>обжарка</div></div></div>
+    <div class="steps" id="steps">
+      <div class="st"><div class="n">01</div><h2>Целые <span>зёрна</span></h2><p>Арабика одного урожая, обжаренная на прошлой неделе. Ни одного треснувшего зерна.</p></div>
+      <div class="st"><div class="n">02</div><h2>Свежий <span>помол</span></h2><p>Мелем прямо перед заваркой — аромат живёт всего несколько минут.</p></div>
+      <div class="st"><div class="n">03</div><h2><span>Экстракция</span></h2><p>25 секунд при 93 градусах: густой поток цвета тёмной карамели.</p></div>
+      <div class="st"><div class="n">04</div><h2>Эспрессо <span>в чашке</span></h2><p>Плотная золотистая крема держит аромат и тепло.</p></div>
+      <div class="st"><div class="n">05</div><h2>Мрамор <span>сливок</span></h2><p>Последний штрих — сливки, которые рисуют в чашке свой узор.</p></div>
+    </div>
+    <div class="rail" id="rail"><span>Зёрна</span><span>Помол</span><span>Экстракция</span><span>Чашка</span><span>Сливки</span></div>
+    <div class="bar" id="bar"></div>
+    <div class="cue" id="cue">Листайте</div>
+  </div>
+</section>
+
+<section class="s" id="sorts">
+  <div class="head rv"><div class="k">Коллекция</div><h2>Наши сорта</h2><p>Уникальные вкусы, созданные природой и вдохновлённые путешествиями.</p></div>
+  <div class="sorts">
+    <div class="sort rv"><img src="img/cf-bag-espresso.jpg" alt="Пачка NOIRÉ Espresso"><div class="b"><h3>ESPRESSO</h3><p>Насыщенный, шоколадный, с лёгкой горчинкой</p><div class="pr">250 г<b>1 400 ₽</b><a href="#sorts" aria-label="В корзину">+</a></div></div></div>
+    <div class="sort rv"><img src="img/cf-bag-signature.jpg" alt="Пачка NOIRÉ Signature"><div class="b"><h3>SIGNATURE</h3><p>Сбалансированный, с нотами карамели и орехов</p><div class="pr">250 г<b>1 400 ₽</b><a href="#sorts" aria-label="В корзину">+</a></div></div></div>
+    <div class="sort rv"><img src="img/cf-bag-ethiopia.jpg" alt="Пачка NOIRÉ Ethiopia"><div class="b"><h3>ETHIOPIA</h3><p>Яркий, фруктовый, с цветочными нотами</p><div class="pr">250 г<b>1 400 ₽</b><a href="#sorts" aria-label="В корзину">+</a></div></div></div>
+  </div>
+</section>
+
+<section class="split" id="origin"><div class="im"><img src="img/cf-hands.jpg" alt="Ладони с обжаренными кофейными зёрнами"></div>
+  <div class="tx rv"><div class="k">Происхождение</div><h2>История<br><span>в каждой чашке</span></h2><p>Мы отбираем зёрна на лучших плантациях мира: Бразилия, Колумбия, Эфиопия. Каждый сорт раскрывает характер региона, в котором он выращен.</p><a class="btn" href="#sorts">Узнать больше →</a></div></section>
+
+<section class="split rev" id="ritual"><div class="im"><img src="img/cf-ritual.jpg" alt="Девушка с чашкой кофе у окна"></div>
+  <div class="tx rv"><div class="k">Кофейный ритуал</div><h2>Больше<br><span>чем напиток</span></h2><p>Кофе — это момент для себя. Спокойное утро, любимая музыка и аромат, который наполняет дом теплом.</p></div></section>
+
+<section class="split" id="gift"><div class="im"><img src="img/cf-gift.jpg" alt="Подарочный набор NOIRÉ с кружкой и банкой"></div>
+  <div class="tx rv"><div class="k">Подарочные наборы</div><h2>Идеальный<br><span>подарок</span></h2><p>Стильная упаковка, премиальные сорта и особая атмосфера — для тех, кто ценит вкус и внимание к деталям.</p><a class="btn" href="#gift">Выбрать набор →</a></div></section>
+
+<section class="split rev"><div class="im"><img src="img/cf-world.jpg" alt="Чашка кофе и круассан на террасе с видом на Флоренцию"></div>
+  <div class="tx rv"><div class="k">О бренде</div><h2>Вдохновлённые<br><span>миром</span></h2><p>NOIRÉ — это любовь к путешествиям, натуральным вкусам и искусству жизни.</p>
+    <div class="stats"><div><b>4+</b><span>страны</span></div><div><b>12</b><span>сортов</span></div><div><b>1000+</b><span>клиентов</span></div></div></div></section>
+
+<footer><span class="logo" style="font-size:22px">NOIRÉ</span><span>Концепт лендинга · дизайн и AI-визуал — Наталья Казанцева · 2026</span></footer>
+
+<script>
+const $ = id => document.getElementById(id), cl = x => Math.max(0, Math.min(1, x));
+const FPS = 30, LAST = 170;
+// прокрутка → кадр видео. Почти одинаковые кадры помола и экстракции проходим быстро, финал со сливками держим долго
+const KEY = [[0, 0], [.04, 0], [.13, 16], [.18, 30], [.24, 52], [.28, 64], [.36, 80], [.41, 95], [.5, 118], [.55, 132], [.7, LAST], [1, LAST]];
+// границы этапов по кадрам: зёрна, помол, экстракция, чашка, сливки
+const STAGE = f => f < 23 ? 0 : f < 61 ? 1 : f < 90 ? 2 : f < 131 ? 3 : 4;
+const v = $("vid"), sts = [...document.querySelectorAll(".st")], rail = [...document.querySelectorAll("#rail span")];
+let target = 0, cur = 0, P = 0, seeking = false;
+function frameAt(p) { for (let i = 1; i < KEY.length; i++) { const [p0, f0] = KEY[i - 1], [p1, f1] = KEY[i]; if (p <= p1) { const t = (p - p0) / (p1 - p0 || 1), e = t * t * (3 - 2 * t); return f0 + (f1 - f0) * e; } } return LAST; }
+function onScroll() { const h = $("top"); P = cl(-h.getBoundingClientRect().top / (h.offsetHeight - innerHeight)); target = frameAt(P);
+  const intro = cl(P / .04); $("hero").style.opacity = 1 - intro; $("hero").style.pointerEvents = intro > .5 ? "none" : "auto";
+  $("cue").style.opacity = 1 - intro; $("bar").style.width = P * 100 + "%"; $("hd").classList.toggle("on", scrollY > h.offsetHeight - innerHeight - 10); }
+v.addEventListener("seeked", () => { seeking = false; });
+function tick() {
+  cur += (target - cur) * .16; if (Math.abs(target - cur) < .05) cur = target;     // плавно догоняем прокрутку — в обе стороны
+  if (!seeking && v.readyState >= 1 && Math.abs(v.currentTime * FPS - cur) > .35) { seeking = true; v.currentTime = Math.min(LAST, cur) / FPS; }
+  const s = STAGE(cur), show = P > .035; sts.forEach((e, i) => e.classList.toggle("on", show && i === s)); rail.forEach((e, i) => { e.classList.toggle("on", i === s); e.classList.toggle("done", i < s); });
+  requestAnimationFrame(tick);
+}
+v.pause(); addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", onScroll); onScroll(); requestAnimationFrame(tick);
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll(".rv").forEach(e => io.observe(e));
+$("burger").onclick = () => $("menu").classList.add("open"); $("mx").onclick = () => $("menu").classList.remove("open");
+document.querySelectorAll(".menu a").forEach(a => a.onclick = () => $("menu").classList.remove("open"));
+</script>
+</body>
+</html>

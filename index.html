@@ -397,7 +397,7 @@ dialog[open]{animation:pop .45s var(--ease)}
         <div class="ring" aria-hidden="true"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="98" fill="none" stroke="rgba(156,120,255,.45)" stroke-width=".6" stroke-dasharray="2 6"/><circle cx="100" cy="2" r="2.4" fill="#9C78FF"/></svg></div>
         <div class="photo"><img src="img/me-cut.png" alt="Наталья Казанцева" width="750" height="768"></div>
         <div class="chip glass float c1"><svg><use href="#i-figma"/></svg>Исходник в Figma</div>
-        <div class="chip glass float d2 c2"><div><b>15</b><small>проектов<br>в портфолио</small></div></div>
+        <div class="chip glass float d2 c2"><div><b>16</b><small>проектов<br>в портфолио</small></div></div>
         <div class="chip glass float d3 c3"><svg><use href="#i-layers"/></svg>Компоненты · Auto Layout</div>
       </div>
     </div>
@@ -411,7 +411,7 @@ dialog[open]{animation:pop .45s var(--ease)}
   </div>
 
   <div class="wrap stats">
-    <div class="stat rv"><b data-count="15">15</b><span>проектов: сайты, приложения, UI-киты и AI-кампании</span></div>
+    <div class="stat rv"><b data-count="16">16</b><span>проектов: сайты, приложения, UI-киты и AI-кампании</span></div>
     <div class="stat rv" style="--d:.08s"><b><span data-count="2">2</span><em>×</em></b><span>круга правок уже входят в стоимость</span></div>
     <div class="stat rv" style="--d:.16s"><b>50<em>/</em>50</b><span>оплата в два этапа: до старта и после сдачи</span></div>
     <div class="stat rv" style="--d:.24s"><b>1<em>д</em></b><span>отвечаю в течение дня и сразу называю цену</span></div>
@@ -421,16 +421,21 @@ dialog[open]{animation:pop .45s var(--ease)}
     <div class="sec-head">
       <div><p class="eyebrow"><i>01</i>Портфолио</p><h2 class="mask">Избранные <span class="it">работы</span></h2></div>
       <div class="filters" role="group" aria-label="Фильтр работ">
-        <button aria-pressed="true" data-f="all">Все<sup>15</sup></button>
+        <button aria-pressed="true" data-f="all">Все<sup>16</sup></button>
         <button aria-pressed="false" data-f="app">Приложения<sup>3</sup></button>
         <button aria-pressed="false" data-f="kit">UI-киты<sup>2</sup></button>
-        <button aria-pressed="false" data-f="site">Сайты<sup>6</sup></button>
+        <button aria-pressed="false" data-f="site">Сайты<sup>7</sup></button>
         <button aria-pressed="false" data-f="ai">AI-визуал<sup>4</sup></button>
       </div>
     </div>
 
     <!-- работы идут парами: у пары одинаковая пропорция (--row), на телефоне — своя (--own), без обрезки -->
     <div class="works" id="works-grid">
+      <article class="work wide rv" data-case="noire" data-cat="site">
+        <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс NOIRÉ"><img src="img/noire-cover.jpg" alt="Лендинг кофейни NOIRÉ: кофе готовится при скролле" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
+        <div class="w-info"><div><h3>NOIRÉ</h3><p>Лендинг кофейни · кофе готовится при скролле</p></div><button class="like" data-like="noire" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
+      </article>
+
       <article class="work wide rv" data-case="blik" data-cat="site">
         <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс БЛИК"><img src="img/blik-cover.jpg" alt="Лендинг клининга БЛИК: комната убирается при скролле" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
         <div class="w-info"><div><h3>БЛИК</h3><p>Лендинг клининга · комната убирается при скролле</p></div><button class="like" data-like="blik" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
@@ -770,6 +775,7 @@ dialog[open]{animation:pop .45s var(--ease)}
 
   // ---------- Окно кейса ----------
   var CASES = {
+    noire: { title: "NOIRÉ", sub: "Лендинг кофейного ателье · концепт", live: "noire/", task: "Первый экран для премиального кофе, который передаёт вкус и аромат ещё до покупки.", done: "Вместо обложки — видео приготовления, привязанное к прокрутке: зёрна, помол, экстракция, эспрессо и сливки. Видео идёт в обе стороны, справа навигация по этапам. Ниже коллекция из трёх сортов с ценами, история зерна, ритуал и подарочный набор.", scope: "Лендинг целиком: десктоп и мобильная версия, живая страница.", imgs: ["noire-overview", "noire-scroll.mp4", "noire-stages", "noire-sections", "noire-mobile"] },
     blik: { title: "БЛИК", sub: "Лендинг клининговой компании · концепт", live: "blik/", task: "Первый экран для клининга, который сразу показывает результат уборки и подводит к заявке.", done: "Две AI-фотографии одной комнаты — до и после. При прокрутке полоса, как стяжка по стеклу, стирает беспорядок, вдоль неё летят искры. В конце — оффер и одна кнопка. Ниже услуги с ценами, три шага, отзывы и форма с подсказками у полей.", scope: "Лендинг целиком: десктоп и мобильная версия, живая страница.", imgs: ["blik-overview", "blik-statement", "blik-ba", "blik-scroll.mp4", "blik-mobile", "blik-ui", "blik-thanks"] },
     granit: { title: "ГРАНИТ", sub: "Лендинг тюнинг-ателье · концепт первого экрана", noBehance: true, task: "Первый экран с «мощным визуалом» для магазина тюнинга пикапов: посетитель залипает и сразу видит, что можно поставить на свою машину.", done: "Пикап разбирается на детали прямо при скролле. На каждой детали точка с ценой, по клику — карточка с характеристиками и заявкой. AI-визуал: машина, разборка и 10 предметных кадров деталей.", scope: "Первый экран и каталог, десктоп и мобильная версия, макет и прототип в Figma.", imgs: ["granit-razborka.mp4", "granit-states", "granit-tochki.mp4", "granit-parts", "granit-mobile", "granit-process"] },
     snow: { title: "Снежная усадьба", sub: "Новогодние видеобаннеры для отеля · концепт", noBehance: true, task: "Рекламные видеобаннеры к Новому году для загородного отеля: остановить взгляд в ленте и за 14 секунд донести оффер — даты, «всё включено», цену и кнопку брони.", done: "Стиль бордо и золото, Дед Мороз оживлён нейросетью, текст появляется по строкам, фото праздника в рамках, пульсирующая кнопка. Логотип, тексты и фото — свои.", scope: "Форматы 16:9, 1:1 и 9:16 по требованиям РСЯ: MP4, 1080p, до 15 секунд. Подходит отелям, ресторанам, салонам и магазинам.", imgs: ["snow-banner.mp4", "snow-cover", "snow-1x1", "snow-9x16"] },
