@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VANTOR — Winter 2026/27</title>
+<meta name="description" content="VANTOR. Мужская зимняя верхняя одежда. Winter 2026/27 — Beyond the cold.">
+<style>
+@font-face{font-family:"CG";font-weight:300 700;font-display:swap;src:url(fonts/cormorant-300-cyrillic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"CG";font-weight:300 700;font-display:swap;src:url(fonts/cormorant-300-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2212}
+@font-face{font-family:"MR";font-weight:200 800;font-display:swap;src:url(fonts/manrope-400-cyrillic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"MR";font-weight:200 800;font-display:swap;src:url(fonts/manrope-400-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2212,U+20BD}
+:root{--bg:#0B0D11;--bg2:#111317;--ink:#E9ECEF;--mute:#8B929C;--line:rgba(233,236,239,.14);--lamp:#E3B07A}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.6 MR,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.cap{font:600 11px/1 MR;letter-spacing:.32em;text-transform:uppercase;color:var(--mute)}
+.disp{font:300 clamp(40px,5.4vw,86px)/.95 CG;letter-spacing:.01em;text-transform:uppercase;margin:0}
+.lnk{display:inline-flex;align-items:center;gap:16px;font:600 11px/1 MR;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:14px 0;min-height:44px}
+.lnk:before{content:"";width:34px;height:1px;background:currentColor;transition:width .3s}
+.lnk:hover:before{width:56px}
+.lnk:focus-visible,.nav a:focus-visible,.burger:focus-visible{outline:1px solid var(--ink);outline-offset:4px}
+
+/* шапка */
+.hd{position:fixed;inset:0 0 auto;z-index:40;height:84px;display:flex;align-items:center;padding:0 48px;justify-content:space-between;background:linear-gradient(180deg,rgba(10,11,13,.7),rgba(10,11,13,0))}
+.hd{transition:background .4s}.hd.solid{background:rgba(11,13,17,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.logo{font:400 22px CG;letter-spacing:.42em;text-decoration:none;text-transform:uppercase}
+.nav{display:flex;gap:40px}
+.nav a{font:600 11px MR;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;color:var(--mute);transition:color .2s}
+.nav a:hover{color:var(--ink)}
+.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;padding:0}
+.burger span{display:block;width:22px;height:1px;background:var(--ink);margin:6px auto}
+
+/* сцена */
+.story{position:relative;height:1150vh}
+.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--bg)}
+#cv,#snow{position:absolute;inset:0;width:100%;height:100%;display:block}
+#snow2{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+.fog{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(11,13,17,0) 45%,rgba(11,13,17,.72) 100%),radial-gradient(120% 90% at 50% 45%,rgba(10,11,13,0) 40%,rgba(10,11,13,.85) 100%),linear-gradient(180deg,rgba(10,11,13,.55) 0%,rgba(10,11,13,0) 22%,rgba(10,11,13,0) 70%,rgba(10,11,13,.8) 100%)}
+.grain{position:absolute;inset:-50%;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.rail{position:absolute;left:48px;bottom:34px;z-index:5;display:flex;gap:34px}
+.rail button{all:unset;cursor:pointer;display:grid;grid-template-columns:22px auto;align-items:center;gap:14px;min-height:44px;color:var(--mute);transition:color .4s}
+.rail button i{width:7px;height:7px;border-radius:50%;border:1px solid currentColor;justify-self:center;transition:background .4s,transform .4s}
+.rail button b{font:400 13px CG;letter-spacing:.12em}
+.rail button span{font:600 10px MR;letter-spacing:.26em;text-transform:uppercase;display:block;margin-top:2px;opacity:.55;transition:opacity .4s}
+.rail button.on{color:var(--ink)}
+.rail button.on i{background:var(--ink);transform:scale(1.25)}
+.rail button.on span{opacity:1}
+.copy{position:absolute;right:4vw;top:50%;transform:translateY(-50%);width:min(460px,34vw);z-index:5}
+.st{position:absolute;left:0;top:50%;width:100%;transform:translateY(-40%);opacity:0;visibility:hidden;transition:opacity .7s,transform .7s,visibility .7s}
+.st.on{opacity:1;visibility:visible;transform:translateY(-50%)}
+.st .cap{display:block;margin-bottom:22px}
+.st p{color:#C3C8CF;max-width:340px;margin:22px 0 0}
+.st .lnk{margin-top:20px}
+.cue{position:absolute;right:48px;bottom:34px;z-index:5;display:flex;flex-direction:column;align-items:center;gap:14px}
+.cue i{width:1px;height:56px;background:linear-gradient(var(--ink),transparent);animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* низ истории растворяется в фон коллекции — без шва */
+.fade{position:absolute;left:0;right:0;bottom:0;height:45vh;z-index:4;pointer-events:none;background:linear-gradient(180deg,rgba(11,13,17,0),rgba(11,13,17,.85) 70%,var(--bg))}
+.load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:9;background:var(--bg);transition:opacity .8s}
+.load.off{opacity:0;pointer-events:none}
+
+/* коллекция */
+.col{padding:160px 48px 120px;background:var(--bg)}
+.col .top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;max-width:1340px;margin:0 auto}
+.col .top p{color:var(--mute);max-width:360px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1340px;margin:64px auto 0}
+.look{position:relative;overflow:hidden;text-decoration:none;color:inherit;background:var(--bg2);aspect-ratio:3/4}
+.look img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+/* примерка: куртка уходит к зрителю, сверху вниз проявляется человек в ней */
+.look img{position:absolute;inset:0}
+.look img:not(.on){transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .45s .45s,filter .45s .45s}
+.look img.on{z-index:1;clip-path:inset(0 0 100% 0);transform:scale(1.06);transition:clip-path .8s cubic-bezier(.3,0,.2,1),transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.look .t{z-index:2}
+.look:after{z-index:1}
+.look:hover img:not(.on),.look.try img:not(.on){transform:scale(1.12) translateY(-3%);opacity:0;filter:blur(6px)}
+.look:hover img.on,.look.try img.on{clip-path:inset(0 0 0 0);transform:scale(1)}
+.look .t{position:absolute;left:24px;right:24px;bottom:22px;display:flex;justify-content:space-between;align-items:flex-end}
+.look .t b{display:block;font:400 30px CG;letter-spacing:.06em;text-transform:uppercase}
+.look .t .cap{display:block;margin-top:8px;letter-spacing:.18em}
+.look .t .pr{font:600 15px MR;color:var(--ink);white-space:nowrap}
+.look:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,11,13,.85));pointer-events:none}
+.look .t{z-index:1}
+/* технология и бренд: фото + текст, без карточек */
+.tech,.brand{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;max-width:1340px;margin:0 auto;padding:140px 48px}
+.brand{grid-template-columns:1fr 1fr}
+.tech .im,.brand .im{position:relative;overflow:hidden;aspect-ratio:4/5}
+.tech .im{aspect-ratio:16/11}
+.tech .im img{transform:scale(1.28);transform-origin:50% 22%} /* прячет пластину внизу кадра */
+.tech .im img,.brand .im img{width:100%;height:100%;object-fit:cover;display:block}
+.tech .im:after,.brand .im:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 70px 10px var(--bg)}
+.tx .disp{margin-top:20px}
+.layers{list-style:none;margin:48px 0 0;padding:0}
+.layers li{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:22px 0;border-top:1px solid var(--line)}
+.layers li b{font:400 15px CG;letter-spacing:.12em;color:var(--mute);padding-top:3px}
+.layers h3{margin:0;font:600 13px MR;letter-spacing:.24em;text-transform:uppercase}
+.layers p{margin:8px 0 0;color:#B9BFC7;max-width:420px}
+.brand p{color:#B9BFC7;max-width:460px;margin:28px 0 0}
+.facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:48px;margin:44px 0 0}
+.facts dt{font:300 44px/1 CG}
+.facts dd{margin:8px 0 0;font-size:13px;color:var(--mute)}
+.ft{padding:120px 48px 40px;color:var(--mute);font-size:14px;max-width:1340px;margin:0 auto}
+.ft-big{font:300 clamp(80px,17vw,260px)/.8 CG;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);opacity:.92}
+.ft-cols{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:40px;margin-top:64px;align-items:end}
+.ft-cols p{margin:14px 0 0;line-height:1.8;color:#B9BFC7}
+.ft-cols a{text-decoration:none;color:#B9BFC7;transition:color .2s}.ft-cols a:hover{color:var(--ink)}
+.ft-low{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:80px;font-size:12px}
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1.1s,transform 1.1s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+.menu{position:fixed;inset:0;z-index:60;background:var(--bg);display:none;flex-direction:column;justify-content:center;padding:0 24px;gap:28px}
+.menu.open{display:flex}
+.menu a{font:300 40px CG;text-transform:uppercase;text-decoration:none;letter-spacing:.06em}
+.menu .x{position:absolute;right:16px;top:20px;width:44px;height:44px;border:0;background:none;color:var(--ink);font-size:28px;cursor:pointer}
+
+@media (max-width:900px){
+  .story{height:900vh}
+  .hd{padding:0 28px;height:68px}
+  .nav{display:none}.burger{display:block}
+  .rail{left:17px;bottom:32px;gap:4px}
+  .rail button{grid-template-columns:22px;min-width:44px}
+  .rail button b,.rail button span{display:none}
+  .copy{left:28px;right:28px;width:auto;top:auto;bottom:100px;transform:none;height:260px}
+  .st{top:auto;bottom:0;transform:translateY(12px)}
+  .st.on{transform:none}
+  .st p{font-size:14px;margin-top:14px}
+  .disp{font-size:44px}
+  .cue{display:none}
+  .col{padding:100px 28px 80px}
+  .col .top{display:block}.col .top p{margin-top:18px}
+  .grid{grid-template-columns:1fr 1fr;gap:10px;margin-top:40px}
+  .look{aspect-ratio:auto;background:none}.look:after{display:none}
+  .look img{aspect-ratio:3/4;height:auto;background:var(--bg2)}
+  .look img:not(.on){position:relative}.look img.on{inset:auto;top:0;left:0}
+  .look .t{position:static;margin-top:12px;flex-direction:column;align-items:flex-start;gap:6px}
+  .look .t b{font-size:22px}.look .t .cap{font-size:9px;letter-spacing:.12em}
+  .tech,.brand{grid-template-columns:1fr;gap:36px;padding:90px 28px}
+  .brand .im{order:-1}
+  .facts{grid-template-columns:repeat(3,1fr);gap:16px}.facts dt{font-size:30px}
+  .ft{padding:80px 28px 32px}
+  .ft-cols{grid-template-columns:1fr 1fr;gap:28px}
+  .ft-cta{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.st{transition:none}.cue i{animation:none}}
+</style></head><body>
+
+<header class="hd">
+  <a class="logo" href="#top">Vantor</a>
+  <nav class="nav"><a href="#collection">Коллекция</a><a href="#tech">Технология</a><a href="#about">О бренде</a><a href="#contacts">Контакты</a></nav>
+  <button class="burger" id="burger" aria-label="Открыть меню"><span></span><span></span></button>
+</header>
+<div class="menu" id="menu"><button class="x" id="mx" aria-label="Закрыть меню">×</button><a href="#collection">Коллекция</a><a href="#tech">Технология</a><a href="#about">О бренде</a><a href="#contacts">Контакты</a></div>
+
+<section class="story" id="top" aria-label="История куртки VANTOR">
+  <div class="pin">
+    <canvas id="cv" aria-hidden="true"></canvas>
+    <div class="fog"></div><canvas id="snow" aria-hidden="true"></canvas><div class="grain"></div>
+
+    <nav class="rail" id="rail" aria-label="Этапы"></nav>
+
+    <div class="copy">
+      <div class="st on"><span class="cap">Vantor</span><h1 class="disp">Winter<br>2026/27</h1><p>Куртка, которая появляется из холода. Листайте — мы покажем её целиком.</p></div>
+      <div class="st"><span class="cap">02 · Materials</span><h2 class="disp">Premium<br>materials</h2><p>Внешняя ткань, утеплитель и подкладка расходятся на слои, чтобы вы увидели, из чего она собрана.</p></div>
+      <div class="st"><span class="cap">03 · The fit</span><h2 class="disp">Created<br>for real life</h2><p>Плечи, рукава, воротник. Куртка садится по фигуре и не сковывает движение.</p></div>
+      <div class="st"><span class="cap">04 · The look</span><h2 class="disp">Beyond<br>the cold.</h2><p>Designed for the winter city.</p><a class="lnk" href="#collection">Discover the collection</a></div>
+      <div class="st"><span class="cap">05 · The city</span><h2 class="disp">Vantor</h2><p>Больше, чем просто куртка. Уверенность в любую погоду.</p><a class="lnk" href="#collection">Смотреть коллекцию</a></div>
+    </div>
+
+    <div class="cue" id="cue"><span class="cap">Scroll</span><i></i></div>
+    <div class="fade" id="fade"></div>
+    <div class="load" id="load"><span class="cap">Vantor</span></div>
+  </div>
+</section>
+
+<section class="col" id="collection">
+  <div class="top"><div><span class="cap">The collection</span><h2 class="disp" style="margin-top:20px">Winter<br>2026/27</h2></div><p>Четыре модели одного кроя: гусиный пух, ветрозащитная ткань, капюшон с регулировкой.</p></div>
+  <div class="grid">
+    <a class="look" href="#collection"><img src="img/vt-c-black.jpg" alt="Пуховик VANTOR Arctic" loading="lazy"><img class="on" src="img/vt-m-black.jpg" alt="Мужчина в пуховике VANTOR Arctic"><div class="t"><div><b>Arctic</b><span class="cap">Чёрный · до −30°</span></div><span class="pr">24 900 ₽</span></div></a>
+    <a class="look" href="#collection"><img src="img/vt-c-graphite.jpg" alt="Пуховик VANTOR Graphite" loading="lazy"><img class="on" src="img/vt-m-graphite.jpg" alt="Мужчина в пуховике VANTOR Graphite"><div class="t"><div><b>Graphite</b><span class="cap">Графит · до −25°</span></div><span class="pr">22 900 ₽</span></div></a>
+    <a class="look" href="#collection"><img src="img/vt-c-sand.jpg" alt="Пуховик VANTOR Sand" loading="lazy"><img class="on" src="img/vt-m-sand.jpg" alt="Мужчина в пуховике VANTOR Sand"><div class="t"><div><b>Sand</b><span class="cap">Песочный · до −25°</span></div><span class="pr">22 900 ₽</span></div></a>
+    <a class="look" href="#collection"><img src="img/vt-c-navy.jpg" alt="Пуховик VANTOR Navy" loading="lazy"><img class="on" src="img/vt-m-navy.jpg" alt="Мужчина в пуховике VANTOR Navy"><div class="t"><div><b>Navy</b><span class="cap">Тёмно-синий · до −30°</span></div><span class="pr">23 900 ₽</span></div></a>
+  </div>
+</section>
+<canvas id="snow2" aria-hidden="true"></canvas>
+<section class="tech rv" id="tech">
+  <div class="im"><img src="img/vt-tech.jpg" alt="Слои пуховика VANTOR: ткань, пух, мембрана, подкладка"></div>
+  <div class="tx">
+    <span class="cap">Technology</span>
+    <h2 class="disp">Четыре слоя<br>против холода</h2>
+    <ol class="layers">
+      <li><b>01</b><div><h3>Внешняя ткань</h3><p>Плотный нейлон с водоотталкивающей пропиткой — снег и мокрый снег скатываются.</p></div></li>
+      <li><b>02</b><div><h3>Мембрана</h3><p>Не пропускает ветер и выводит влагу, поэтому спина остаётся сухой.</p></div></li>
+      <li><b>03</b><div><h3>Гусиный пух</h3><p>Держит тепло и почти ничего не весит — куртка не давит на плечи.</p></div></li>
+      <li><b>04</b><div><h3>Подкладка</h3><p>Гладкая и мягкая: куртка легко надевается на свитер.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="brand rv" id="about">
+  <div class="tx">
+    <span class="cap">О бренде</span>
+    <h2 class="disp">Сделано<br>для зимнего<br>города</h2>
+    <p>VANTOR — мужская верхняя одежда для тех, кто живёт там, где зима настоящая. Мы делаем один крой пуховика и доводим его до точности: длина, вес, тепло, посадка по плечам.</p>
+    <dl class="facts"><div><dt>4</dt><dd>цвета одного кроя</dd></div><div><dt>S–3XL</dt><dd>размерная сетка</dd></div><div><dt>14 дней</dt><dd>на возврат</dd></div></dl>
+  </div>
+  <div class="im"><img src="img/vt-brand.jpg" alt="Мужчина в чёрном пуховике VANTOR на фоне гор"></div>
+</section>
+
+<footer class="ft" id="contacts">
+  <div class="ft-big">Vantor</div>
+  <div class="ft-cols">
+    <div><span class="cap">Шоурум</span><p>Москва, ул. Петровка, 12<br>Ежедневно 11:00–21:00</p></div>
+    <div><span class="cap">Связаться</span><p><a href="tel:+74950000000">+7 (495) 000-00-00</a><br><a href="mailto:hello@vantor.store">hello@vantor.store</a></p></div>
+    <div><span class="cap">Соцсети</span><p><a href="#contacts">Telegram</a><br><a href="#contacts">ВКонтакте</a></p></div>
+    <div class="ft-cta"><a class="lnk" href="#collection">Выбрать куртку</a></div>
+  </div>
+  <div class="ft-low"><span>© VANTOR, 2026</span><span>Концепт · дизайн Натальи Казанцевой</span></div>
+</footer>
+
+<script src="lib/anime.min.js"></script>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return [].slice.call(document.querySelectorAll(s)); };
+  var cl = function (x) { return Math.max(0, Math.min(1, x)); }, seg = function (p, a, b) { return cl((p - a) / (b - a)); };
+  var ease = function (x) { return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+  var RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // сцены: пока картинки-заглушки; когда будут кадры из видео, у сцены появится seq: { path, count }
+  // одно видео по кадрам (20 в секунду); прокрутка → время по таблице KEY, у каждой сцены своя доля прокрутки
+  var FPS = 20, NF = 242, FR = new Array(NF);
+  // после каждой сцены — пауза (время стоит), в конце город держится до коллекции
+  var KEY = [[0, 0], [.04, .55], [.09, .7], [.12, 1.1], [.20, 1.35], [.24, 1.6], [.30, 2.6], [.36, 3.7], [.42, 4.3], [.46, 4.5], [.56, 6.6], [.62, 8.0], [.67, 8.6], [.86, 12.05], [1, 12.05]];
+  var STAGES = [{ a: 0, label: 'Куртка' }, { a: .10, label: 'Материалы' }, { a: .23, label: 'Надевание' }, { a: .41, label: 'Образ' }, { a: .65, label: 'Город' }];
+  function timeAt(p) { for (var i = 1; i < KEY.length; i++) if (p <= KEY[i][0]) { var k = (p - KEY[i - 1][0]) / (KEY[i][0] - KEY[i - 1][0]); return KEY[i - 1][1] + (KEY[i][1] - KEY[i - 1][1]) * k; } return KEY[KEY.length - 1][1]; }
+
+  // полоска этапов
+  var rail = $('#rail');
+  STAGES.forEach(function (s, i) { var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Этап ' + (i + 1) + ': ' + s.label);
+    b.innerHTML = '<i></i><div><b>0' + (i + 1) + '</b><span>' + s.label + '</span></div>';
+    b.onclick = function () { var st = $('#top'); scrollTo({ top: st.offsetTop + (st.offsetHeight - innerHeight) * (s.a + .02), behavior: RM ? 'auto' : 'smooth' }); };
+    rail.appendChild(b); });
+  var rb = $$('#rail button'), sts = $$('.st');
+
+  // кадры грузятся по порядку; первые 30 — до показа страницы
+  var SRC = function (i) { return 'frames/vt-f' + String(i).padStart(3, '0') + '.jpg'; }, loaded = 0;
+  function loadOne(i) { return new Promise(function (ok) { var im = new Image(); im.onload = function () { FR[i] = im; loaded++; ok(); }; im.onerror = function () { ok(); }; im.src = SRC(i); }); }
+  (function chain(i) { if (i >= NF) return; loadOne(i).then(function () { if (i === 29) { $('#load').classList.add('off'); start(); } chain(i + 1); }); })(0);
+  var started = false;
+
+  var cv = $('#cv'), cx = cv.getContext('2d'), W, H, DPR;
+  function size() { DPR = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * DPR; cv.height = H * DPR; cx.setTransform(DPR, 0, 0, DPR, 0, 0); sizeSnow(); }
+  function nearest(i) { for (var d = 0; d < NF; d++) { if (FR[i - d]) return FR[i - d]; if (FR[i + d]) return FR[i + d]; } return null; }
+  // в сцене слоёв камера чуть ближе и выше — прячет лишнюю пластину внизу кадра
+  function zoomAt(t) { var up = seg(t, .85, 1.05), down = 1 - seg(t, 1.45, 1.65); return 1 + .3 * ease(Math.min(up, down)); }
+  function draw(t) {
+    var im = nearest(Math.min(NF - 1, Math.round(t * FPS))); if (!im) return;
+    var z = zoomAt(t), sc = Math.max(W / im.width, H / im.height) * z, w = im.width * sc, h = im.height * sc;
+    var fx = W < 900 ? .5 : .5, x = W / 2 - w * fx, y = (H - h) / 2 + (z - 1) * h * .3;
+    x = Math.min(0, Math.max(W - w, x)); y = Math.min(0, Math.max(H - h, y));
+    cx.drawImage(im, x, y, w, h);
+  }
+
+  var target = 0, P = 0, cur = -1;
+  function readP() { var st = $("#top"), r = st.getBoundingClientRect(); target = cl(-r.top / (st.offsetHeight - innerHeight)); }
+  function frame() {
+    P += (target - P) * (RM ? 1 : .12); if (Math.abs(target - P) < .0004) P = target;
+    cx.fillStyle = "#0B0D11"; cx.fillRect(0, 0, W, H); draw(timeAt(P));
+    var idx = 0; STAGES.forEach(function (s, i) { if (P >= s.a - .001) idx = i; });
+    if (idx !== cur) { sts.forEach(function (el, i) { el.classList.toggle("on", i === idx); }); rb.forEach(function (b, i) { b.classList.toggle("on", i === idx); b.setAttribute("aria-current", i === idx ? "step" : "false"); }); cur = idx; }
+    $("#fade").style.opacity = (.35 + .65 * ease(seg(P, .86, 1))).toFixed(3);
+    var sb = $("#top").getBoundingClientRect().bottom, out = cl((sb - innerHeight * .7) / (innerHeight * .3)).toFixed(3); $("#rail").style.opacity = out; $(".copy").style.opacity = out; /* гаснут, когда уходит история */ $("#cue").style.opacity = 1 - seg(P, 0, .04);
+    requestAnimationFrame(frame);
+  }
+
+  // снег: гуще к улице; после истории продолжается поверх коллекции (второй слой фиксирован на экране)
+  var sc = $("#snow"), sx = sc.getContext("2d"), sc2 = $("#snow2"), sx2 = sc2.getContext("2d"), story = $("#top"), fl = [];
+  function sizeSnow() { [[sc, sx], [sc2, sx2]].forEach(function (p) { p[0].width = W * DPR; p[0].height = H * DPR; p[1].setTransform(DPR, 0, 0, DPR, 0, 0); }); }
+  for (var i = 0; i < 240; i++) fl.push({ x: Math.random(), y: Math.random(), r: .5 + Math.random() * 1.8, s: .3 + Math.random() * .9, o: Math.random() * 6.28 });
+  var last = 0;
+  function flakes(c, n) { for (var i = 0; i < n; i++) { var f = fl[i]; c.globalAlpha = .25 + .6 * f.s; c.fillStyle = "#EEF2F7"; c.beginPath(); c.arc(f.x * W, f.y * H, f.r * (W < 900 ? .8 : 1), 0, 6.28); c.fill(); } c.globalAlpha = 1; }
+  function snow(t) { var dt = Math.min(50, t - (last || t)) / 16.7; last = t; sx.clearRect(0, 0, W, H); sx2.clearRect(0, 0, W, H);
+    var n = RM ? 0 : Math.round(60 + 180 * seg(P, .55, 1) + 40 * (1 - seg(P, 0, .2)));
+    for (var i = 0; i < n; i++) { var f = fl[i]; f.o += .015 * dt; f.y += (.0009 + .0013 * f.s) * dt; f.x += (Math.sin(f.o) * .0003 + .0002) * dt;
+      if (f.y > 1.02) { f.y = -.02; f.x = Math.random(); } if (f.x > 1.02) f.x = -.02; }
+    flakes(sx, n);
+    var cut = story.getBoundingClientRect().bottom; // ниже истории — коллекция и подвал
+    if (cut < H) { sx2.save(); sx2.beginPath(); sx2.rect(0, Math.max(0, cut), W, H); sx2.clip(); flakes(sx2, n); sx2.restore(); }
+    requestAnimationFrame(snow); }
+
+  function start() {
+    if (started) return; started = true;
+    size(); readP(); requestAnimationFrame(frame); requestAnimationFrame(snow);
+    if (window.anime && !RM) anime.timeline({ easing: "easeOutExpo" })
+      .add({ targets: ".hd", opacity: [0, 1], duration: 1200 })
+      .add({ targets: ".st.on > *", opacity: [0, 1], translateY: [24, 0], delay: anime.stagger(120), duration: 1300 }, 200)
+      .add({ targets: "#rail button", opacity: [0, 1], translateX: [-10, 0], delay: anime.stagger(80), duration: 900 }, 400);
+  }
+  addEventListener("scroll", readP, { passive: true });
+  addEventListener("resize", function () { size(); readP(); });
+
+  // примерка на телефоне: первое нажатие показывает человека в куртке
+  $$(".look").forEach(function (l) { l.addEventListener("click", function (e) { if (matchMedia("(hover: none)").matches) { e.preventDefault(); $$(".look").forEach(function (o) { if (o !== l) o.classList.remove("try"); }); l.classList.toggle("try"); } }); });
+
+  // технология, бренд — появляются, когда заходят на экран
+  var RV = $$(".rv");
+  function reveal() { $(".hd").classList.toggle("solid", $("#top").getBoundingClientRect().bottom < 90); for (var i = 0; i < RV.length; i++) if (!RV[i].classList.contains("in") && RV[i].getBoundingClientRect().top < innerHeight * .88) RV[i].classList.add("in"); }
+  addEventListener("scroll", reveal, { passive: true }); setTimeout(reveal, 300);
+
+  // меню
+  $("#burger").onclick = function () { $("#menu").classList.add("open"); };
+  $("#mx").onclick = function () { $("#menu").classList.remove("open"); };
+  $$("#menu a").forEach(function (a) { a.onclick = function () { $("#menu").classList.remove("open"); }; });
+
+  // карточки коллекции появляются по очереди
+  if (window.anime && !RM) { var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (!e.isIntersecting) return; io.disconnect();
+    anime({ targets: ".look", opacity: [0, 1], translateY: [40, 0], delay: anime.stagger(140), duration: 1200, easing: "easeOutExpo" }); }); }, { threshold: .2 });
+    $$(".look").forEach(function (l) { l.style.opacity = 0; }); io.observe($(".grid")); }
+})();
+</script>
+</body></html>
