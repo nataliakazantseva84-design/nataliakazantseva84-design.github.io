@@ -9,14 +9,14 @@
 <meta property="og:description" content="Сайты, приложения и UI-киты в Figma. AI-визуал и видео для рекламы.">
 <meta property="og:image" content="img/forma-cover.jpg">
 <meta name="theme-color" content="#09090A">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital@1&family=Unbounded:wght@600;700;800&display=swap">
+<link rel="preload" href="fonts/oswald-v57-TK3IWkUHHAIjg75cFRf3bXL8LICs1Fv40pKlN4NNSeSASz7FmlSHYjedg.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/greatvibes-v21-RWmMoKWR9v4ksMfaWdJN9XBiaQ6DQ.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 :root{
   --bg:#09090A; --card:#131316; --card-2:#1E1E22; --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.16);
   --text:#FFFFFF; --soft:#C0C0C8; --muted:#83838A;
-  --accent:#875AFF; --accent-hi:#9C78FF; --deep:#4A2FB8; --blue:#2563EB;
+  --accent:#E11D2E; --accent-hi:#FF3B4A; --deep:#7A0E17; --blue:#7A0E17;
   --display:"Unbounded","Onest",system-ui,sans-serif;
   --body:"Manrope","Golos Text",system-ui,sans-serif;
   --serif:"Playfair Display",Georgia,serif;
@@ -45,17 +45,17 @@ section{padding-block:clamp(80px,11vw,150px)}
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px 48px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,64px)}
 
 /* свечение за курсором и полоса прокрутки */
-.spot{position:fixed;left:0;top:0;z-index:0;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,rgba(135,90,255,.16),transparent);opacity:0;transition:opacity .6s;will-change:transform}
+.spot{position:fixed;left:0;top:0;z-index:0;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,rgba(225,29,46,.16),transparent);opacity:0;transition:opacity .6s;will-change:transform}
 .progress{position:fixed;left:0;top:0;z-index:60;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--blue),var(--accent))}
 main,footer{position:relative;z-index:1}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:700 15px/1 var(--body);border:1px solid transparent;cursor:pointer;transition:background .25s,border-color .25s,box-shadow .25s;white-space:nowrap}
 .btn svg{width:18px;height:18px;flex:none;transition:transform .25s}
 .btn:hover svg{transform:translateX(3px)}
-.btn-primary{position:relative;overflow:hidden;background:var(--accent);color:#fff;box-shadow:0 10px 40px -10px rgba(135,90,255,.7)}
+.btn-primary{position:relative;overflow:hidden;background:var(--accent);color:#fff;box-shadow:0 10px 40px -10px rgba(225,29,46,.7)}
 .btn-primary::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .7s var(--ease)}
 .btn-primary:hover::before{left:130%}
-.btn-primary:hover{background:var(--accent-hi);box-shadow:0 16px 50px -12px rgba(135,90,255,.9)}
+.btn-primary:hover{background:var(--accent-hi);box-shadow:0 16px 50px -12px rgba(225,29,46,.9)}
 .btn-ghost{border-color:var(--line-2);background:rgba(255,255,255,.03)}
 .btn-ghost:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06)}
 .btn-sm{min-height:42px;padding:0 20px;font-size:14px}
@@ -74,11 +74,11 @@ main,footer{position:relative;z-index:1}
 
 /* ---------- первый экран ---------- */
 .hero{position:relative;padding-top:clamp(116px,13vw,160px);padding-bottom:clamp(40px,5vw,72px);overflow:hidden}
-.hero::before{content:"";position:absolute;left:50%;top:-30%;width:1400px;height:1100px;transform:translateX(-30%);background:radial-gradient(closest-side,rgba(135,90,255,.26),rgba(74,47,184,.1) 55%,transparent);pointer-events:none}
+.hero::before{content:"";position:absolute;left:50%;top:-30%;width:1400px;height:1100px;transform:translateX(-30%);background:radial-gradient(closest-side,rgba(225,29,46,.26),rgba(122,14,23,.1) 55%,transparent);pointer-events:none}
 .hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.95fr);gap:clamp(24px,4vw,64px);align-items:center}
 .status{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:999px;font-size:13px;font-weight:600;color:var(--soft);margin-bottom:26px}
-.status i{width:8px;height:8px;border-radius:50%;background:var(--accent-hi);box-shadow:0 0 0 4px rgba(135,90,255,.25);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(135,90,255,0)}}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--accent-hi);box-shadow:0 0 0 4px rgba(225,29,46,.25);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(225,29,46,0)}}
 h1{margin:0;font:800 clamp(36px,7.2vw,108px)/.95 var(--display);letter-spacing:-.045em;text-transform:uppercase}
 h1 .ln{display:block;overflow:hidden;padding:.1em 0 .14em;margin:-.1em 0 -.14em}
 h1 .ln>span{display:inline-block;animation:rise 1.1s var(--ease) both}
@@ -86,20 +86,59 @@ h1 .ln:nth-child(2)>span{animation-delay:.12s}
 h1 .ln:nth-child(3)>span{animation-delay:.24s}
 @keyframes rise{from{transform:translateY(110%) rotate(3deg)}}
 h1 .it{font-size:.68em;line-height:1;padding-bottom:.12em;white-space:nowrap}
-h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--accent-hi));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise 1.1s var(--ease) .24s both,shine 6s linear 1.4s infinite}
+h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#FFB3B9,var(--accent-hi));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise 1.1s var(--ease) .24s both,shine 6s linear 1.4s infinite}
 @keyframes shine{to{background-position:-200% 0}}
 .fade{animation:fadeUp 1s var(--ease) both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}}
 .hero .lead{margin-top:26px;font-size:clamp(16px,1.4vw,19px)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 
+/* герой по её референсу: красное PORTFOLIO во всю ширину, она поверх букв, имя слева, цифры справа */
+.hero.hn{padding-top:clamp(96px,10vw,120px);padding-bottom:0}
+.hero.hn::before{left:50%;top:-10%;bottom:auto;transform:translateX(-50%);width:1300px;height:1000px;background:radial-gradient(closest-side,rgba(225,29,46,.18),rgba(122,14,23,.08) 60%,transparent)}
+.hn-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px 24px;padding-bottom:14px;border-bottom:1px solid var(--line);font:700 12px/1.5 var(--body);letter-spacing:.1em;text-transform:uppercase}
+.hn-top p{margin:0}.hn-top b{color:var(--accent-hi);font-weight:700}
+.hn-top .spark{color:var(--accent-hi);margin-left:10px}
+.hn-stage{position:relative;height:clamp(600px,86vh,900px)}
+.hn-name{position:absolute;left:0;right:0;top:clamp(10px,1.6vw,24px);margin:0;text-align:left;white-space:nowrap;font:700 clamp(60px,17vw,240px)/.86 Oswald,var(--display);letter-spacing:-.01em;text-transform:uppercase}
+.hn-name .ln{display:block;padding-top:.06em;margin-top:-.06em;transform:scaleY(1.55);transform-origin:50% 0}
+.hn-name .ln>span{background:linear-gradient(180deg,#E3192C 0%,#B5101F 45%,rgba(90,6,14,.55) 85%,rgba(40,3,8,0) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hn-photo{position:absolute;z-index:2;left:52%;bottom:0;height:calc(100% - clamp(110px,11vw,170px));aspect-ratio:750/768;translate:-50% 0;transition:transform .6s var(--ease)}
+.hn-photo img{width:100%;height:100%;object-fit:contain;object-position:50% 100%;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent);filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));animation:fadeUp 1.2s var(--ease) .2s both}
+.hn-side{position:absolute;z-index:3;bottom:clamp(28px,4vw,56px)}
+.hn-left{left:0;width:min(32%,380px)}
+.hn-hello{display:block;font:400 clamp(34px,3.4vw,52px)/1 "Great Vibes",cursive;color:#fff;margin-bottom:6px}
+.hn-who{margin:0;font:600 clamp(48px,5.6vw,88px)/.92 Oswald,var(--display);text-transform:uppercase;letter-spacing:-.005em;color:#fff}
+.hn-role{margin:14px 0 12px;font:600 clamp(16px,1.5vw,22px)/1.2 Oswald,var(--display);text-transform:uppercase;letter-spacing:.02em;color:var(--accent-hi)}
+.hn-left .lead{font-size:15px;line-height:1.55}
+.hn-geo{display:flex;align-items:center;gap:10px;margin-top:18px;font:700 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.hn-geo svg{width:18px;height:18px;color:var(--accent-hi)}
+.hn-right{right:0;width:min(24%,280px)}
+.hn-idea{display:flex;align-items:center;gap:14px;margin-bottom:clamp(28px,4vw,56px);font-size:14px;line-height:1.45;color:var(--soft)}
+.hn-idea i{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);color:#fff}
+.hn-idea svg{width:20px;height:20px}
+.hn-stat{display:flex;align-items:center;gap:20px;padding:16px 0;border-top:1px solid var(--line)}
+.hn-stat:first-of-type{border-top:0}
+.hn-stat b{min-width:2.4em;font:500 clamp(36px,3.2vw,48px)/1 Oswald,var(--display);color:var(--accent-hi)}
+.hn-stat span{font:700 11px/1.5 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+@media (max-width:900px){
+  .hn-stage{height:auto;display:flex;flex-direction:column}
+  .hn-name{position:relative;top:auto;margin-top:18px}
+  .hn-photo{position:relative;left:auto;bottom:auto;translate:none;margin:-2vw auto 0;height:auto;width:min(66vw,440px)}
+  .hn-side{position:relative;bottom:auto;width:auto;margin-top:8px}
+  .hn-left{margin-top:-60px}
+  .hn-right{margin-top:28px}
+}
+@media (max-width:720px){.hn-top{font-size:10px}.hn-hello{font-size:30px}.hn-who{font-size:44px}.hn-role{margin:10px 0 8px}.hn-left .lead{font-size:14px}}
+
 /* фото без фона */
 .portrait{position:relative;width:100%;max-width:560px;justify-self:end;animation:fadeUp 1.2s var(--ease) .2s both}
-.portrait .glow{position:absolute;left:10%;right:10%;top:18%;bottom:0;border-radius:50%;background:radial-gradient(closest-side,rgba(135,90,255,.7),rgba(74,47,184,.3) 60%,transparent);filter:blur(30px)}
+.portrait .glow{position:absolute;left:10%;right:10%;top:18%;bottom:0;border-radius:50%;background:radial-gradient(closest-side,rgba(225,29,46,.7),rgba(122,14,23,.3) 60%,transparent);filter:blur(30px)}
 .portrait .ring{position:absolute;left:50%;top:44%;width:92%;aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none}
 .portrait .ring svg{width:100%;height:100%;animation:spin 40s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .portrait .photo{position:relative;transition:transform .3s ease-out}
+.portrait .photo.real img{border-radius:32px;-webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 42%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 72% 70% at 50% 42%,#000 60%,transparent 100%)}
 .portrait .photo img{width:100%;-webkit-mask-image:linear-gradient(#000 78%,transparent 99%);mask-image:linear-gradient(#000 78%,transparent 99%)}
 .chip{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:18px;font-size:13px;font-weight:600;white-space:nowrap}
 .chip svg{width:18px;height:18px;color:var(--accent-hi);flex:none}
@@ -121,6 +160,13 @@ h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--acce
 @keyframes run{to{transform:translateX(-50%)}}
 
 /* цифры */
+.review-sec{padding-bottom:clamp(56px,7vw,96px)}
+.review{position:relative;margin:0;padding:clamp(28px,4vw,48px);border-radius:8px;background:var(--card);border:1px solid var(--line)}
+.review::before{content:"“";position:absolute;right:28px;top:-12px;font:800 160px/1 var(--display);color:var(--accent-hi);opacity:.25}
+.review .stars{color:#FFC24B;letter-spacing:4px;font-size:20px}
+.review blockquote{margin:16px 0 0;font:700 clamp(22px,2.4vw,32px)/1.3 var(--display);letter-spacing:-.02em}
+.review figcaption{margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;color:var(--muted);font-size:15px}
+.review figcaption b{color:var(--text,#fff);font-size:16px}
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding-block:clamp(56px,7vw,88px)}
 .stat{padding:28px;border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
 .stat b{display:block;font:800 clamp(40px,4.4vw,64px)/1 var(--display);letter-spacing:-.05em}
@@ -143,7 +189,7 @@ h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--acce
 .media:focus-visible{outline:2px solid var(--accent-hi);outline-offset:4px}
 .media img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,center);transition:transform .8s var(--ease)}
 .media::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.14),transparent 40%);opacity:0;transition:opacity .4s}
-.work:hover .media{border-color:rgba(135,90,255,.6)}
+.work:hover .media{border-color:rgba(225,29,46,.6)}
 .work:hover .media::after{opacity:1}
 .work:hover .media img,.media:focus-visible img{transform:scale(1.04)}
 .go{position:absolute;right:16px;top:16px;z-index:2;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:rgba(9,9,10,.5);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background .3s,transform .4s var(--ease)}
@@ -159,7 +205,7 @@ h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--acce
 .like:hover{border-color:rgba(255,255,255,.45);color:#fff}
 .like:focus-visible{outline:2px solid var(--accent-hi);outline-offset:3px}
 .like svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .3s var(--ease)}
-.like[aria-pressed="true"]{color:#fff;border-color:rgba(135,90,255,.6);background:rgba(135,90,255,.14)}
+.like[aria-pressed="true"]{color:#fff;border-color:rgba(225,29,46,.6);background:rgba(225,29,46,.14)}
 .like[aria-pressed="true"] svg{fill:var(--accent-hi);stroke:var(--accent-hi)}
 .like.pop svg{animation:heart .6s var(--ease)}
 @keyframes heart{30%{transform:scale(1.45)}60%{transform:scale(.9)}}
@@ -169,11 +215,11 @@ h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--acce
 /* ---------- услуги ---------- */
 .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .svc{position:relative;display:flex;flex-direction:column;gap:22px;padding:clamp(22px,3vw,40px);border-radius:var(--r);background:var(--card);border:1px solid var(--line);overflow:hidden;transition:border-color .3s}
-.svc::before{content:"";position:absolute;inset:0;background:radial-gradient(500px circle at var(--mx,50%) var(--my,0%),rgba(135,90,255,.16),transparent 45%);opacity:0;transition:opacity .4s;pointer-events:none}
-.svc:hover{border-color:rgba(135,90,255,.45)}
+.svc::before{content:"";position:absolute;inset:0;background:radial-gradient(500px circle at var(--mx,50%) var(--my,0%),rgba(225,29,46,.16),transparent 45%);opacity:0;transition:opacity .4s;pointer-events:none}
+.svc:hover{border-color:rgba(225,29,46,.45)}
 .svc:hover::before{opacity:1}
 .svc-top{display:flex;justify-content:space-between;align-items:center;gap:16px}
-.ico{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,rgba(37,99,235,.25),rgba(135,90,255,.35));border:1px solid rgba(135,90,255,.4)}
+.ico{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,rgba(122,14,23,.3),rgba(225,29,46,.35));border:1px solid rgba(225,29,46,.4)}
 .ico svg{width:24px;height:24px}
 .svc .num{font:700 13px/1 var(--display);color:var(--muted)}
 .svc h3{margin:0;font:700 clamp(21px,2.2vw,30px)/1.12 var(--display);letter-spacing:-.035em}
@@ -217,13 +263,14 @@ h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--acce
 @media (max-width:900px){.ai-list{grid-template-columns:1fr}.ai-row{grid-template-columns:28px 1fr auto;padding:24px 0}.ai-g{margin-top:48px}}
 .more{margin:20px 0 0;color:var(--soft);font-size:15px}
 .more b{color:#fff}
+.more a{color:#fff;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.35)}
 
 /* ---------- этапы ---------- */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .step{position:relative;padding:28px;border-radius:var(--r);border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);transition:border-color .3s,transform .4s var(--ease)}
-.step:hover{border-color:rgba(135,90,255,.45);transform:translateY(-4px)}
-.step i{display:block;font:800 56px/1 var(--display);font-style:normal;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(156,120,255,.8);margin-bottom:28px;transition:color .3s}
-.step:hover i{color:rgba(135,90,255,.25)}
+.step:hover{border-color:rgba(225,29,46,.45);transform:translateY(-4px)}
+.step i{display:block;font:800 56px/1 var(--display);font-style:normal;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(255,59,74,.8);margin-bottom:28px;transition:color .3s}
+.step:hover i{color:rgba(225,29,46,.25)}
 .step b{display:block;font-size:19px;margin-bottom:8px}
 .step span{color:var(--soft);font-size:15px}
 .pay{display:flex;align-items:center;gap:14px;margin-top:16px;padding:20px 28px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);color:var(--soft);font-size:15px}
@@ -231,9 +278,9 @@ h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--acce
 .pay b{color:#fff}
 
 /* ---------- продукты ---------- */
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,3vw,40px)}
 .product{display:flex;flex-direction:column;border-radius:var(--r);background:var(--card);border:1px solid var(--line);overflow:hidden;transition:border-color .3s}
-.product:hover{border-color:rgba(135,90,255,.45)}
+.product:hover{border-color:rgba(225,29,46,.45)}
 .p-img{aspect-ratio:1440/974;overflow:hidden}
 .p-img img{width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .8s var(--ease)}
 .product:hover .p-img img{transform:scale(1.03)}
@@ -250,7 +297,7 @@ h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--acce
 .p-tags span{font:600 13px/1 var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--line);color:var(--soft)}
 
 /* ---------- бонус ---------- */
-.bonus{position:relative;overflow:hidden;border-radius:36px;padding:clamp(28px,5vw,72px);background:radial-gradient(60% 90% at 100% 0%,rgba(156,120,255,.55),transparent 60%),linear-gradient(125deg,#2563EB 0%,#4A2FB8 45%,#875AFF 100%);background-size:100% 100%,200% 200%;animation:flow 12s ease-in-out infinite alternate}
+.bonus{position:relative;overflow:hidden;border-radius:36px;padding:clamp(28px,5vw,72px);background:radial-gradient(60% 90% at 100% 0%,rgba(255,59,74,.55),transparent 60%),linear-gradient(125deg,#3A050B 0%,#7A0E17 45%,#E11D2E 100%);background-size:100% 100%,200% 200%;animation:flow 12s ease-in-out infinite alternate}
 @keyframes flow{to{background-position:0 0,100% 100%}}
 .bonus::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 72px);-webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000);pointer-events:none}
 .bonus-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
@@ -267,7 +314,7 @@ h1 .it>span{background:linear-gradient(90deg,var(--accent-hi),#C9B6FF,var(--acce
 
 /* ---------- контакты ---------- */
 .contact{position:relative;text-align:center;overflow:hidden}
-.contact::before{content:"";position:absolute;left:50%;bottom:-40%;width:1200px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(135,90,255,.28),transparent);pointer-events:none}
+.contact::before{content:"";position:absolute;left:50%;bottom:-40%;width:1200px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(225,29,46,.28),transparent);pointer-events:none}
 .contact .eyebrow{justify-content:center}
 .contact h2{position:relative;font-size:clamp(36px,10vw,152px);line-height:.92}
 .contact h2 .it{display:block}
@@ -360,6 +407,129 @@ dialog[open]{animation:pop .45s var(--ease)}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .rv,.js .mask{opacity:1;transform:none;clip-path:none}
 }
+
+/* ---------- блоки по её референсу ---------- */
+h2{font:800 clamp(24px,2.6vw,36px)/1.1 var(--body);letter-spacing:-.01em}
+h2 .it{font-size:1.15em}
+.rf-head{display:flex;align-items:center;gap:20px 28px;flex-wrap:wrap;margin-bottom:clamp(24px,3vw,36px)}
+.rf-head h2{flex:none}
+.rf-line{flex:1;min-width:40px;height:1px;background:var(--line-2)}
+.works{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,3vw,40px) clamp(16px,2vw,24px)}
+.works .media{aspect-ratio:16/10;border-radius:6px}
+.works .media img{object-position:var(--pos,0 50%)}
+.works .badge{left:12px;bottom:12px}
+.w-info{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;cursor:pointer;padding-inline:0}
+.w-info i{min-width:1.15em;font:400 clamp(34px,3vw,44px)/1 Oswald,var(--display);font-style:normal;font-variant-numeric:tabular-nums;color:var(--accent-hi)}
+.w-info h3{font:800 15px/1.2 var(--body);letter-spacing:.02em}
+.w-info p{margin:4px 0 0;font:600 11px/1.4 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.w-arr{width:22px;height:22px;color:var(--soft);transition:transform .3s var(--ease),color .3s}
+.work:hover .w-arr{transform:translateX(6px);color:#fff}
+.rf-trio{display:grid;grid-template-columns:1fr 1fr .8fr;border-block:1px solid var(--line)}
+.rf-trio>div{padding:clamp(28px,3.4vw,48px) clamp(20px,2.6vw,40px)}
+.rf-trio>div+div{border-left:1px solid var(--line)}
+.rf-trio>div:first-child{padding-left:0}
+.rf-trio h2{margin-bottom:28px}
+.rf-sub{margin:0 0 14px;font:800 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-hi)}
+.rf-exp{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding-bottom:16px;margin:0 0 16px;border-bottom:1px solid var(--line);font-size:15px}
+.rf-exp b{color:#fff;font-weight:700}.rf-exp span{grid-column:1;color:var(--muted);font-size:14px}.rf-exp em{grid-row:1;grid-column:2;font-style:normal;color:var(--accent-hi);font-size:13px;font-weight:700}
+.rf-skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.rf-skills span{padding:9px 10px;border:1px solid var(--line-2);border-radius:4px;font:700 11px/1.2 var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--soft);text-align:center}
+.rf-steps{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.rf-steps li{position:relative;display:grid;grid-template-columns:34px 44px 1fr;align-items:start;gap:14px}
+.rf-steps li>i{font:400 24px/44px Oswald,var(--display);font-style:normal;color:var(--accent-hi)}
+.rf-steps .ic{position:relative;z-index:1;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(225,29,46,.7);background:var(--bg)}
+.rf-steps .ic svg{width:19px;height:19px}
+.rf-steps li:not(:last-child)::after{content:"";position:absolute;left:69px;top:44px;bottom:-18px;width:1px;background:rgba(225,29,46,.45)}
+.rf-steps b{display:block;margin-top:2px;font:800 13px/1.3 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-hi)}
+.rf-steps p{margin:3px 0 0;color:var(--soft);font-size:14px;line-height:1.45}
+.d-imgs video{max-height:82vh;width:auto;max-width:100%;margin-inline:auto}
+.rf-quote{position:relative;display:flex;flex-direction:column;background:linear-gradient(160deg,#B5101F,#5A060E);overflow:hidden}
+.rf-quote::before{content:"\201C";font:800 72px/.8 Georgia,serif;color:rgba(255,255,255,.85)}
+.rf-quote blockquote{margin:18px 0 0;font:500 clamp(18px,1.6vw,22px)/1.4 var(--body);color:#fff}
+.rf-sign{margin:22px 0 0;font:400 40px/1 "Great Vibes",cursive;color:#fff}
+.rf-end{margin:auto 0 0;padding-top:36px;font:800 12px/1.6 var(--body);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.rf-end span{display:block;margin-top:10px;color:#fff}
+.rf-contact{display:grid;grid-template-columns:.9fr 1fr 1.2fr;gap:clamp(24px,3vw,48px);align-items:center}
+.rf-contact h2{font-size:clamp(28px,3vw,44px);line-height:1.05}
+.rf-contact h2 .spark{color:var(--accent-hi);font-size:.6em;vertical-align:top;margin-left:8px}
+.rf-contact .lead{margin-top:18px;font-size:15px}
+.rf-free{display:inline-flex;align-items:center;gap:14px;margin-top:32px;min-height:44px;font:800 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-hi)}
+.rf-free i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--accent-hi)}
+.rf-free svg{width:18px;height:18px}
+.rf-list{display:grid}
+.rf-list>a,.rf-list>p{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:16px;min-height:64px;margin:0;border-bottom:1px solid var(--line);color:var(--soft);font-size:15px;transition:color .2s}
+.rf-list>a:hover{color:#fff}
+.rf-list i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(225,29,46,.7);color:#fff}
+.rf-list i svg{width:18px;height:18px}
+.rf-list>a>svg{width:18px;height:18px;opacity:.5}
+.rf-laptop{width:100%;max-width:560px;justify-self:end}
+.rf-screen{margin:0 7%;aspect-ratio:16/10;border:10px solid #1b1b1f;border-bottom-width:14px;border-radius:14px 14px 0 0;background:#000;overflow:hidden;box-shadow:0 30px 80px -20px rgba(225,29,46,.35)}
+.rf-screen img{width:100%;height:100%;object-fit:cover;object-position:0 50%}
+.rf-base{height:14px;border-radius:0 0 18px 18px;background:linear-gradient(#3a3a40,#17171a)}
+.rf-base::before{content:"";display:block;width:16%;height:5px;margin:0 auto;border-radius:0 0 8px 8px;background:#0c0c0e}
+.rf-links{display:flex;flex-wrap:wrap;gap:0 22px;margin-top:10px}
+.rf-links a{display:inline-flex;align-items:center;min-height:44px;font:700 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rf-links a:hover{color:#fff}
+@media (max-width:1000px){
+  .works{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rf-trio{grid-template-columns:1fr 1fr}
+  .rf-quote{grid-column:1/-1}
+  .rf-trio>div.rf-quote{border-left:0}
+  .rf-contact{grid-template-columns:1fr 1fr}.rf-laptop{grid-column:1/-1;justify-self:center}
+}
+@media (max-width:640px){
+  .works{grid-template-columns:minmax(0,1fr)}
+  .rf-trio{grid-template-columns:1fr}
+  .rf-trio>div{padding-inline:0}
+  .rf-trio>div+div{border-left:0;border-top:1px solid var(--line)}
+  .rf-trio>div.rf-quote{padding-inline:24px;margin-inline:calc(var(--pad) * -1)}
+  .rf-contact{grid-template-columns:1fr}
+  .rf-skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* ---------- бриф-анкета ---------- */
+.brief{display:grid;grid-template-columns:.8fr 1.6fr;gap:clamp(28px,4vw,64px);padding:clamp(28px,4vw,56px);border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,rgba(225,29,46,.06),transparent 40%)}
+.brief-intro .lead{margin-top:16px;font-size:15px}
+.brief-intro ol{margin:28px 0 0;padding:0;list-style:none;display:grid;gap:14px;color:var(--soft);font-size:14px}
+.brief-intro ol li{display:grid;grid-template-columns:34px 1fr;gap:10px}
+.brief-intro ol i{font:400 22px/1 Oswald,var(--display);font-style:normal;color:var(--accent-hi)}
+.bf{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px}
+.bf .full{grid-column:1/-1}
+.fl{display:grid;gap:8px;min-width:0}
+.fl>label,.fl>legend{font:800 12px/1.3 var(--body);letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:0}
+.fl>label s,.fl>legend s{text-decoration:none;color:var(--accent-hi)}
+fieldset.fl{border:0;margin:0;padding:0}
+.bf input[type=text],.bf textarea,.bf select{width:100%;min-height:48px;padding:12px 14px;border-radius:6px;border:1px solid var(--line-2);background:rgba(255,255,255,.03);color:#fff;font:400 16px/1.4 var(--body);transition:border-color .2s,background .2s}
+.bf textarea{min-height:96px;resize:vertical}
+.bf select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 15px) 21px;background-size:5px 5px;background-repeat:no-repeat}
+.bf select option{background:#131316}
+.bf input::placeholder,.bf textarea::placeholder{color:#6b6b72}
+.bf input:focus,.bf textarea:focus,.bf select:focus{outline:none;border-color:var(--accent-hi);background:rgba(225,29,46,.06)}
+.fl .hint{color:var(--muted);font-size:13px}
+.fl .err{display:none;color:#FF6B76;font-size:13px;font-weight:600}
+.fl.bad .err{display:block}
+.fl.bad input,.fl.bad textarea{border-color:#FF6B76}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative;cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line-2);border-radius:6px;font-size:14px;font-weight:600;color:var(--soft);transition:border-color .2s,color .2s,background .2s}
+.chips label:hover span{border-color:rgba(255,255,255,.4);color:#fff}
+.chips input:checked+span{border-color:var(--accent-hi);background:rgba(225,29,46,.14);color:#fff}
+.chips input:focus-visible+span{outline:2px solid var(--accent-hi);outline-offset:2px}
+.bf-send{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
+.bf-send p{margin:0;color:var(--muted);font-size:13px;max-width:44ch}
+.bf-done{display:none;grid-column:1/-1;padding:24px;border-radius:6px;border:1px solid rgba(225,29,46,.6);background:rgba(225,29,46,.08)}
+.bf-done.on{display:block}
+.bf-done b{display:block;font-size:18px;margin-bottom:6px}
+.bf-done p{margin:0 0 16px;color:var(--soft);font-size:15px}
+.bf-done textarea{display:none;margin-top:14px}
+.bf-done.manual textarea{display:block}
+.bf-done .row{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:900px){.brief{grid-template-columns:1fr}}
+@media (max-width:640px){.bf{grid-template-columns:1fr}.brief{padding:22px 18px}.bf-send .btn{flex:1 1 100%}}
+.brief-gift{margin:28px 0 0;padding:16px 18px;border-left:2px solid var(--accent-hi);background:rgba(225,29,46,.08);color:var(--soft);font-size:14px;line-height:1.5}
+.brief-gift b{color:#fff}
+.hn-left .hero-cta{margin-top:20px}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -379,6 +549,14 @@ dialog[open]{animation:pop .45s var(--ease)}
   <symbol id="i-kit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="4"/><rect x="3" y="13" width="8" height="8" rx="4"/><rect x="13" y="13" width="8" height="8" rx="2"/></symbol>
   <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6L4.5 10.5l5.6-1.9L12 3z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10.5l7 3 3 7L21 3z"/><path d="M10 13.5L21 3"/></symbol>
+  <symbol id="i-be" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h5a3 3 0 010 6H3zM3 12h5.5a3 3 0 010 6H3z"/><path d="M14 13.5h7a3.5 3.5 0 10-1 3M15 7h5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0113 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
 </svg>
 
 <div class="progress" aria-hidden="true"></div>
@@ -388,101 +566,75 @@ dialog[open]{animation:pop .45s var(--ease)}
   <div class="in">
     <a class="brand" href="#top"><b>НК</b><span>Наталья Казанцева</span></a>
     <nav aria-label="Разделы"><a href="#works">Работы</a><a href="#services">Услуги</a><a href="#process">Как работаем</a><a href="#products">Продукты</a><a href="#contacts">Контакты</a></nav>
-    <a class="btn btn-primary btn-sm nav-cta" data-link="telegram" href="#contacts">Обсудить проект</a>
+    <a class="btn btn-primary btn-sm nav-cta" href="#brief">Узнать стоимость</a>
     <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
   </div>
 </div></div>
-<div class="mmenu" id="mmenu" hidden><a href="#works">Работы</a><a href="#services">Услуги</a><a href="#process">Как работаем</a><a href="#products">Продукты</a><a href="#contacts">Контакты</a><a class="btn btn-primary" data-link="telegram" href="#contacts">Обсудить проект</a></div>
+<div class="mmenu" id="mmenu" hidden><a href="#works">Работы</a><a href="#services">Услуги</a><a href="#process">Как работаем</a><a href="#products">Продукты</a><a href="#contacts">Контакты</a><a class="btn btn-primary" href="#brief">Узнать стоимость</a></div>
 
 <main id="top">
-  <section class="hero" style="padding-inline:0">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="status glass fade" style="animation-delay:.1s"><i></i>Беру новые проекты</div>
-        <p class="eyebrow fade" style="animation-delay:.15s">UX/UI дизайнер · Омск · работаю удалённо</p>
-        <h1><span class="ln"><span>Сайты,</span></span><span class="ln"><span>которые</span></span><span class="ln it"><span>листают как кино</span></span></h1>
-        <p class="lead fade" style="animation-delay:.45s">Сайты, мобильные приложения и UI-киты в Figma. Веду человека от первого экрана до заявки — а разработчик получает аккуратный исходник.</p>
-        <div class="hero-cta fade" style="animation-delay:.55s">
-          <a class="btn btn-primary mag" href="#works">Смотреть работы<svg><use href="#i-arrow"/></svg></a>
-          <a class="hero-link" data-link="telegram" href="#contacts">или напишите в Telegram</a>
+  <section class="hero hn" style="padding-inline:0">
+    <div class="wrap">
+      <div class="hn-top fade" style="animation-delay:.1s"><p><b>UX/UI дизайнер</b><br>AI-креатор</p><p>Беру новые проекты<span class="spark">✦</span></p></div>
+      <div class="hn-stage">
+        <h1 class="hn-name" aria-label="Портфолио Натальи Казанцевой — UX/UI дизайнер"><span class="ln"><span>Портфолио</span></span></h1>
+        <div class="hn-photo"><img src="img/me-cut.webp" alt="Наталья Казанцева" width="750" height="768" fetchpriority="high"></div>
+        <div class="hn-side hn-left fade" style="animation-delay:.5s">
+          <span class="hn-hello">Привет, я</span>
+          <p class="hn-who">Наталья<br>Казанцева</p>
+          <p class="hn-role">UX/UI дизайнер<br>и AI-креатор</p>
+          <p class="lead">Делаю сайты, лендинги и приложения в Figma, которые ведут человека от первого экрана до заявки. Разработчик получает аккуратный исходник.</p>
+          <div class="hero-cta"><a class="btn btn-primary mag" href="#brief">Узнать стоимость<svg><use href="#i-arrow"/></svg></a></div>
+          <p class="hn-geo"><svg><use href="#i-web"/></svg>Работаю удалённо</p>
         </div>
-      </div>
-      <div class="portrait">
-        <div class="glow"></div>
-        <div class="ring" aria-hidden="true"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="98" fill="none" stroke="rgba(156,120,255,.45)" stroke-width=".6" stroke-dasharray="2 6"/><circle cx="100" cy="2" r="2.4" fill="#9C78FF"/></svg></div>
-        <div class="photo"><img src="img/me-cut.png" alt="Наталья Казанцева" width="750" height="768"></div>
-        <div class="chip glass float c1"><svg><use href="#i-figma"/></svg>Исходник в Figma</div>
-        <div class="chip glass float d2 c2"><div><b>17</b><small>проектов<br>в портфолио</small></div></div>
-        <div class="chip glass float d3 c3"><svg><use href="#i-layers"/></svg>Компоненты · Auto Layout</div>
+        <div class="hn-side hn-right fade" style="animation-delay:.6s">
+          <p class="hn-idea"><i><svg><use href="#i-spark"/></svg></i>Превращаю идеи в сайты, которые продают</p>
+          <div class="hn-stat"><b>17</b><span>проектов</span></div>
+          <div class="hn-stat"><b>2×</b><span>круга правок<br>в стоимости</span></div>
+          <div class="hn-stat"><b>1д</b><span>отвечаю<br>и называю цену</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="track">
-      <span>Сайты</span><span>Лендинги</span><span>Мобильные приложения</span><span>UI-киты</span><span>Прототипы</span><span>AI-визуал</span><span>AI-видео</span><span>Карточки WB и Ozon</span>
-      <span>Сайты</span><span>Лендинги</span><span>Мобильные приложения</span><span>UI-киты</span><span>Прототипы</span><span>AI-визуал</span><span>AI-видео</span><span>Карточки WB и Ozon</span>
+  <section id="works" class="wrap" style="padding-top:clamp(56px,7vw,96px)">
+    <div class="rf-head">
+      <h2 class="mask">Избранные <span class="it">проекты</span></h2><span class="rf-line"></span>
     </div>
-  </div>
-
-  <div class="wrap stats">
-    <div class="stat rv"><b data-count="17">17</b><span>проектов: сайты, приложения, UI-киты и AI-кампании</span></div>
-    <div class="stat rv" style="--d:.08s"><b><span data-count="2">2</span><em>×</em></b><span>круга правок уже входят в стоимость</span></div>
-    <div class="stat rv" style="--d:.16s"><b>50<em>/</em>50</b><span>оплата в два этапа: до старта и после сдачи</span></div>
-    <div class="stat rv" style="--d:.24s"><b>1<em>д</em></b><span>отвечаю в течение дня и сразу называю цену</span></div>
-  </div>
-
-  <section id="works" class="wrap" style="padding-top:0">
-    <div class="sec-head">
-      <div><p class="eyebrow"><i>01</i>Портфолио</p><h2 class="mask">Избранные <span class="it">работы</span></h2></div>
-      <div class="filters" role="group" aria-label="Фильтр работ">
-        <button aria-pressed="true" data-f="all">Все<sup>8</sup></button>
-        <button aria-pressed="false" data-f="app">Приложения<sup>1</sup></button>
-        <button aria-pressed="false" data-f="site">Сайты<sup>5</sup></button>
-        <button aria-pressed="false" data-f="ai">AI-визуал<sup>2</sup></button>
-      </div>
-    </div>
-
-    <!-- работы идут парами: у пары одинаковая пропорция (--row), на телефоне — своя (--own), без обрезки -->
     <div class="works" id="works-grid">
-      <article class="work wide rv" data-case="vantor" data-cat="site">
-        <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс VANTOR"><img src="img/vantor-cover.jpg" alt="Лендинг пуховиков VANTOR: куртка надевается при скролле" loading="lazy"><span class="badge">Новое</span><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
-        <div class="w-info"><div><h3>VANTOR</h3><p>Лендинг пуховиков · куртка надевается при скролле</p></div><button class="like" data-like="vantor" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
+      <article class="work rv" data-case="vantor" data-cat="site">
+        <button class="media" aria-label="Открыть кейс VANTOR"><img src="img/vantor-cover.jpg" alt="Лендинг пуховиков VANTOR: куртка надевается при скролле" loading="lazy"><span class="badge">Новое</span></button>
+        <div class="w-info"><i>01</i><div><h3>VANTOR</h3><p>Лендинг пуховиков</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
       </article>
+      <article class="work rv" data-case="noire" data-cat="site" style="--d:.8s">
+        <button class="media" aria-label="Открыть кейс NOIRÉ"><img src="img/noire-cover.jpg" alt="Лендинг кофейни NOIRÉ: кофе готовится при скролле" loading="lazy"></button>
+        <div class="w-info"><i>02</i><div><h3>NOIRÉ</h3><p>Лендинг кофейни</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+      </article>
+      <article class="work rv" data-case="blik" data-cat="site" style="--d:.16s">
+        <button class="media" aria-label="Открыть кейс БЛИК"><img src="img/blik-cover.jpg" alt="Лендинг клининга БЛИК: комната убирается при скролле" loading="lazy"></button>
+        <div class="w-info"><i>03</i><div><h3>БЛИК</h3><p>Лендинг клининга</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+      </article>
+      <article class="work rv" data-case="usadba" data-cat="site">
+        <button class="media" aria-label="Открыть кейс Усадьба"><img src="img/usadba-cover.jpg" alt="Лендинг строительной компании Усадьба" loading="lazy"></button>
+        <div class="w-info"><i>04</i><div><h3>УСАДЬБА</h3><p>Лендинг строителя домов</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+      </article>
+      <article class="work rv" data-case="cura" data-cat="app" style="--d:.8s">
+        <button class="media" aria-label="Открыть кейс CURA"><img src="img/cura-cover.jpg" alt="Приложение клиники CURA" loading="lazy"></button>
+        <div class="w-info"><i>05</i><div><h3>CURA</h3><p>Приложение клиники</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+      </article>
+      <article class="work rv" data-case="greenwood" data-cat="ai" style="--d:.16s">
+        <button class="media" aria-label="Открыть кейс Отель Гринвуд" style="--pos:50% 50%"><img src="img/greenwood-cover.jpg" alt="Новогодние видеобаннеры для отеля Гринвуд" loading="lazy"><span class="badge">Реальный заказ</span></button>
+        <div class="w-info"><i>06</i><div><h3>ОТЕЛЬ ГРИНВУД</h3><p>Видеобаннеры для РСЯ · Кворк</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+      </article>
+    </div>
+  </section>
 
-      <article class="work wide rv" data-case="noire" data-cat="site">
-        <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс NOIRÉ"><img src="img/noire-cover.jpg" alt="Лендинг кофейни NOIRÉ: кофе готовится при скролле" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
-        <div class="w-info"><div><h3>NOIRÉ</h3><p>Лендинг кофейни · кофе готовится при скролле</p></div><button class="like" data-like="noire" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
-      </article>
-
-      <article class="work wide rv" data-case="blik" data-cat="site">
-        <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс БЛИК"><img src="img/blik-cover.jpg" alt="Лендинг клининга БЛИК: комната убирается при скролле" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
-        <div class="w-info"><div><h3>БЛИК</h3><p>Лендинг клининга · комната убирается при скролле</p></div><button class="like" data-like="blik" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
-      </article>
-
-      <article class="work wide rv" data-case="granit" data-cat="site">
-        <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс ГРАНИТ"><img src="img/granit-cover.jpg" alt="Лендинг тюнинг-ателье ГРАНИТ: пикап разбирается при скролле" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
-        <div class="w-info"><div><h3>ГРАНИТ</h3><p>Лендинг тюнинг-ателье · пикап разбирается при скролле</p></div><button class="like" data-like="granit" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
-      </article>
-
-      <article class="work wide rv" data-case="usadba" data-cat="site">
-        <button class="media" style="--row:21/9;--own:21/9" aria-label="Открыть кейс Усадьба"><img src="img/usadba-cover.jpg" alt="Лендинг строительной компании Усадьба" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
-        <div class="w-info"><div><h3>Усадьба</h3><p>Лендинг строителя загородных домов · калькулятор цены</p></div><button class="like" data-like="usadba" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
-      </article>
-      <article class="work rv" data-case="cura" data-cat="app">
-        <button class="media" style="--row:16/10;--own:16/10" aria-label="Открыть кейс CURA"><img src="img/cura-cover.jpg" alt="Приложение клиники CURA" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
-        <div class="w-info"><div><h3>CURA</h3><p>Приложение клиники · запись к врачу за минуту</p></div><button class="like" data-like="cura" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
-      </article>
-<article class="work rv" data-case="velora" data-cat="ai" style="--d:.1s">
-        <button class="media" style="--row:16/10;--own:1395/910" aria-label="Открыть кейс VELORA"><img src="img/velora-cover.jpg" alt="Кампания VELORA" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
-        <div class="w-info"><div><h3>VELORA</h3><p>AI-кампания парфюма · 2 дня</p></div><button class="like" data-like="velora" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
-      </article>
-
-<article class="work wide rv" data-case="snow" data-cat="ai">
-        <button class="media" style="--row:16/9;--own:16/9" aria-label="Открыть кейс Снежная усадьба"><img src="img/snow-cover.jpg" alt="Новогодний видеобаннер для загородного отеля" loading="lazy"><span class="go"><svg><use href="#i-arrow"/></svg></span></button>
-        <div class="w-info"><div><h3>Снежная усадьба</h3><p>Новогодние видеобаннеры для РСЯ и соцсетей · живой Дед Мороз</p></div><button class="like" data-like="snow" aria-pressed="false" aria-label="Нравится"><svg><use href="#i-heart"/></svg><span>0</span></button></div>
-      </article>
-</div>
+  <section class="wrap review-sec" style="padding-top:0">
+    <figure class="review rv">
+      <div class="stars" aria-label="5 из 5">★★★★★</div>
+      <blockquote>«Всё качественно, в сроки. Спасибо, Наталья! Будем обращаться.»</blockquote>
+      <figcaption><b>Андрей</b><span>отель Гринвуд 4* & СПА · видеобаннеры к Новому году · отзыв на Кворке</span></figcaption>
+    </figure>
   </section>
 
   <section id="services" class="wrap" style="padding-top:0">
@@ -516,48 +668,110 @@ dialog[open]{animation:pop .45s var(--ease)}
         <div class="price"><b><small>от</small>900 ₽</b><span>от 1 дня</span></div>
       </article>
     </div>
-    <p class="more">Баннер — <b>от 800 ₽</b> · 2 круга правок в каждой услуге</p>
-  </section>
-
-  <section id="ai-video" class="ai-lux">
-    <div class="wrap">
-      <p class="eyebrow"><i>AI</i>Фото и видео по трендам</p>
-      <h2 class="mask ai-h">Ваше фото — <span class="it">в новом образе</span></h2>
-      <p class="ai-lead">Выберите тренд, который вам нравится, — я повторю его с вашим фото. Готово за 1–2 часа, одна правка включена.</p>
-      <div class="ai-stat"><b>30+</b><span>довольных<br>клиентов</span></div>
-      <div class="ai-g">Фото</div>
-      <div class="ai-list">
-        <div class="ai-row"><span class="ai-n">01</span><div><h3>Улучшение качества</h3><p>Старое, размытое или маленькое фото — чёткое и в высоком разрешении</p></div><div class="ai-pr"><b>150 ₽</b><span>1 фото</span></div></div>
-        <div class="ai-row"><span class="ai-n">02</span><div><h3>Аватарка для соцсетей</h3><p>Стильный портрет по вашему селфи — для ВК, Telegram, Instagram и мессенджеров</p></div><div class="ai-pr"><b>400 ₽</b><span>2 варианта</span></div></div>
-        <div class="ai-row"><span class="ai-n">03</span><div><h3>Новый образ</h3><p>Вечерний, деловой или новогодний образ по вашему фото</p></div><div class="ai-pr"><b>300 ₽</b><span>1 образ</span></div></div>
-        <div class="ai-row"><span class="ai-n">04</span><div><h3>Пакет 3 образа</h3><p>Три стиля, одно лицо во всех кадрах</p></div><div class="ai-pr"><b>700 ₽</b><span>3 фото</span></div></div>
-      </div>
-      <div class="ai-g">Видео</div>
-      <div class="ai-list">
-        <div class="ai-row ai-wide"><span class="ai-n">05</span><div><h3>Видео-тренд с вашим фото</h3><p>Выбираете любой тренд в TikTok или Reels, присылаете ссылку на ролик и своё фото — я повторяю этот тренд с вами</p></div><div class="ai-pr"><b>700 ₽</b><span>за 1–2 часа</span></div></div>
-        <div class="ai-row"><span class="ai-n">06</span><div><h3>Мультфильм с ребёнком</h3><p>Ребёнок — герой мультфильма: 3 сцены, одно лицо во всех кадрах</p></div><div class="ai-pr"><b><small>от</small>2 500 ₽</b><span>15–20 секунд</span></div></div>
-        <div class="ai-row"><span class="ai-n">07</span><div><h3>Рилс для бизнеса</h3><p>Товар или услуга в трендовом формате: эффект, текст, ваш логотип</p></div><div class="ai-pr"><b><small>от</small>1 500 ₽</b><span>до 15 секунд</span></div></div>
-      </div>
-      <div class="ai-combo"><div><span class="ai-g" style="margin:0 0 12px">Комбо · выгоднее на 300 ₽</span><h3>Аватарка + 3 образа + видео-тренд</h3><p>Всё для обновления соцсетей за один заказ</p></div><b>1 500 ₽</b></div>
-      <div class="ai-foot"><span>Афиша к мультфильму +500 ₽ · одна правка включена в каждую услугу</span><a class="btn ai-btn" href="#contacts">Заказать<svg><use href="#i-arrow"/></svg></a></div>
-    </div>
+    <p class="more">Баннер — <b>от 800 ₽</b> · 2 круга правок в каждой услуге · AI-фото и видео по трендам для личных страниц — <a href="ai.html">на отдельной странице</a></p>
   </section>
 
   <section id="process" class="wrap" style="padding-top:0">
-    <div class="sec-head">
-      <div><p class="eyebrow"><i>03</i>Как работаем</p><h2 class="mask">4 шага до <span class="it">результата</span></h2></div>
-      <p class="lead">Вы всегда знаете, на каком этапе проект и что будет дальше.</p>
+    <div class="rf-trio">
+      <div class="rv">
+        <h2>Опыт и <span class="it">навыки</span></h2>
+        <p class="rf-sub">Опыт</p>
+        <p class="rf-exp"><b>UX/UI и AI-дизайн, фриланс</b><em>2025 — сейчас</em><span>Сайты, лендинги, приложения, AI-кампании</span></p>
+        <p class="rf-exp"><b>Кворк · постоянный клиент</b><em>★★★★★</em><span>Видеобаннеры для загородного отеля</span></p>
+        <p class="rf-sub" style="margin-top:22px">Инструменты</p>
+        <div class="rf-skills"><span>Figma</span><span>Auto Layout</span><span>Прототипы</span><span>UI-киты</span><span>ChatGPT</span><span>Midjourney</span><span>Nano Banana</span><span>Kling AI</span><span>CapCut</span></div>
+      </div>
+      <div class="rv" style="--d:.08s">
+        <h2>Как я <span class="it">работаю</span></h2>
+        <ol class="rf-steps">
+          <li><i>01</i><span class="ic"><svg><use href="#i-search"/></svg></span><div><b>Задача</b><p>Узнаю цель и аудиторию, смотрю 3–5 конкурентов</p></div></li>
+          <li><i>02</i><span class="ic"><svg><use href="#i-bulb"/></svg></span><div><b>Оценка</b><p>Называю точную цену и срок до старта, работаю по договору</p></div></li>
+          <li><i>03</i><span class="ic"><svg><use href="#i-pen"/></svg></span><div><b>Дизайн</b><p>Показываю первый экран, два круга правок входят в цену</p></div></li>
+          <li><i>04</i><span class="ic"><svg><use href="#i-play"/></svg></span><div><b>Прототип</b><p>Кликабельный прототип и версия для телефона</p></div></li>
+          <li><i>05</i><span class="ic"><svg><use href="#i-send"/></svg></span><div><b>Файлы</b><p>Исходник в Figma на компонентах. Оплата 50/50, выдаю чек</p></div></li>
+        </ol>
+      </div>
+      <div class="rf-quote rv" style="--d:.16s">
+        <blockquote>Хороший дизайн — это не только как он выглядит, но и как он продаёт.</blockquote>
+        <p class="rf-sign">Наталья</p>
+        <p class="rf-end">Давайте создадим что-то сильное вместе<span>✦</span></p>
+      </div>
     </div>
-    <div class="steps">
-      <div class="step rv"><i>01</i><b>Задача</b><span>Рассказываете о проекте, я задаю пару вопросов и смотрю конкурентов</span></div>
-      <div class="step rv" style="--d:.08s"><i>02</i><b>Оценка</b><span>Называю точную цену и срок до начала работы, работаю по договору</span></div>
-      <div class="step rv" style="--d:.16s"><i>03</i><b>Дизайн</b><span>Показываю первый экран, вносим правки — два круга входят в цену</span></div>
-      <div class="step rv" style="--d:.24s"><i>04</i><b>Файлы</b><span>Отдаю готовые макеты и исходник в Figma на компонентах</span></div>
-    </div>
-    <div class="pay rv"><svg><use href="#i-shield"/></svg><span><b>Оплата в два этапа:</b> 50% перед стартом, 50% после сдачи. Работаю как самозанятая — выдаю чек.</span></div>
   </section>
 
-  <section id="products" class="wrap" style="padding-top:0">
+  <section id="brief" class="wrap" style="padding-top:0">
+    <div class="brief">
+      <div class="brief-intro rv">
+        <h2>Расскажите <span class="it">о проекте</span></h2>
+        <p class="lead">Ответьте на несколько вопросов — 5 минут, и я пойму задачу без долгой переписки. В ответ пришлю цену, срок и идею первого экрана.</p>
+        <ol>
+          <li><i>01</i>Заполните анкету, обязательных полей всего три</li>
+          <li><i>02</i>Нажмите «Узнать стоимость» — ответы скопируются и откроется мой Telegram</li>
+          <li><i>03</i>Вставьте их в чат и отправьте. Отвечу в течение дня</li>
+        </ol>
+        <p class="brief-gift"><b>Подарок к заявке:</b> бесплатный разбор вашего сайта или карточки — 3 правки, которые принесут больше заявок. А к первому заказу — AI-фото товара.</p>
+      </div>
+      <form class="bf rv" id="bf" novalidate style="--d:.08s">
+        <div class="fl" data-req><label for="bf-name">Как вас зовут <s>*</s></label><input type="text" id="bf-name" name="Имя" autocomplete="name" placeholder="Анна"><span class="err">Напишите, как к вам обращаться</span></div>
+        <div class="fl" data-req><label for="bf-contact">Как с вами связаться <s>*</s></label><input type="text" id="bf-contact" name="Связь" autocomplete="tel" placeholder="@telegram или телефон"><span class="err">Оставьте Telegram или телефон, чтобы я могла ответить</span></div>
+        <fieldset class="fl full"><legend>Что нужно сделать</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="Задача" value="Лендинг"><span>Лендинг</span></label>
+            <label><input type="checkbox" name="Задача" value="Многостраничный сайт"><span>Сайт</span></label>
+            <label><input type="checkbox" name="Задача" value="Мобильное приложение"><span>Приложение</span></label>
+            <label><input type="checkbox" name="Задача" value="Редизайн"><span>Редизайн</span></label>
+            <label><input type="checkbox" name="Задача" value="AI-визуал или видео"><span>AI-визуал</span></label>
+            <label><input type="checkbox" name="Задача" value="Карточки WB / Ozon"><span>Карточки WB / Ozon</span></label>
+          </div>
+        </fieldset>
+        <div class="fl full" data-req><label for="bf-about">Чем вы занимаетесь и что продаёте <s>*</s></label><textarea id="bf-about" name="О бизнесе" placeholder="Например: строим каркасные дома под Омском, дома от 4 млн ₽"></textarea><span class="err">Расскажите хотя бы в паре слов — без этого не смогу оценить</span></div>
+        <div class="fl"><label for="bf-who">Кто ваши клиенты</label><input type="text" id="bf-who" name="Клиенты" placeholder="Семьи 30–45 лет с детьми"></div>
+        <div class="fl"><label for="bf-goal">Главная цель</label><select id="bf-goal" name="Цель"><option value="">Выберите</option><option>Заявки и звонки</option><option>Продажи онлайн</option><option>Запись на услугу</option><option>Показать бренд и портфолио</option><option>Запуск нового продукта</option><option>Пока не знаю</option></select></div>
+        <div class="fl full"><label for="bf-refs">Сайты, которые нравятся, и конкуренты</label><textarea id="bf-refs" name="Примеры" placeholder="Ссылки и что в них нравится"></textarea><span class="hint">Если есть ваш текущий сайт — тоже добавьте ссылку</span></div>
+        <fieldset class="fl full"><legend>Что уже есть</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="Есть" value="Логотип"><span>Логотип</span></label>
+            <label><input type="checkbox" name="Есть" value="Фирменные цвета"><span>Фирменные цвета</span></label>
+            <label><input type="checkbox" name="Есть" value="Тексты"><span>Тексты</span></label>
+            <label><input type="checkbox" name="Есть" value="Фото товара или команды"><span>Фото</span></label>
+            <label><input type="checkbox" name="Есть" value="Ничего, нужно с нуля"><span>Ничего — с нуля</span></label>
+          </div>
+        </fieldset>
+        <div class="fl"><label for="bf-time">Когда нужно</label><select id="bf-time" name="Срок"><option value="">Выберите</option><option>Срочно, за неделю</option><option>За 2 недели</option><option>В течение месяца</option><option>Не горит</option></select></div>
+        <div class="fl"><label for="bf-money">Бюджет</label><select id="bf-money" name="Бюджет"><option value="">Выберите</option><option>До 15 000 ₽</option><option>15 000 – 30 000 ₽</option><option>30 000 – 50 000 ₽</option><option>Больше 50 000 ₽</option><option>Пока не знаю</option></select></div>
+        <div class="fl full"><label for="bf-more">Что ещё важно знать</label><textarea id="bf-more" name="Дополнительно" placeholder="Пожелания, сомнения, вопросы"></textarea></div>
+        <div class="bf-send full"><button class="btn btn-primary" type="submit">Узнать стоимость<svg><use href="#i-arrow"/></svg></button><p>Ответы никуда не сохраняются — они просто откроются у вас в Telegram.</p></div>
+        <div class="bf-done" id="bf-done" role="status" aria-live="polite">
+          <b>Ответы скопированы</b>
+          <p>Откроется мой Telegram — вставьте текст в чат (Ctrl+V или долгое нажатие → «Вставить») и отправьте.</p>
+          <div class="row"><a class="btn btn-primary" id="bf-tg" href="#" target="_blank" rel="noopener">Открыть Telegram<svg><use href="#i-arrow"/></svg></a><button class="btn btn-ghost" type="button" id="bf-copy">Скопировать ещё раз</button></div>
+          <textarea readonly id="bf-text" aria-label="Ваши ответы"></textarea>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="contacts" class="wrap" style="padding-top:0">
+    <div class="rf-contact">
+      <div class="rv">
+        <h2>Давайте работать <span class="it">вместе</span><span class="spark">✦</span></h2>
+        <p class="lead">Напишите, что продаёте и где. Отвечу в течение дня и сразу скажу, что можно сделать и сколько это стоит.</p>
+        <a class="rf-free" href="#brief"><i><svg><use href="#i-arrow"/></svg></i>Беру новые проекты</a>
+      </div>
+      <div class="rf-list rv" style="--d:.08s">
+        <a data-link="telegram" href="#contacts"><i><svg><use href="#i-send"/></svg></i>Написать в Telegram<svg><use href="#i-arrow"/></svg></a>
+        <a data-link="behance" href="#contacts"><i><svg><use href="#i-be"/></svg></i>Кейсы на Behance<svg><use href="#i-arrow"/></svg></a>
+        <a data-link="kwork" href="#contacts"><i><svg><use href="#i-bag"/></svg></i>Заказать на Кворке<svg><use href="#i-arrow"/></svg></a>
+        <p><i><svg><use href="#i-pin"/></svg></i>Омск · работаю удалённо<span></span></p>
+        <div class="rf-links"><a data-link="vk" href="#contacts">ВКонтакте</a><a data-link="instagram" href="#contacts">Instagram</a><a data-link="boosty" href="#contacts">Boosty</a></div>
+      </div>
+      <div class="rf-laptop rv" style="--d:.16s" aria-hidden="true">
+        <div class="rf-screen"><img src="img/noire-cover.jpg" alt="" loading="lazy"></div>
+        <div class="rf-base"></div>
+      </div>
+    </div>
+  </section>
+  <section id="products" class="wrap" style="margin-top:clamp(48px,6vw,96px);border-top:1px solid var(--line)">
     <div class="sec-head">
       <div><p class="eyebrow"><i>04</i>Продукты</p><h2 class="mask">Готовые <span class="it">продукты</span></h2></div>
       <p class="lead">PDF-курс по нейросетям и UI-киты в Figma. Покупка на Boosty, файл приходит сразу после оплаты.</p>
@@ -590,31 +804,6 @@ dialog[open]{animation:pop .45s var(--ease)}
       </article>
     </div>
   </section>
-
-  <section id="bonus" class="wrap" style="padding-top:0">
-    <div class="bonus rv">
-      <div class="bonus-grid">
-        <div>
-          <p class="eyebrow" style="color:rgba(255,255,255,.8)"><i style="color:#fff">05</i>Бонус</p>
-          <h2>Попробуйте <span class="it">без риска</span></h2>
-          <p class="lead">Сначала покажу, что можно улучшить на вашем сайте или в карточке. Решение о заказе — после.</p>
-          <a class="btn mag" data-link="telegram" href="#contacts">Получить разбор<svg><use href="#i-arrow"/></svg></a>
-        </div>
-        <div class="gift">
-          <div><i>01</i><p style="margin:0"><b>Бесплатный разбор</b><span>Смотрю ваш сайт или карточку и присылаю 3 конкретные правки, которые помогут получать больше заявок</span></p></div>
-          <div><i>02</i><p style="margin:0"><b>AI-фото в подарок</b><span>К первому заказу сайта или карточек — одно AI-фото товара бесплатно</span></p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contacts" class="wrap contact" style="padding-top:0">
-    <p class="eyebrow"><i>06</i>Контакты</p>
-    <h2 class="mask">Обсудим <span class="it">ваш проект</span></h2>
-    <p class="lead">Напишите, что продаёте и где. Отвечу в течение дня и сразу скажу, что можно сделать и сколько это стоит.</p>
-    <div class="c-actions"><a class="btn btn-primary mag" data-link="telegram" href="#contacts">Написать в Telegram<svg><use href="#i-arrow"/></svg></a><a class="btn btn-ghost mag" data-link="behance" href="#contacts">Кейсы на Behance</a></div>
-    <div class="links"><a data-link="kwork" href="#contacts">Кворк</a><a data-link="instagram" href="#contacts">Instagram</a><a data-link="vk" href="#contacts">ВКонтакте</a><a data-link="boosty" href="#contacts">Boosty</a></div>
-  </section>
 </main>
 
 <footer class="wrap"><span>© 2026 Наталья Казанцева</span><span>Самозанятая · Омск · работаю удалённо</span></footer>
@@ -622,7 +811,6 @@ dialog[open]{animation:pop .45s var(--ease)}
 <div class="stats-panel glass" id="stats-panel" aria-live="polite">
   <svg width="22" height="22" style="color:var(--accent-hi)"><use href="#i-eye"/></svg>
   <div><b data-stat="visits">…</b>посещений</div>
-  <div><b data-stat="likes">…</b>лайков</div>
 </div>
 
 <dialog id="case" aria-labelledby="case-title">
@@ -691,7 +879,53 @@ dialog[open]{animation:pop .45s var(--ease)}
   if (owner) {
     var panel = document.getElementById("stats-panel"); panel.classList.add("on");
     visitCall.then(function (v) { panel.querySelector('[data-stat="visits"]').textContent = v === null ? "—" : v; });
-    Promise.all(likeCalls).then(function (a) { panel.querySelector('[data-stat="likes"]').textContent = a.reduce(function (s, v) { return s + v; }, 0); });
+  }
+
+  // ---------- Слово на первом экране тянется ровно на ширину контейнера ----------
+  var fitWord = document.querySelector(".hn-name"), fitSpan = fitWord && fitWord.querySelector(".ln>span");
+  // подгоняем по краям самих букв, а не по их полям: у «П» и «О» в Oswald поля 0.05em и 0.046em
+  function fitHero() {
+    if (!fitSpan) return;
+    fitWord.style.fontSize = ""; fitSpan.style.marginLeft = "";
+    var fs = parseFloat(getComputedStyle(fitSpan).fontSize), ink = fitSpan.getBoundingClientRect().width - .086 * fs;
+    var k = fitWord.clientWidth / ink;
+    fitWord.style.fontSize = fs * k + "px";
+    fitSpan.style.marginLeft = -.05 * fs * k + "px";
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHero); else fitHero();
+  addEventListener("resize", fitHero);
+
+  // ---------- Бриф: собираем ответы в текст, копируем и открываем Telegram ----------
+  var bf = document.getElementById("bf");
+  if (bf) {
+    var bfDone = document.getElementById("bf-done"), bfText = document.getElementById("bf-text"), tg = LINKS.telegram;
+    document.getElementById("bf-tg").href = tg;
+    function bfCopy(t) {
+      bfText.value = t;
+      var ok = function () { bfDone.classList.remove("manual"); }, fail = function () { bfDone.classList.add("manual"); bfText.select(); };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(ok, fail); else fail();
+    }
+    bf.addEventListener("input", function (e) { var f = e.target.closest(".fl"); if (f) f.classList.remove("bad"); });
+    bf.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var first = null;
+      bf.querySelectorAll("[data-req]").forEach(function (f) {
+        var el = f.querySelector("input,textarea"), bad = !el.value.trim();
+        f.classList.toggle("bad", bad); if (bad && !first) first = el;
+      });
+      if (first) { first.focus(); return; }
+      var lines = ["Заявка с сайта", ""];
+      bf.querySelectorAll(".fl").forEach(function (f) {
+        var boxes = f.querySelectorAll("input[type=checkbox]:checked"), el = f.querySelector("input[type=text],textarea,select");
+        if (f.tagName === "FIELDSET") { if (boxes.length) lines.push(boxes[0].name + ": " + [].map.call(boxes, function (x) { return x.value; }).join(", ")); }
+        else if (el && el.value.trim()) lines.push(el.name + ": " + el.value.trim());
+      });
+      bfCopy(lines.join("\n"));
+      bfDone.classList.add("on");
+      window.open(tg, "_blank", "noopener");
+      bfDone.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    });
+    document.getElementById("bf-copy").addEventListener("click", function () { bfCopy(bfText.value); });
   }
 
   // ---------- Фильтр работ ----------
@@ -748,8 +982,8 @@ dialog[open]{animation:pop .45s var(--ease)}
       b.addEventListener("pointermove", function (e) { var r = b.getBoundingClientRect(); b.style.transform = "translate(" + (e.clientX - r.left - r.width / 2) * .18 + "px," + (e.clientY - r.top - r.height / 2) * .3 + "px)"; });
       b.addEventListener("pointerleave", function () { b.style.transform = ""; });
     });
-    var photo = document.querySelector(".portrait .photo"), hero = document.querySelector(".hero");
-    hero.addEventListener("pointermove", function (e) { var dx = e.clientX / innerWidth - .5, dy = e.clientY / innerHeight - .5; photo.style.transform = "translate(" + dx * -14 + "px," + dy * -10 + "px)"; });
+    var photo = document.querySelector(".hn-photo"), hero = document.querySelector(".hero");
+    if (photo && hero) hero.addEventListener("pointermove", function (e) { var dx = e.clientX / innerWidth - .5, dy = e.clientY / innerHeight - .5; photo.style.transform = "translate(" + dx * -14 + "px," + dy * -10 + "px)"; });
   }
 
   // ---------- Окно кейса ----------
@@ -759,6 +993,7 @@ dialog[open]{animation:pop .45s var(--ease)}
     blik: { title: "БЛИК", sub: "Лендинг клининговой компании · концепт", liveNote: "Полистайте живой сайт — комната убирается при скролле", live: "blik/", task: "Первый экран для клининга, который сразу показывает результат уборки и подводит к заявке.", done: "Две AI-фотографии одной комнаты — до и после. При прокрутке полоса, как стяжка по стеклу, стирает беспорядок, вдоль неё летят искры. В конце — оффер и одна кнопка. Ниже услуги с ценами, три шага, отзывы и форма с подсказками у полей.", scope: "Лендинг целиком: десктоп и мобильная версия, живая страница.", imgs: ["blik-overview", "blik-statement", "blik-ba", "blik-scroll.mp4", "blik-mobile", "blik-ui", "blik-thanks"] },
     granit: { title: "ГРАНИТ", sub: "Лендинг тюнинг-ателье · концепт первого экрана", noBehance: true, task: "Первый экран с «мощным визуалом» для магазина тюнинга пикапов: посетитель залипает и сразу видит, что можно поставить на свою машину.", done: "Пикап разбирается на детали прямо при скролле. На каждой детали точка с ценой, по клику — карточка с характеристиками и заявкой. AI-визуал: машина, разборка и 10 предметных кадров деталей.", scope: "Первый экран и каталог, десктоп и мобильная версия, макет и прототип в Figma.", imgs: ["granit-razborka.mp4", "granit-states", "granit-tochki.mp4", "granit-parts", "granit-mobile", "granit-process"] },
     snow: { title: "Снежная усадьба", sub: "Новогодние видеобаннеры для отеля · концепт", noBehance: true, task: "Рекламные видеобаннеры к Новому году для загородного отеля: остановить взгляд в ленте и за 14 секунд донести оффер — даты, «всё включено», цену и кнопку брони.", done: "Стиль бордо и золото, Дед Мороз оживлён нейросетью, текст появляется по строкам, фото праздника в рамках, пульсирующая кнопка. Логотип, тексты и фото — свои.", scope: "Форматы 16:9, 1:1 и 9:16 по требованиям РСЯ: MP4, 1080p, до 15 секунд. Подходит отелям, ресторанам, салонам и магазинам.", imgs: ["snow-banner.mp4", "snow-cover", "snow-1x1", "snow-9x16"] },
+    greenwood: { title: "Отель Гринвуд 4* & СПА", sub: "Новогодние видеобаннеры · реальный заказ на Кворке", noBehance: true, task: "Рекламные видеобаннеры к Новому году для загородного отеля в Подмосковье: остановить взгляд в ленте и за 14 секунд донести оффер — даты, «всё включено», цену и кнопку брони.", done: "Стиль бордо и золото, Дед Мороз оживлён нейросетью, текст появляется по строкам, фото праздничной программы в золотых рамках, логотип и тексты клиента. Клиент утвердил стиль с первого показа и оставил отзыв 5★.", scope: "5 видеобаннеров 16:9, 1:1 и 9:16 по требованиям РСЯ (MP4, 1080p, до 15 секунд) + нарезка роликов с праздников. 3 дня.", imgs: ["greenwood-16x9.mp4", "greenwood-offer", "greenwood-show", "greenwood-kids", "greenwood-v.mp4", "greenwood-1x1"] },
     anya: { title: "Малышка Аня", sub: "AI-мультфильм по фото ребёнка", noBehance: true, task: "Сделать мультфильм, где главная героиня — настоящий ребёнок: узнаваемая и одинаковая в каждом кадре.", done: "Персонаж по фото, развороты и палитра героини, 12 эмоций, раскадровка из 6 сцен, анимация и афиша премьеры.", scope: "Подойдёт для подарка на день рождения, семейных видео, детских брендов и блогеров.", imgs: ["anya-character", "anya-emotions", "anya-scenes", "anya-butterfly.mp4", "anya-poster", "anya-forwho"] },
     usadba: { title: "Усадьба", sub: "Лендинг строителя загородных домов", behance: "https://www.behance.net/gallery/256620375/lending-stroitelnoj-kompanii-zagorodnyh-domov", task: "Сайт, после которого семья оставит заявку на дом за 7–10 млн ₽. Снять страхи: рост сметы, срыв сроков, стройку «вслепую».", done: "Тёмный стиль с сеткой чертежа и стеклом, живой калькулятор с чертежом фасада, дом собирается по слоям при скролле, дизайн-система в Figma.", scope: "Лендинг на 9 блоков, версии 1440 и 390 px, макеты и компоненты в Figma.", imgs: ["usadba-hero", "usadba-calc", "usadba-projects", "usadba-stages", "usadba-mobile"] },
     cura: { title: "CURA", sub: "Приложение клиники", task: "Записаться к врачу за минуту — без звонков в регистратуру и очередей.", done: "Путь пациента, вайрфреймы, 9 экранов, дизайн-система на 23 переменных, пак из 37 иконок, прототип. Проверила контраст по WCAG.", scope: "iOS: главная, поиск по симптому, список врачей, карточка врача, время, оформление с оплатой, визиты, профиль.", imgs: ["cura-cover", "cura-screens", "cura-flow", "cura-ds"] },
@@ -773,6 +1008,7 @@ dialog[open]{animation:pop .45s var(--ease)}
     velora: { title: "VELORA", sub: "AI-кампания парфюма", task: "Рекламная кампания парфюма класса люкс без фотосъёмки.", done: "Концепция, мудборд, AI-модель с одним лицом, предметные кадры, раскадровка ролика.", scope: "Полный визуал кампании и видео за 2 дня.", imgs: ["velora-cover", "velora-model"] }
   };
   var dlg = document.getElementById("case");
+  document.querySelectorAll(".work .w-info").forEach(function (w) { w.addEventListener("click", function () { w.parentNode.querySelector(".media").click(); }); });
   document.querySelectorAll(".work .media").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var c = CASES[btn.closest(".work").dataset.case];
