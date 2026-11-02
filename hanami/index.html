@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ханами — туры на цветение сакуры 2027</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{--ink:#0E0A10;--paper:#F8EFEA;--soft:rgba(248,239,234,.76);--beni:#F0475A;--line:rgba(248,239,234,.28);--serif:"Cormorant",serif;--sans:"Manrope",sans-serif;--jp:"Noto Serif JP",serif}
+*{box-sizing:border-box;margin:0}html{background:var(--ink);scroll-behavior:auto}body{background:var(--ink);color:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+#track{height:1500vh}
+#stage{position:fixed;inset:0;overflow:hidden;background:var(--ink)}
+.scene{position:absolute;inset:0;opacity:0;will-change:transform,opacity}
+.scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+#scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(270deg,rgba(14,10,16,.72) 0%,rgba(14,10,16,.42) 9%,rgba(14,10,16,0) 19%),linear-gradient(90deg,rgba(14,10,16,.78) 0%,rgba(14,10,16,.42) 38%,rgba(14,10,16,0) 66%),linear-gradient(0deg,rgba(14,10,16,.72) 0%,rgba(14,10,16,0) 36%),linear-gradient(180deg,rgba(14,10,16,.55) 0%,rgba(14,10,16,0) 18%)}
+#film{position:absolute;inset:0;width:100%;height:100%;display:block}#dim{position:absolute;inset:0;background:#0E0A10;opacity:0;pointer-events:none}
+header{position:fixed;z-index:5;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:26px 56px}
+.logo{display:flex;align-items:center;gap:12px;font:500 28px var(--serif)}.logo b{font:500 26px var(--jp);color:var(--beni)}
+nav{display:flex;gap:36px;font:700 14px var(--sans)}nav a{min-height:44px;display:flex;align-items:center;color:var(--soft);transition:color .2s cubic-bezier(.2,.8,.2,1)}nav a:hover{color:var(--paper)}
+#burger{display:none;width:44px;height:44px;background:none;border:0;color:inherit;padding:10px;cursor:pointer}#burger i{display:block;height:2px;background:currentColor;margin:6px 0}
+.txt{position:fixed;z-index:3;left:56px;bottom:150px;max-width:min(980px,calc(100vw - 200px));opacity:0;pointer-events:none;will-change:transform,opacity}
+.txt.on{pointer-events:auto}
+.kicker{font:800 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--paper);margin-bottom:18px;display:flex;gap:14px;align-items:baseline}
+.kicker em{white-space:nowrap;font:500 26px var(--jp);color:var(--beni);font-style:normal;letter-spacing:0}
+h1,h2{font-family:var(--serif);font-weight:500;line-height:.98;letter-spacing:-.01em}
+h1{font-size:clamp(58px,7.4vw,112px)}h2{font-size:clamp(50px,6.6vw,100px)}h1 i,h2 i{color:#FFC3CB}
+.txt p{font-size:18px;line-height:1.5;color:var(--soft);margin-top:20px;max-width:500px}
+.facts{margin-top:18px;font:700 15px var(--sans);color:var(--paper)}
+#cta{position:fixed;z-index:6;left:56px;bottom:52px;display:flex;align-items:center;gap:18px;height:64px;padding:0 34px;border-radius:999px;background:var(--beni);color:#fff;font:800 17px var(--sans);transition:transform .18s cubic-bezier(.2,.8,.2,1),background .18s}
+#cta:hover{background:#FF5A6C}#cta:active{transform:scale(.97)}
+#ctaPrice{font-weight:700;opacity:.92;padding-left:18px;border-left:1px solid rgba(255,255,255,.45)}
+#rail{position:fixed;z-index:4;right:56px;top:50%;transform:translateY(-50%);height:320px;width:64px}
+#rail:before{content:"";position:absolute;right:6px;top:0;bottom:0;width:1px;background:var(--line)}
+#railDot{position:absolute;right:1px;top:0;width:11px;height:11px;border-radius:50%;background:var(--beni)}
+.st{position:absolute;right:26px;transform:translateY(-50%);min-height:44px;display:flex;align-items:center;font:700 13px var(--sans);white-space:nowrap;color:var(--soft);text-shadow:0 0 12px rgba(14,10,16,.9);transition:color .2s}.st.on{color:var(--paper)}
+#stats{display:flex;gap:44px;margin-top:30px}#stats b{display:block;font:500 54px/1 var(--serif)}#stats span{font:700 13px var(--sans);color:var(--soft)}
+#menu{position:fixed;inset:0;z-index:7;background:var(--ink);display:none;flex-direction:column;justify-content:center;gap:10px;padding:32px;font:500 44px var(--serif)}#menu.open{display:flex}#menu a{min-height:56px}#menuX{position:absolute;top:18px;right:18px;width:44px;height:44px;background:none;border:0;color:var(--paper);font:500 30px var(--sans);cursor:pointer}
+a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.txt[data-s="4"]{bottom:44px}
+#cta{transition:transform .18s cubic-bezier(.2,.8,.2,1),background .18s,opacity .24s cubic-bezier(.2,.8,.2,1)}
+#cta.off{opacity:0;pointer-events:none}
+#lead{display:grid;grid-template-columns:240px 240px auto;gap:6px 14px;margin-top:26px;align-items:start}
+.fld label{display:block;font:700 13px var(--sans);margin-bottom:6px}
+.fld input{width:100%;height:56px;padding:0 16px;border-radius:12px;border:1px solid rgba(248,239,234,.5);background:rgba(14,10,16,.62);color:var(--paper);font:500 16px var(--sans);outline:0;transition:border-color .16s}
+.fld input:focus{border-color:var(--paper)}.fld input[aria-invalid=true]{border-color:#FF8A96}
+.err{display:block;min-height:20px;margin-top:4px;font:700 13px var(--sans);color:#FFB3BB}
+#send{height:56px;margin-top:22px;padding:0 30px;border:0;border-radius:999px;background:var(--beni);color:#fff;font:800 16px var(--sans);cursor:pointer;transition:transform .18s cubic-bezier(.2,.8,.2,1),background .18s}
+#send:hover{background:#FF5A6C}#send:active{transform:scale(.97)}
+#lead small{grid-column:1/-1;font:500 12px var(--sans);color:var(--soft)}
+.txt #thanks{font:500 30px/1.2 var(--serif);color:var(--paper);margin-top:26px;max-width:640px}
+#concept{position:fixed;z-index:6;right:56px;bottom:30px;font:700 12px var(--sans);color:var(--soft);min-height:44px;display:flex;align-items:center}#concept:hover{color:var(--paper)}
+#thanks a{color:#FFC3CB;text-decoration:underline}
+@media(max-width:820px){
+ .dsk{display:none}
+ #concept{right:auto;left:20px;bottom:auto;top:62px;font-size:11px}
+ header{padding:14px 20px}nav,#rail{display:none}#burger{display:block}.logo{font-size:24px}
+ .txt{left:20px;right:20px;bottom:104px;max-width:none}h1{font-size:44px}h2{font-size:46px}.txt p{font-size:16px;margin-top:12px}
+ #scrim{background:linear-gradient(0deg,rgba(14,10,16,.92) 0%,rgba(14,10,16,.62) 42%,rgba(14,10,16,0) 68%),linear-gradient(180deg,rgba(14,10,16,.5) 0%,rgba(14,10,16,0) 16%)}
+ #cta{left:20px;right:20px;bottom:24px;height:58px;justify-content:center;padding:0 18px;font-size:16px}
+ .txt[data-s="4"]{bottom:18px}
+ #lead{grid-template-columns:1fr;gap:2px;margin-top:14px}.fld input{height:48px}.fld label{margin-bottom:4px}.err{min-height:16px;margin-top:2px;font-size:12px}
+ #send{width:100%;height:54px;margin-top:2px;padding:0 12px}#lead small{margin-top:8px;font-size:11px}
+ #stats{gap:22px;margin-top:14px}#stats b{font-size:38px}#stats span{font-size:12px}
+}
+</style></head><body>
+<div id="track"></div>
+<div id="stage">
+ <canvas id="film" role="img" aria-label="Полёт камеры: вечерний тоннель сакуры, замок ночью, склоны Ёсино на закате, мост надо рвом с лепестками"></canvas>
+ <div id="scrim"></div><div id="dim"></div>
+</div>
+<header><a class="logo" href="#0"><b>花</b>Ханами</a>
+ <nav><a href="#1">Кюсю</a><a href="#2">Кансай</a><a href="#3">Хоккайдо</a><a href="#4">О нас</a></nav>
+ <button id="burger" aria-label="Открыть меню"><i></i><i></i><i></i></button></header>
+<div id="menu"><button id="menuX" aria-label="Закрыть меню">×</button><a href="#1">Кюсю</a><a href="#2">Кансай</a><a href="#3">Хоккайдо</a><a href="#4">О нас</a></div>
+<section class="txt" data-s="0"><div class="kicker"><em>桜前線</em><span>Один тур · 5–6 недель<span class="dsk"> · сезон 2027</span></span></div><h1>Один тур —<br><i>три цветения сакуры</i></h1><p>Полное цветение в одном городе держится пять–семь дней. Мы едем за волной с юга на север: три цветения за один тур.</p></section>
+<section class="txt" data-s="1"><div class="kicker"><em>南</em>Конец марта · Фукуока — Нагасаки</div><h2>Кюсю<br><i>первое цветение</i></h2><p>Цветение начинается на юге, толп заметно меньше, чем в Киото.</p></section>
+<section class="txt" data-s="2"><div class="kicker"><em>京</em>Первая декада апреля · Киото — Нара — Ёсино</div><h2>Кансай<br><i>второе цветение</i></h2><p>Классика ханами: подъём по склону Ёсино, где цветение идёт снизу вверх две недели.</p></section>
+<section class="txt" data-s="3"><div class="kicker"><em>北</em>Начало мая · Хиросаки — Саппоро</div><h2>Хоккайдо<br><i>третье цветение</i></h2><p>Волна доходит до севера: 2 600 деревьев у замка и лепестковый ров на закате.</p></section>
+<section class="txt" data-s="4"><div class="kicker"><em>満開</em>5–6 недель · сезон 2027</div><h2>Поймать сакуру<br><i>в полном цвету</i></h2><div id="stats"><div><b>9 лет</b><span>возим на ханами</span></div><div><b>8–12</b><span>человек в группе</span></div><div><b>96%</b><span>заездов в пик</span></div></div>
+ <form id="lead" novalidate>
+  <div class="fld"><label for="fName">Ваше имя</label><input id="fName" name="name" autocomplete="name" aria-describedby="eName"><span class="err" id="eName" role="alert"></span></div>
+  <div class="fld"><label for="fPhone">Телефон</label><input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7" aria-describedby="ePhone"><span class="err" id="ePhone" role="alert"></span></div>
+  <button id="send" type="submit">Получить программу и цену</button>
+  <small>Демо-форма концепта: данные никуда не отправляются и не сохраняются</small>
+ </form>
+ <p id="thanks" role="status" hidden></p></section>
+<a id="concept" href="../">Концепт · места и цифры условные · ← в портфолио</a>
+<div id="rail" aria-hidden="true"><span id="railDot"></span></div>
+<a id="cta" href="#4"><span id="ctaLabel">Узнать даты и цену</span></a>
+<script>
+const FRAMES = ["frames/f000.webp","frames/f001.webp","frames/f002.webp","frames/f003.webp","frames/f004.webp","frames/f005.webp","frames/f006.webp","frames/f007.webp","frames/f008.webp","frames/f009.webp","frames/f010.webp","frames/f011.webp","frames/f012.webp","frames/f013.webp","frames/f014.webp","frames/f015.webp","frames/f016.webp","frames/f017.webp","frames/f018.webp","frames/f019.webp","frames/f020.webp","frames/f021.webp","frames/f022.webp","frames/f023.webp","frames/f024.webp","frames/f025.webp","frames/f026.webp","frames/f027.webp","frames/f028.webp","frames/f029.webp","frames/f030.webp","frames/f031.webp","frames/f032.webp","frames/f033.webp","frames/f034.webp","frames/f035.webp","frames/f036.webp","frames/f037.webp","frames/f038.webp","frames/f039.webp","frames/f040.webp","frames/f041.webp","frames/f042.webp","frames/f043.webp","frames/f044.webp","frames/f045.webp","frames/f046.webp","frames/f047.webp","frames/f048.webp","frames/f049.webp","frames/f050.webp","frames/f051.webp","frames/f052.webp","frames/f053.webp","frames/f054.webp","frames/f055.webp","frames/f056.webp","frames/f057.webp","frames/f058.webp","frames/f059.webp","frames/f060.webp","frames/f061.webp","frames/f062.webp","frames/f063.webp","frames/f064.webp","frames/f065.webp","frames/f066.webp","frames/f067.webp","frames/f068.webp","frames/f069.webp","frames/f070.webp","frames/f071.webp","frames/f072.webp","frames/f073.webp","frames/f074.webp","frames/f075.webp","frames/f076.webp","frames/f077.webp","frames/f078.webp","frames/f079.webp","frames/f080.webp","frames/f081.webp","frames/f082.webp","frames/f083.webp","frames/f084.webp","frames/f085.webp","frames/f086.webp","frames/f087.webp","frames/f088.webp","frames/f089.webp","frames/f090.webp","frames/f091.webp","frames/f092.webp","frames/f093.webp","frames/f094.webp","frames/f095.webp","frames/f096.webp","frames/f097.webp","frames/f098.webp","frames/f099.webp","frames/f100.webp","frames/f101.webp","frames/f102.webp","frames/f103.webp","frames/f104.webp","frames/f105.webp","frames/f106.webp","frames/f107.webp","frames/f108.webp","frames/f109.webp","frames/f110.webp","frames/f111.webp","frames/f112.webp","frames/f113.webp","frames/f114.webp","frames/f115.webp","frames/f116.webp","frames/f117.webp","frames/f118.webp","frames/f119.webp","frames/f120.webp","frames/f121.webp","frames/f122.webp","frames/f123.webp","frames/f124.webp","frames/f125.webp","frames/f126.webp","frames/f127.webp","frames/f128.webp","frames/f129.webp","frames/f130.webp","frames/f131.webp","frames/f132.webp","frames/f133.webp","frames/f134.webp","frames/f135.webp","frames/f136.webp","frames/f137.webp","frames/f138.webp","frames/f139.webp","frames/f140.webp","frames/f141.webp","frames/f142.webp","frames/f143.webp","frames/f144.webp","frames/f145.webp","frames/f146.webp","frames/f147.webp","frames/f148.webp","frames/f149.webp","frames/f150.webp","frames/f151.webp","frames/f152.webp","frames/f153.webp","frames/f154.webp","frames/f155.webp","frames/f156.webp","frames/f157.webp","frames/f158.webp","frames/f159.webp","frames/f160.webp","frames/f161.webp","frames/f162.webp","frames/f163.webp","frames/f164.webp","frames/f165.webp","frames/f166.webp","frames/f167.webp","frames/f168.webp","frames/f169.webp","frames/f170.webp","frames/f171.webp","frames/f172.webp","frames/f173.webp","frames/f174.webp","frames/f175.webp","frames/f176.webp","frames/f177.webp","frames/f178.webp","frames/f179.webp","frames/f180.webp","frames/f181.webp","frames/f182.webp","frames/f183.webp","frames/f184.webp","frames/f185.webp","frames/f186.webp","frames/f187.webp","frames/f188.webp","frames/f189.webp","frames/f190.webp","frames/f191.webp","frames/f192.webp","frames/f193.webp","frames/f194.webp","frames/f195.webp","frames/f196.webp","frames/f197.webp","frames/f198.webp","frames/f199.webp","frames/f200.webp","frames/f201.webp","frames/f202.webp","frames/f203.webp","frames/f204.webp","frames/f205.webp","frames/f206.webp","frames/f207.webp","frames/f208.webp","frames/f209.webp","frames/f210.webp","frames/f211.webp","frames/f212.webp","frames/f213.webp","frames/f214.webp","frames/f215.webp","frames/f216.webp","frames/f217.webp","frames/f218.webp","frames/f219.webp","frames/f220.webp","frames/f221.webp","frames/f222.webp","frames/f223.webp","frames/f224.webp","frames/f225.webp"];
+// Сайт-кино: прокрутка ведёт по кадрам видео. Текст показан только на спокойных участках, в пролётах экран чистый.
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const DUR = (FRAMES.length - 1) / 15, END = .84;
+// скорость видео от прокрутки: на местах медленно, чтобы успеть прочитать, в пролётах быстро; после END финал на последнем кадре
+const KEYS = [[0, 0], [.14, 1.7], [.2, 3.5], [.37, 6], [.46, 9], [.62, 11.5], [.69, 13], [END, DUR]];
+const tOf = u => { if (u >= END) return DUR; for (let i = 1; i < KEYS.length; i++) if (u <= KEYS[i][0]) { const [a, x] = KEYS[i - 1], [b, y] = KEYS[i]; return x + (y - x) * (u - a) / (b - a); } return DUR; };
+const uOf = t => { for (let i = 1; i < KEYS.length; i++) if (t <= KEYS[i][1]) { const [a, x] = KEYS[i - 1], [b, y] = KEYS[i]; return a + (b - a) * (t - x) / (y - x); } return END; };
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const win = (t, a, b, f = .45) => Math.min(clamp((t - a) / f), clamp((b - t) / f));
+const STOPS = [.6, 4.6, 10.1, 14.1];  // спокойные точки сцен, секунды видео
+const texts = [...document.querySelectorAll(".txt")], film = document.getElementById("film"), g = film.getContext("2d"), dim = document.getElementById("dim");
+const dot = document.getElementById("railDot"), rail = document.getElementById("rail");
+const STN = [["Старт", 0], ["Кюсю", 1], ["Кансай", 2], ["Хоккайдо", 3], ["О нас", 4]].map(([k, i]) => { const e = document.createElement("span"); e.className = "st"; e.textContent = k; e.style.top = i / 4 * 100 + "%"; rail.append(e); return e; });
+// кадры декодируем постепенно, пока грузятся — показываем ближайший готовый
+const imgs = new Array(FRAMES.length); let drawn = -1, W, H;
+function load(i) { const im = new Image(); im.onload = () => { imgs[i] = im; drawn = -1; }; im.src = FRAMES[i]; }
+load(0); (async () => { const last = innerWidth < 820 ? 2 : 1; for (let step = 16; step >= last; step = step >> 1) { const q = []; for (let i = 0; i < FRAMES.length; i += step) if (!imgs[i] && !q.includes(i)) q.push(i); for (let k = 0; k < q.length; k += 6) await Promise.all(q.slice(k, k + 6).map(i => new Promise(r => { const im = new Image(); im.onload = () => { imgs[i] = im; drawn = -1; r(); }; im.onerror = r; im.src = FRAMES[i]; }))); } })();
+function size() { const d = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; film.width = W * d; film.height = H * d; drawn = -1; }
+function paint(i) { let k = i; while (k > 0 && !imgs[k]) k--; const im = imgs[k]; if (!im || k === drawn) return; drawn = k; const s = Math.max(film.width / im.width, film.height / im.height), w = im.width * s, h = im.height * s; g.imageSmoothingEnabled = true; g.imageSmoothingQuality = "high"; g.drawImage(im, (film.width - w) / 2, (film.height - h) / 2, w, h); }
+const maxScroll = () => document.documentElement.scrollHeight - innerHeight;
+let target = 0, cur = 0, shown = -1;
+function render(u) {
+  let t = tOf(u); const n = u >= .885 ? 4 : t < 2.9 ? 0 : t < 7.6 ? 1 : t < 12.3 ? 2 : 3; if (reduce) t = STOPS[Math.min(n, 3)];
+  paint(Math.min(FRAMES.length - 1, Math.round(t * 15)));
+  dim.style.opacity = (clamp((u - END) / .04) * .62).toFixed(3);
+  const a = [win(t, -1, 2.3, .4), win(t, 3.45, 6.4, .3), win(t, 8.95, 11.8, .3), Math.min(clamp((t - 12.95) / .3), clamp((.87 - u) / .02)), clamp((u - .875) / .025)];
+  texts.forEach((el, i) => { el.style.opacity = a[i].toFixed(3); el.style.transform = reduce ? "none" : `translateY(${((1 - a[i]) * 22).toFixed(1)}px)`; el.classList.toggle("on", a[i] > .5); el.setAttribute("aria-hidden", a[i] < .5); el.inert = a[i] < .5; });
+  if (n !== shown) { shown = n; STN.forEach((e, i) => e.classList.toggle("on", i === n)); document.getElementById("cta").classList.toggle("off", n === 4); }
+  dot.style.transform = `translateY(${(u * 320 - 5).toFixed(1)}px)`;
+}
+function frame() { target = clamp(scrollY / maxScroll()); cur += (target - cur) * (reduce ? 1 : .1); if (Math.abs(target - cur) < .00005) cur = target; render(cur); requestAnimationFrame(frame); }
+const GO = [0, uOf(STOPS[1]), uOf(STOPS[2]), uOf(STOPS[3]), 1];
+function go(n) { scrollTo({ top: GO[n] * maxScroll(), behavior: reduce ? "auto" : "smooth" }); }
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", e => { e.preventDefault(); document.getElementById("menu").classList.remove("open"); go(+a.getAttribute("href").slice(1)); }));
+document.getElementById("burger").onclick = () => document.getElementById("menu").classList.add("open"); document.getElementById("menuX").onclick = () => document.getElementById("menu").classList.remove("open");
+size(); addEventListener("resize", size);
+window.__seek = p => { const u = p / 4; cur = target = u; const wait = () => { render(u); }; for (let i = 0; i < 8; i++) setTimeout(wait, i * 100); render(u); };
+requestAnimationFrame(frame);
+
+// заявка: ошибки текстом у поля. В концепте данные никуда не отправляются, показываем только подтверждение.
+const lead = document.getElementById("lead"), fName = document.getElementById("fName"), fPhone = document.getElementById("fPhone");
+function fieldErr(input, errEl, msg) { errEl.textContent = msg; input.setAttribute("aria-invalid", msg ? "true" : "false"); return !msg; }
+const checkName = () => fieldErr(fName, document.getElementById("eName"), fName.value.trim() ? "" : "Напишите, как к вам обращаться");
+const checkPhone = () => fieldErr(fPhone, document.getElementById("ePhone"), fPhone.value.replace(/\D/g, "").length >= 10 ? "" : "Нужно не меньше 10 цифр");
+fName.addEventListener("blur", () => { if (fName.getAttribute("aria-invalid") === "true") checkName(); }); fPhone.addEventListener("blur", () => { if (fPhone.getAttribute("aria-invalid") === "true") checkPhone(); });
+lead.addEventListener("submit", e => { e.preventDefault(); const a = checkName(), b = checkPhone(); if (!a) return fName.focus(); if (!b) return fPhone.focus();
+  const t = document.getElementById("thanks"); t.innerHTML = 'Это демо: заявка не отправлена, данные не сохранены.<br><a href="https://t.me/NataliaKazantseva10">Хотите такой сайт? Напишите Наталье</a>'; lead.hidden = true; t.hidden = false; });
+
+</script></body></html>

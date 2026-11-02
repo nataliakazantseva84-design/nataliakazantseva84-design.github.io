@@ -416,6 +416,13 @@ h2 .it{font-size:1.15em}
 .rf-line{flex:1;min-width:40px;height:1px;background:var(--line-2)}
 .works{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,3vw,40px) clamp(16px,2vw,24px)}
 .works .media{aspect-ratio:16/10;border-radius:6px}
+.works .wide .media{aspect-ratio:21/9}
+@media(max-width:820px){.works .wide .media{aspect-ratio:16/10}}
+.works .wide .media img,.w-vid{object-position:50% 60%}
+.w-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s cubic-bezier(.2,.8,.2,1)}
+.w-vid.on{opacity:1}
+.w-hint{position:absolute;right:18px;bottom:18px;font:700 clamp(12px,1.3vw,16px)/1.3 var(--body);color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.95),0 0 3px rgba(0,0,0,.7)}
+@media(max-width:820px){.w-hint{right:12px;left:88px;bottom:18px;text-align:right}}
 .works .media img{object-position:var(--pos,0 50%)}
 .works .badge{left:12px;bottom:12px}
 .w-info{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;cursor:pointer;padding-inline:0}
@@ -602,29 +609,33 @@ fieldset.fl{border:0;margin:0;padding:0}
       <h2 class="mask">Избранные <span class="it">проекты</span></h2><span class="rf-line"></span>
     </div>
     <div class="works" id="works-grid">
+      <article class="work wide rv" data-case="hanami" data-cat="site">
+        <button class="media" aria-label="Открыть кейс ХАНАМИ"><img src="img/hanami-cover.jpg" alt="Лендинг тура на цветение сакуры: при прокрутке камера летит над Японией" loading="lazy"><video class="w-vid" data-src="img/hanami-card.mp4" muted loop playsinline preload="none" aria-hidden="true"></video><span class="w-hint">Листайте — и камера летит над Японией</span><span class="badge">Новое</span></button>
+        <div class="w-info"><i>01</i><div><h3>ХАНАМИ</h3><p>Лендинг тура на сакуру</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+      </article>
       <article class="work rv" data-case="vantor" data-cat="site">
-        <button class="media" aria-label="Открыть кейс VANTOR"><img src="img/vantor-cover.jpg" alt="Лендинг пуховиков VANTOR: куртка надевается при скролле" loading="lazy"><span class="badge">Новое</span></button>
-        <div class="w-info"><i>01</i><div><h3>VANTOR</h3><p>Лендинг пуховиков</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+        <button class="media" aria-label="Открыть кейс VANTOR"><img src="img/vantor-cover.jpg" alt="Лендинг пуховиков VANTOR: куртка надевается при скролле" loading="lazy"></button>
+        <div class="w-info"><i>02</i><div><h3>VANTOR</h3><p>Лендинг пуховиков</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
       </article>
       <article class="work rv" data-case="noire" data-cat="site" style="--d:.8s">
         <button class="media" aria-label="Открыть кейс NOIRÉ"><img src="img/noire-cover.jpg" alt="Лендинг кофейни NOIRÉ: кофе готовится при скролле" loading="lazy"></button>
-        <div class="w-info"><i>02</i><div><h3>NOIRÉ</h3><p>Лендинг кофейни</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+        <div class="w-info"><i>03</i><div><h3>NOIRÉ</h3><p>Лендинг кофейни</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
       </article>
       <article class="work rv" data-case="blik" data-cat="site" style="--d:.16s">
         <button class="media" aria-label="Открыть кейс БЛИК"><img src="img/blik-cover.jpg" alt="Лендинг клининга БЛИК: комната убирается при скролле" loading="lazy"></button>
-        <div class="w-info"><i>03</i><div><h3>БЛИК</h3><p>Лендинг клининга</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+        <div class="w-info"><i>04</i><div><h3>БЛИК</h3><p>Лендинг клининга</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
       </article>
       <article class="work rv" data-case="usadba" data-cat="site">
         <button class="media" aria-label="Открыть кейс Усадьба"><img src="img/usadba-cover.jpg" alt="Лендинг строительной компании Усадьба" loading="lazy"></button>
-        <div class="w-info"><i>04</i><div><h3>УСАДЬБА</h3><p>Лендинг строителя домов</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+        <div class="w-info"><i>05</i><div><h3>УСАДЬБА</h3><p>Лендинг строителя домов</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
       </article>
       <article class="work rv" data-case="cura" data-cat="app" style="--d:.8s">
         <button class="media" aria-label="Открыть кейс CURA"><img src="img/cura-cover.jpg" alt="Приложение клиники CURA" loading="lazy"></button>
-        <div class="w-info"><i>05</i><div><h3>CURA</h3><p>Приложение клиники</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+        <div class="w-info"><i>06</i><div><h3>CURA</h3><p>Приложение клиники</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
       </article>
       <article class="work rv" data-case="greenwood" data-cat="ai" style="--d:.16s">
         <button class="media" aria-label="Открыть кейс Отель Гринвуд" style="--pos:50% 50%"><img src="img/greenwood-cover.jpg" alt="Новогодние видеобаннеры для отеля Гринвуд" loading="lazy"><span class="badge">Реальный заказ</span></button>
-        <div class="w-info"><i>06</i><div><h3>ОТЕЛЬ ГРИНВУД</h3><p>Видеобаннеры для РСЯ · Кворк</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
+        <div class="w-info"><i>07</i><div><h3>ОТЕЛЬ ГРИНВУД</h3><p>Видеобаннеры для РСЯ · Кворк</p></div><svg class="w-arr"><use href="#i-arrow"/></svg></div>
       </article>
     </div>
   </section>
@@ -827,7 +838,7 @@ fieldset.fl{border:0;margin:0;padding:0}
   var LINKS = {
     telegram: "https://t.me/NataliaKazantseva10",
     kwork: "",
-    instagram: "https://instagram.com/nataliakazanceva8410",
+    instagram: "https://instagram.com/kazanceva_natalya",
     vk: "https://vk.com/natalina_kaz",
     behance: "https://www.behance.net/cdc45e80",
     boosty: "https://boosty.to/natalina.kaz84",
@@ -988,6 +999,7 @@ fieldset.fl{border:0;margin:0;padding:0}
 
   // ---------- Окно кейса ----------
   var CASES = {
+    hanami: { title: "ХАНАМИ", sub: "Лендинг тура на цветение сакуры · концепт", liveNote: "Полистайте живой сайт — камера летит над Японией", live: "hanami/", task: "Показать тур на цветение сакуры так, чтобы человек захотел поехать ещё до того, как прочитает условия. Идея тура: за 5–6 недель проехать за волной цветения с юга на север.", done: "Один непрерывный полёт камеры, привязанный к прокрутке: вечерний тоннель сакуры, замок, склоны Ёсино, мост над рвом с лепестками. На каждом месте полёт замедляется, чтобы успеть прочитать, а в конце форма заявки. На всём пути на виду одна кнопка.", scope: "Лендинг целиком: идея, дизайн в Figma, AI-видео, версия для телефона, живая страница.", imgs: ["hanami-1", "hanami-2", "hanami-3"] },
     vantor: { title: "VANTOR", sub: "Лендинг мужских пуховиков · концепт", liveNote: "Полистайте живой сайт — куртка надевается при скролле", live: "vantor/", task: "Показать премиальный пуховик так, чтобы его захотелось примерить, — без магазина, только на экране.", done: "Одно видео, привязанное к прокрутке: куртка раскрывается на слои, надевается на человека и уходит в зимний город. На каждой сцене пауза, листать можно в обе стороны. Ниже — коллекция из четырёх моделей с примеркой при наведении, технология, бренд и контакты.", scope: "Лендинг целиком: арт-дирекция, AI-видео, десктоп и мобильная версия, живая страница.", imgs: ["vantor-overview", "vantor-scroll.mp4", "vantor-scenes", "vantor-tryon", "vantor-sections", "vantor-mobile.mp4", "vantor-system"] },
     noire: { title: "NOIRÉ", sub: "Лендинг кофейного ателье · концепт", liveNote: "Полистайте живой сайт — кофе готовится при скролле", live: "noire/", task: "Первый экран для премиального кофе, который передаёт вкус и аромат ещё до покупки.", done: "Вместо обложки — видео приготовления, привязанное к прокрутке: зёрна, помол, экстракция, эспрессо и сливки. Видео идёт в обе стороны, справа навигация по этапам. Ниже коллекция из трёх сортов с ценами, история зерна, ритуал и подарочный набор.", scope: "Лендинг целиком: десктоп и мобильная версия, живая страница.", imgs: ["noire-overview", "noire-scroll.mp4", "noire-stages", "noire-sections", "noire-mobile"] },
     blik: { title: "БЛИК", sub: "Лендинг клининговой компании · концепт", liveNote: "Полистайте живой сайт — комната убирается при скролле", live: "blik/", task: "Первый экран для клининга, который сразу показывает результат уборки и подводит к заявке.", done: "Две AI-фотографии одной комнаты — до и после. При прокрутке полоса, как стяжка по стеклу, стирает беспорядок, вдоль неё летят искры. В конце — оффер и одна кнопка. Ниже услуги с ценами, три шага, отзывы и форма с подсказками у полей.", scope: "Лендинг целиком: десктоп и мобильная версия, живая страница.", imgs: ["blik-overview", "blik-statement", "blik-ba", "blik-scroll.mp4", "blik-mobile", "blik-ui", "blik-thanks"] },
@@ -997,7 +1009,6 @@ fieldset.fl{border:0;margin:0;padding:0}
     anya: { title: "Малышка Аня", sub: "AI-мультфильм по фото ребёнка", noBehance: true, task: "Сделать мультфильм, где главная героиня — настоящий ребёнок: узнаваемая и одинаковая в каждом кадре.", done: "Персонаж по фото, развороты и палитра героини, 12 эмоций, раскадровка из 6 сцен, анимация и афиша премьеры.", scope: "Подойдёт для подарка на день рождения, семейных видео, детских брендов и блогеров.", imgs: ["anya-character", "anya-emotions", "anya-scenes", "anya-butterfly.mp4", "anya-poster", "anya-forwho"] },
     usadba: { title: "Усадьба", sub: "Лендинг строителя загородных домов", behance: "https://www.behance.net/gallery/256620375/lending-stroitelnoj-kompanii-zagorodnyh-domov", task: "Сайт, после которого семья оставит заявку на дом за 7–10 млн ₽. Снять страхи: рост сметы, срыв сроков, стройку «вслепую».", done: "Тёмный стиль с сеткой чертежа и стеклом, живой калькулятор с чертежом фасада, дом собирается по слоям при скролле, дизайн-система в Figma.", scope: "Лендинг на 9 блоков, версии 1440 и 390 px, макеты и компоненты в Figma.", imgs: ["usadba-hero", "usadba-calc", "usadba-projects", "usadba-stages", "usadba-mobile"] },
     cura: { title: "CURA", sub: "Приложение клиники", task: "Записаться к врачу за минуту — без звонков в регистратуру и очередей.", done: "Путь пациента, вайрфреймы, 9 экранов, дизайн-система на 23 переменных, пак из 37 иконок, прототип. Проверила контраст по WCAG.", scope: "iOS: главная, поиск по симптому, список врачей, карточка врача, время, оформление с оплатой, визиты, профиль.", imgs: ["cura-cover", "cura-screens", "cura-flow", "cura-ds"] },
-    hanami: { title: "Ханами", sub: "Лендинг туров на цветение сакуры", noBehance: true, task: "Убедить купить тур за 300 000 ₽: снять страх прилететь к голым веткам.", done: "Арт-направление «японский журнал», волна цветения в виде схемы метро, туры списком, форма брони, анимация при скролле.", scope: "Лендинг на 5 разделов, версии для компьютера и телефона.", imgs: ["hanami-cover", "hanami-tours", "hanami-wave", "hanami-stages", "hanami-book"] },
     forma: { title: "FORMA", sub: "Приложение фитнес-клуба", task: "Записаться на занятие, пройти тренировку и видеть свой прогресс — без лишних шагов.", done: "Структура и путь пользователя, 10 экранов, UI-кит на переменных, кликабельный прототип.", scope: "10 экранов iOS: вход, расписание, тренер, таймер, прогресс, абонемент, QR-вход, профиль.", imgs: ["forma-cover", "forma-screens", "forma-ds", "forma-all"] },
     plate: { title: "PLATE", sub: "Приложение доставки еды", task: "Быстрый заказ еды: выбрать, оплатить, отследить в пару касаний.", done: "UX-исследование, дизайн-система, тёмная тема, прототип.", scope: "13 экранов: от регистрации до оплаты, статуса заказа и профиля.", imgs: ["plate-cover", "plate-screens", "plate-all"] },
     nova: { title: "NOVA", sub: "UI-кит для админ-панелей", task: "Готовый набор для админ-панелей, CRM и личных кабинетов — всё на русском.", done: "Кнопки, поля, таблицы, карточки и статусы. Светлая и тёмная тема через переменные.", scope: "60 кнопок · 9 типов ячеек · 24 иконки · 2 темы · пример дашборда.", imgs: ["nova-cover", "nova-dark", "nova-cards"] },
@@ -1007,6 +1018,10 @@ fieldset.fl{border:0;margin:0;padding:0}
     video: { title: "AI-видео", sub: "Реклама товаров", noBehance: true, task: "Рекламные ролики для товаров без студии, моделей и съёмочной группы.", done: "Сценарий, кадры в Nano Banana, анимация в Kling AI, озвучка ElevenLabs, монтаж в CapCut.", scope: "Духи, крем для лица, бургер, энергетик, кофе.", imgs: ["video-ad"] },
     velora: { title: "VELORA", sub: "AI-кампания парфюма", task: "Рекламная кампания парфюма класса люкс без фотосъёмки.", done: "Концепция, мудборд, AI-модель с одним лицом, предметные кадры, раскадровка ролика.", scope: "Полный визуал кампании и видео за 2 дня.", imgs: ["velora-cover", "velora-model"] }
   };
+  // полёт на карточке: только на экране и если человек не отключил анимацию
+  (function () { var v = document.querySelector(".w-vid"); if (!v || matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+    v.addEventListener("playing", function () { v.classList.add("on"); });
+    new IntersectionObserver(function (e) { if (e[0].isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(function () {}); } else v.pause(); }, { threshold: .15 }).observe(v); })();
   var dlg = document.getElementById("case");
   document.querySelectorAll(".work .w-info").forEach(function (w) { w.addEventListener("click", function () { w.parentNode.querySelector(".media").click(); }); });
   document.querySelectorAll(".work .media").forEach(function (btn) {
